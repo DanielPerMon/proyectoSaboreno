@@ -10,3 +10,5 @@ int main(int argc, char *argv[])
     return a.exec();
 }
  //solo es un comentario
+
+//prueba nueva versión gitbash
