@@ -1,0 +1,599 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>gerente_menu</class>
+ <widget class="QDialog" name="gerente_menu">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>850</width>
+    <height>800</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <widget class="QStackedWidget" name="Menu_gerente">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>100</y>
+     <width>850</width>
+     <height>700</height>
+    </rect>
+   </property>
+   <property name="currentIndex">
+    <number>1</number>
+   </property>
+   <widget class="QWidget" name="nuevo_empleado">
+    <property name="styleSheet">
+     <string notr="true">#nuevo_empleado{
+	background-color: rgb(255, 178, 21);}</string>
+    </property>
+    <widget class="QPushButton" name="cancel_pushButton">
+     <property name="geometry">
+      <rect>
+       <x>530</x>
+       <y>620</y>
+       <width>200</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Calisto MT</family>
+       <pointsize>9</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton{
+border-width: 0px;
+border-radius: 9px;
+	background: rgb(201, 37, 37);}
+
+QPushButton:hover{
+	background: rgba(244,67,54,0.7);
+    border-radius: 9px;
+	color: white;
+    selection-color: white;  
+    padding: 2px 4px;
+
+}
+</string>
+     </property>
+     <property name="text">
+      <string>CANCELAR</string>
+     </property>
+    </widget>
+    <widget class="QGroupBox" name="groupBox_2">
+     <property name="geometry">
+      <rect>
+       <x>180</x>
+       <y>310</y>
+       <width>551</width>
+       <height>251</height>
+      </rect>
+     </property>
+     <property name="title">
+      <string>INFORMACION LABORAL</string>
+     </property>
+     <widget class="QLineEdit" name="nip_lineEdit">
+      <property name="geometry">
+       <rect>
+        <x>90</x>
+        <y>102</y>
+        <width>150</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLineEdit{
+background-color:rgb(208, 208, 208);
+border:1px;
+border-radius:9px;}</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="id_lineEdit">
+      <property name="geometry">
+       <rect>
+        <x>150</x>
+        <y>58</y>
+        <width>150</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLineEdit{
+background-color:rgb(208, 208, 208);
+border:1px;
+border-radius:9px;}</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_6">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>60</y>
+        <width>101</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Calisto MT</family>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>ID empleado:</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_7">
+      <property name="geometry">
+       <rect>
+        <x>50</x>
+        <y>108</y>
+        <width>41</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Calisto MT</family>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>NIP:</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_8">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>160</y>
+        <width>91</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Calisto MT</family>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Ocupación:</string>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="ocupacion_comboBox">
+      <property name="geometry">
+       <rect>
+        <x>130</x>
+        <y>158</y>
+        <width>200</width>
+        <height>25</height>
+       </rect>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QPushButton" name="acept_pushButton">
+     <property name="geometry">
+      <rect>
+       <x>300</x>
+       <y>620</y>
+       <width>200</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Calisto MT</family>
+       <pointsize>9</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton{
+border-width: 0px;
+border-radius: 9px;
+	background: rgb(201, 37, 37);}
+
+QPushButton:hover{
+	background: rgba(244,67,54,0.7);
+    border-radius: 9px;
+	color: white;
+    selection-color: white;  
+    padding: 2px 4px;
+
+}
+</string>
+     </property>
+     <property name="text">
+      <string>ACEPTAR</string>
+     </property>
+    </widget>
+    <widget class="QGroupBox" name="groupBox">
+     <property name="geometry">
+      <rect>
+       <x>180</x>
+       <y>50</y>
+       <width>551</width>
+       <height>241</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QLineEdit{
+background-color:rgb(208, 208, 208);
+border:1px;
+border-radius:12px;}</string>
+     </property>
+     <property name="title">
+      <string>INFORMACIÓN PERSONAL</string>
+     </property>
+     <widget class="QLabel" name="label">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>50</y>
+        <width>81</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Calisto MT</family>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Nombre:</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_4">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>90</y>
+        <width>81</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Calisto MT</family>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Apellido:</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_2">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>130</y>
+        <width>71</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Calisto MT</family>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Telefono:</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_3">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>170</y>
+        <width>71</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Calisto MT</family>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>E-mail:</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="nombre_lineEdit">
+      <property name="geometry">
+       <rect>
+        <x>100</x>
+        <y>42</y>
+        <width>200</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLineEdit{
+background-color:rgb(208, 208, 208);
+border:1px;
+border-radius:9px;}
+</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="apellido_lineEdit">
+      <property name="geometry">
+       <rect>
+        <x>100</x>
+        <y>82</y>
+        <width>200</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLineEdit{
+background-color:rgb(208, 208, 208);
+border:1px;
+border-radius:9px;}</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="telefono_lineEdit">
+      <property name="geometry">
+       <rect>
+        <x>100</x>
+        <y>122</y>
+        <width>175</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLineEdit{
+background-color:rgb(208, 208, 208);
+border:1px;
+border-radius:9px;}</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="correo_lineEdit">
+      <property name="geometry">
+       <rect>
+        <x>100</x>
+        <y>162</y>
+        <width>200</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLineEdit{
+background-color:rgb(208, 208, 208);
+border:1px;
+border-radius:9px;}</string>
+      </property>
+     </widget>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="empleados">
+    <property name="styleSheet">
+     <string notr="true">#empleados{
+	background-color: rgb(255, 178, 21);}</string>
+    </property>
+    <widget class="QPushButton" name="eliminarU_pushButton">
+     <property name="geometry">
+      <rect>
+       <x>610</x>
+       <y>650</y>
+       <width>200</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Calisto MT</family>
+       <pointsize>9</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton{
+border-width: 0px;
+border-radius: 9px;
+	background: rgb(201, 37, 37);}
+
+QPushButton:hover{
+	background: rgba(244,67,54,0.7);
+    border-radius: 9px;
+	color: white;
+    selection-color: white;  
+    padding: 2px 4px;
+
+}
+</string>
+     </property>
+     <property name="text">
+      <string>ELIMINAR</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="edit_pushButton">
+     <property name="geometry">
+      <rect>
+       <x>380</x>
+       <y>650</y>
+       <width>200</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Calisto MT</family>
+       <pointsize>9</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton{
+border-width: 0px;
+border-radius: 9px;
+	background: rgb(201, 37, 37)}
+
+QPushButton:hover{
+	background: rgba(244,67,54,0.7);
+    border-radius: 9px;
+	color: white;
+    selection-color: white;  
+    padding: 2px 4px;
+
+}
+</string>
+     </property>
+     <property name="text">
+      <string>EDITAR</string>
+     </property>
+    </widget>
+    <widget class="QTableWidget" name="tableWidget">
+     <property name="geometry">
+      <rect>
+       <x>40</x>
+       <y>80</y>
+       <width>761</width>
+       <height>521</height>
+      </rect>
+     </property>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QWidget" name="menu" native="true">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>850</width>
+     <height>100</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#menu{
+	background-color: rgb(72, 72, 72);}</string>
+   </property>
+   <widget class="QWidget" name="horizontalLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>390</x>
+      <y>0</y>
+      <width>451</width>
+      <height>92</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QPushButton" name="nuevoUsuario_pushButton">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>100</width>
+         <height>80</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>100</width>
+         <height>80</height>
+        </size>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset resource="IMG/imags.qrc">
+         <normaloff>:/iconos/nuevo usuario.png</normaloff>:/iconos/nuevo usuario.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>500</width>
+         <height>600</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="usuarios_pushButton">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>100</width>
+         <height>80</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>100</width>
+         <height>80</height>
+        </size>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset resource="IMG/imags.qrc">
+         <normaloff>:/iconos/empleados.png</normaloff>:/iconos/empleados.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>100</width>
+         <height>100</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="Gsalir_pushButton">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>100</width>
+         <height>80</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>100</width>
+         <height>80</height>
+        </size>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset resource="IMG/imags.qrc">
+         <normaloff>:/iconos/salir.png</normaloff>:/iconos/salir.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>100</width>
+         <height>100</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+ </widget>
+ <resources>
+  <include location="IMG/imags.qrc"/>
+ </resources>
+ <connections/>
+</ui>

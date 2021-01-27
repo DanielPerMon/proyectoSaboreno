@@ -3,20 +3,32 @@
 
 #include <QMainWindow>
 
-namespace Ui {
-class MainWindow;
-}
+QT_BEGIN_NAMESPACE
+namespace Ui { class MainWindow; }
+QT_END_NAMESPACE
 
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
 
 public:
-    explicit MainWindow(QWidget *parent = 0);
+    MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+
+private slots:
+    void on_i_gerente_pushButton_clicked();
+
+    void on_i_anfitrion_pushButton_clicked();
+
+    void on_i_cajero_pushButton_clicked();
+
+    void on_i_mesero_pushButton_clicked();
+
+    void on_i_cocinero_pushButton_clicked();
+
+    void on_gSalir_pushButton_clicked();
 
 private:
     Ui::MainWindow *ui;
 };
-
 #endif // MAINWINDOW_H

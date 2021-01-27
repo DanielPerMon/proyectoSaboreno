@@ -1,24 +1,882 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
  <class>MainWindow</class>
- <widget class="QMainWindow" name="MainWindow" >
-  <property name="geometry" >
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>850</width>
+    <height>800</height>
    </rect>
   </property>
-  <property name="windowTitle" >
+  <property name="windowTitle">
    <string>MainWindow</string>
   </property>
-  <widget class="QMenuBar" name="menuBar" />
-  <widget class="QToolBar" name="mainToolBar" />
-  <widget class="QWidget" name="centralWidget" />
-  <widget class="QStatusBar" name="statusBar" />
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QStackedWidget" name="inicio">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>850</width>
+      <height>800</height>
+     </rect>
+    </property>
+    <property name="currentIndex">
+     <number>1</number>
+    </property>
+    <widget class="QWidget" name="login">
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
+     <widget class="QWidget" name="panel" native="true">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>850</width>
+        <height>250</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">#panel{
+	background-color: rgb(72, 72, 72);}</string>
+      </property>
+      <widget class="QLabel" name="logo">
+       <property name="geometry">
+        <rect>
+         <x>100</x>
+         <y>10</y>
+         <width>321</width>
+         <height>251</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border-image: url(:/imagenes/LOGO.png);</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label">
+       <property name="geometry">
+        <rect>
+         <x>400</x>
+         <y>90</y>
+         <width>451</width>
+         <height>61</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Calisto MT</family>
+         <pointsize>28</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="text">
+        <string>EL SABOREÑO</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_12">
+       <property name="geometry">
+        <rect>
+         <x>400</x>
+         <y>160</y>
+         <width>451</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Calisto MT</family>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="text">
+        <string>¡El mero mero sabor norteño!</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="fondo" native="true">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>230</y>
+        <width>850</width>
+        <height>550</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">#fondo{
+border-image: url(:/imagenes/fondo.jpg);}</string>
+      </property>
+      <widget class="QPushButton" name="i_gerente_pushButton">
+       <property name="geometry">
+        <rect>
+         <x>142</x>
+         <y>82</y>
+         <width>171</width>
+         <height>151</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">#i_gerente_pushButton{
+	background-color: rgb(255, 178, 21);
+border-radius: 9px;
+}
+</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset resource="IMG/imags.qrc">
+         <normaloff>:/iconos/gerente.png</normaloff>:/iconos/gerente.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>150</width>
+         <height>100</height>
+        </size>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="i_anfitrion_pushButton">
+       <property name="geometry">
+        <rect>
+         <x>352</x>
+         <y>82</y>
+         <width>171</width>
+         <height>151</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">#i_anfitrion_pushButton{
+	background-color: rgb(255, 178, 21);
+border-radius: 9px;
+}
+</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset resource="IMG/imags.qrc">
+         <normaloff>:/iconos/recepcion.png</normaloff>:/iconos/recepcion.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>100</width>
+         <height>100</height>
+        </size>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="i_cajero_pushButton">
+       <property name="geometry">
+        <rect>
+         <x>562</x>
+         <y>82</y>
+         <width>171</width>
+         <height>151</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">#i_cajero_pushButton{
+	background-color: rgb(255, 178, 21);
+border-radius: 9px;
+}
+</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset resource="IMG/imags.qrc">
+         <normaloff>:/iconos/cajero.png</normaloff>:/iconos/cajero.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>180</width>
+         <height>110</height>
+        </size>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="i_cocinero_pushButton">
+       <property name="geometry">
+        <rect>
+         <x>490</x>
+         <y>340</y>
+         <width>171</width>
+         <height>151</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">#i_cocinero_pushButton{
+	background-color: rgb(255, 178, 21);
+border-radius: 9px;
+}
+</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset resource="IMG/imags.qrc">
+         <normaloff>:/iconos/chef.png</normaloff>:/iconos/chef.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>200</width>
+         <height>100</height>
+        </size>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="i_mesero_pushButton">
+       <property name="geometry">
+        <rect>
+         <x>210</x>
+         <y>340</y>
+         <width>171</width>
+         <height>151</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">#i_mesero_pushButton{
+background-color: rgb(255, 178, 21);
+border-radius: 9px;
+}
+</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset resource="IMG/imags.qrc">
+         <normaloff>:/iconos/mesero.png</normaloff>:/iconos/mesero.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>200</width>
+         <height>100</height>
+        </size>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_2">
+       <property name="geometry">
+        <rect>
+         <x>140</x>
+         <y>210</y>
+         <width>171</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Calisto MT</family>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="text">
+        <string>GERENTE</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_3">
+       <property name="geometry">
+        <rect>
+         <x>352</x>
+         <y>212</y>
+         <width>171</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Calisto MT</family>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="text">
+        <string>ANFITRIÓN</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_4">
+       <property name="geometry">
+        <rect>
+         <x>562</x>
+         <y>212</y>
+         <width>171</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Calisto MT</family>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="text">
+        <string>CAJERO</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_5">
+       <property name="geometry">
+        <rect>
+         <x>210</x>
+         <y>470</y>
+         <width>171</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Calisto MT</family>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="text">
+        <string>MESERO</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_6">
+       <property name="geometry">
+        <rect>
+         <x>490</x>
+         <y>470</y>
+         <width>171</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Calisto MT</family>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="text">
+        <string>COCINERO</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </widget>
+     <zorder>fondo</zorder>
+     <zorder>panel</zorder>
+    </widget>
+    <widget class="QWidget" name="cajero">
+     <widget class="QWidget" name="c_der" native="true">
+      <property name="geometry">
+       <rect>
+        <x>460</x>
+        <y>-20</y>
+        <width>390</width>
+        <height>800</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">#c_der{
+	background-color: rgb(72, 72, 72);}</string>
+      </property>
+      <widget class="QWidget" name="ca" native="true">
+       <property name="geometry">
+        <rect>
+         <x>140</x>
+         <y>140</y>
+         <width>151</width>
+         <height>131</height>
+        </rect>
+       </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">#ca{
+	border-image: url(:/iconos/cajero.png);
+}</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_8">
+       <property name="geometry">
+        <rect>
+         <x>130</x>
+         <y>280</y>
+         <width>161</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Calisto MT</family>
+         <pointsize>11</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="text">
+        <string>CAJERO</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="c_izq" native="true">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>-30</y>
+        <width>460</width>
+        <height>800</height>
+       </rect>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="anfitrion">
+     <widget class="QWidget" name="a_izq" native="true">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>-20</y>
+        <width>390</width>
+        <height>800</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">#a_izq{
+	background-color: rgb(72, 72, 72);}</string>
+      </property>
+      <widget class="QWidget" name="an" native="true">
+       <property name="geometry">
+        <rect>
+         <x>110</x>
+         <y>150</y>
+         <width>161</width>
+         <height>131</height>
+        </rect>
+       </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">#an{
+	border-image: url(:/iconos/recepcion.png);
+}</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_9">
+       <property name="geometry">
+        <rect>
+         <x>110</x>
+         <y>290</y>
+         <width>161</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Calisto MT</family>
+         <pointsize>11</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="text">
+        <string>ANFITRIÓN</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="a_der" native="true">
+      <property name="geometry">
+       <rect>
+        <x>390</x>
+        <y>-20</y>
+        <width>460</width>
+        <height>800</height>
+       </rect>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="gerente">
+     <widget class="QWidget" name="g_der" native="true">
+      <property name="geometry">
+       <rect>
+        <x>460</x>
+        <y>-20</y>
+        <width>390</width>
+        <height>800</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">#g_der{
+	background-color: rgb(72, 72, 72);}</string>
+      </property>
+      <widget class="QWidget" name="ic" native="true">
+       <property name="geometry">
+        <rect>
+         <x>120</x>
+         <y>170</y>
+         <width>161</width>
+         <height>131</height>
+        </rect>
+       </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">#ic{
+
+	border-image: url(:/iconos/gerente.png);}</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_7">
+       <property name="geometry">
+        <rect>
+         <x>120</x>
+         <y>310</y>
+         <width>161</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Calisto MT</family>
+         <pointsize>11</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="text">
+        <string>GERENTE</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="gIngresar_pushButton">
+       <property name="geometry">
+        <rect>
+         <x>100</x>
+         <y>440</y>
+         <width>200</width>
+         <height>40</height>
+        </rect>
+       </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="font">
+        <font>
+         <family>Calisto MT</family>
+         <pointsize>9</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton{
+border-width: 0px;
+border-radius: 9px;
+background-color: rgb(255, 178, 21);}
+
+QPushButton:hover{
+	background: rgba(244,67,54,0.7);
+    border-radius: 9px;
+	color: white;
+    selection-color: white;  
+    padding: 2px 4px;
+
+}
+</string>
+       </property>
+       <property name="text">
+        <string>INGRESAR</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="NipGerente_lineEdit">
+       <property name="geometry">
+        <rect>
+         <x>110</x>
+         <y>370</y>
+         <width>180</width>
+         <height>30</height>
+        </rect>
+       </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QLineEdit{
+border-radius: 9px;}</string>
+       </property>
+       <property name="echoMode">
+        <enum>QLineEdit::Password</enum>
+       </property>
+       <property name="placeholderText">
+        <string>NIP</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="gSalir_pushButton">
+       <property name="geometry">
+        <rect>
+         <x>340</x>
+         <y>753</y>
+         <width>45</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">
+background-color: transparent;</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset resource="IMG/imags.qrc">
+         <normaloff>:/iconos/salir.png</normaloff>:/iconos/salir.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>80</width>
+         <height>55</height>
+        </size>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="g_izq" native="true">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>-20</y>
+        <width>460</width>
+        <height>800</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">#g_izq{
+	border-image: url(:/imagenes/f1.jpg);}</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="cocinero">
+     <widget class="QWidget" name="co_izq" native="true">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>-20</y>
+        <width>390</width>
+        <height>800</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">#co_izq{
+	background-color: rgb(72, 72, 72);}</string>
+      </property>
+      <widget class="QLabel" name="label_10">
+       <property name="geometry">
+        <rect>
+         <x>100</x>
+         <y>300</y>
+         <width>161</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Calisto MT</family>
+         <pointsize>11</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="text">
+        <string>COCINERO</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+      <widget class="QWidget" name="co" native="true">
+       <property name="geometry">
+        <rect>
+         <x>100</x>
+         <y>160</y>
+         <width>161</width>
+         <height>131</height>
+        </rect>
+       </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">#co{
+	border-image: url(:/iconos/chef.png);
+}</string>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="co_der" native="true">
+      <property name="geometry">
+       <rect>
+        <x>390</x>
+        <y>-20</y>
+        <width>460</width>
+        <height>800</height>
+       </rect>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="mesero">
+     <widget class="QWidget" name="m_izq" native="true">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>-20</y>
+        <width>390</width>
+        <height>800</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">#m_izq{
+	background-color: rgb(72, 72, 72);}</string>
+      </property>
+      <widget class="QWidget" name="me" native="true">
+       <property name="geometry">
+        <rect>
+         <x>130</x>
+         <y>220</y>
+         <width>161</width>
+         <height>131</height>
+        </rect>
+       </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">#me{
+	border-image: url(:/iconos/mesero.png);
+}</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_11">
+       <property name="geometry">
+        <rect>
+         <x>130</x>
+         <y>360</y>
+         <width>161</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Calisto MT</family>
+         <pointsize>11</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="text">
+        <string>MESERO</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="m_der" native="true">
+      <property name="geometry">
+       <rect>
+        <x>390</x>
+        <y>-20</y>
+        <width>460</width>
+        <height>800</height>
+       </rect>
+      </property>
+     </widget>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>850</width>
+     <height>26</height>
+    </rect>
+   </property>
+  </widget>
  </widget>
- <layoutDefault spacing="6" margin="11" />
- <pixmapfunction></pixmapfunction>
- <resources/>
+ <resources>
+  <include location="IMG/imags.qrc"/>
+ </resources>
  <connections/>
 </ui>

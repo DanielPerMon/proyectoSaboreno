@@ -1,0 +1,17 @@
+<RCC>
+    <qresource prefix="/iconos">
+        <file>empleados.png</file>
+        <file>nuevo usuario.png</file>
+        <file>salir.png</file>
+        <file>cajero.png</file>
+        <file>chef.png</file>
+        <file>gerente.png</file>
+        <file>mesero.png</file>
+        <file>recepcion.png</file>
+    </qresource>
+    <qresource prefix="/imagenes">
+        <file>LOGO.png</file>
+        <file>fondo.jpg</file>
+        <file>f1.jpg</file>
+    </qresource>
+</RCC>
