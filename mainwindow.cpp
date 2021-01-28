@@ -110,7 +110,7 @@ void MainWindow::on_gIngresar_pushButton_clicked()
     qDebug() << aux;
     delete inicia;
 }
-//hace lo mismo que arriba pero permite dar enter en después de escribir el nip
+//hace lo mismo que arriba pero permite dar enter después de escribir el nip
 void MainWindow::on_NipGerente_lineEdit_returnPressed()
 {
     QSqlQuery *inicia = new QSqlQuery();

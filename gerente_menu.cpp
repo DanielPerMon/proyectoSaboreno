@@ -32,10 +32,12 @@ void gerente_menu::on_usuarios_pushButton_clicked()
     ui->Menu_gerente->setCurrentIndex(1);
 }
 
+//Validamos los 3 posibles errores al insertar un usuario
 void gerente_menu::on_acept_pushButton_clicked()
 {
     QSqlQuery *inserta = new QSqlQuery();
 
+    //algún campo vacío
     if(ui->nombre_lineEdit->text() == "" || ui->apellido_lineEdit->text() == "" || ui->correo_lineEdit->text() == ""
             || ui->telefono_lineEdit->text() == "" || ui->nip_lineEdit->text() == "" || ui->confirmanip_lineEdit->text() == ""){
 
@@ -48,6 +50,7 @@ void gerente_menu::on_acept_pushButton_clicked()
         messageBox.exec();
     }
     else{
+        //los nip no coiciden
         if(ui->nip_lineEdit->text() != ui->confirmanip_lineEdit->text()){
             QMessageBox messageBox(QMessageBox::Information,
                                    tr("Error de credenciales"),
@@ -58,6 +61,7 @@ void gerente_menu::on_acept_pushButton_clicked()
             messageBox.exec();
         }
         else{
+            //no se ha seleccionado ninguna ocupación
             if(ui->ocupacion_comboBox->currentIndex() == 0){
                 QMessageBox messageBox(QMessageBox::Information,
                                        tr("Error"),
@@ -68,6 +72,7 @@ void gerente_menu::on_acept_pushButton_clicked()
                 messageBox.exec();
             }
             else{
+                //Se insertan los campos correctos
                 if(inserta->exec("insert into empleado(NombreEmpleado,ApellidoPaterno,Correo,NumTelefono,Perfil,NIP)"
                                  "values('"+ui->nombre_lineEdit->text()+"','"+ui->apellido_lineEdit->text()+"','"+ui->correo_lineEdit->text()+"',"
                                  "'"+ui->telefono_lineEdit->text()+"','"+ui->ocupacion_comboBox->itemText(ui->ocupacion_comboBox->currentIndex())+"',"
