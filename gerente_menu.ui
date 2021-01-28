@@ -13,6 +13,10 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="IMG/imags.qrc">
+    <normaloff>:/iconos/restaurante.png</normaloff>:/iconos/restaurante.png</iconset>
+  </property>
   <widget class="QStackedWidget" name="Menu_gerente">
    <property name="geometry">
     <rect>
@@ -23,7 +27,7 @@
     </rect>
    </property>
    <property name="currentIndex">
-    <number>1</number>
+    <number>0</number>
    </property>
    <widget class="QWidget" name="nuevo_empleado">
     <property name="styleSheet">
@@ -74,14 +78,19 @@ QPushButton:hover{
        <height>251</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>Cambria</family>
+      </font>
+     </property>
      <property name="title">
       <string>INFORMACION LABORAL</string>
      </property>
      <widget class="QLineEdit" name="nip_lineEdit">
       <property name="geometry">
        <rect>
-        <x>90</x>
-        <y>102</y>
+        <x>145</x>
+        <y>106</y>
         <width>150</width>
         <height>25</height>
        </rect>
@@ -92,11 +101,14 @@ background-color:rgb(208, 208, 208);
 border:1px;
 border-radius:9px;}</string>
       </property>
+      <property name="echoMode">
+       <enum>QLineEdit::Password</enum>
+      </property>
      </widget>
      <widget class="QLineEdit" name="id_lineEdit">
       <property name="geometry">
        <rect>
-        <x>150</x>
+        <x>144</x>
         <y>58</y>
         <width>150</width>
         <height>25</height>
@@ -112,7 +124,7 @@ border-radius:9px;}</string>
      <widget class="QLabel" name="label_6">
       <property name="geometry">
        <rect>
-        <x>40</x>
+        <x>20</x>
         <y>60</y>
         <width>101</width>
         <height>16</height>
@@ -131,10 +143,10 @@ border-radius:9px;}</string>
      <widget class="QLabel" name="label_7">
       <property name="geometry">
        <rect>
-        <x>50</x>
+        <x>20</x>
         <y>108</y>
-        <width>41</width>
-        <height>16</height>
+        <width>91</width>
+        <height>20</height>
        </rect>
       </property>
       <property name="font">
@@ -144,14 +156,14 @@ border-radius:9px;}</string>
        </font>
       </property>
       <property name="text">
-       <string>NIP:</string>
+       <string>Nuevo NIP:</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_8">
       <property name="geometry">
        <rect>
-        <x>40</x>
-        <y>160</y>
+        <x>20</x>
+        <y>200</y>
         <width>91</width>
         <height>16</height>
        </rect>
@@ -169,11 +181,85 @@ border-radius:9px;}</string>
      <widget class="QComboBox" name="ocupacion_comboBox">
       <property name="geometry">
        <rect>
-        <x>130</x>
-        <y>158</y>
+        <x>136</x>
+        <y>200</y>
         <width>200</width>
         <height>25</height>
        </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Calisto MT</family>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <item>
+       <property name="text">
+        <string>----Seleccione opción----</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Cajero</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Mesero</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Cocinero</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Bartender</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Anfitrión</string>
+       </property>
+      </item>
+     </widget>
+     <widget class="QLabel" name="label_9">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>150</y>
+        <width>111</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Calisto MT</family>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Confirmar NIP:</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="confirmanip_lineEdit">
+      <property name="geometry">
+       <rect>
+        <x>147</x>
+        <y>152</y>
+        <width>150</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLineEdit{
+background-color:rgb(208, 208, 208);
+border:1px;
+border-radius:9px;}</string>
+      </property>
+      <property name="echoMode">
+       <enum>QLineEdit::Password</enum>
       </property>
      </widget>
     </widget>
@@ -220,6 +306,11 @@ QPushButton:hover{
        <width>551</width>
        <height>241</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Cambria</family>
+      </font>
      </property>
      <property name="styleSheet">
       <string notr="true">QLineEdit{
@@ -344,7 +435,7 @@ border-radius:9px;}</string>
        <rect>
         <x>100</x>
         <y>122</y>
-        <width>175</width>
+        <width>200</width>
         <height>25</height>
        </rect>
       </property>

@@ -8,6 +8,7 @@
         <file>gerente.png</file>
         <file>mesero.png</file>
         <file>recepcion.png</file>
+        <file>restaurante.png</file>
     </qresource>
     <qresource prefix="/imagenes">
         <file>LOGO.png</file>
