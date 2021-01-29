@@ -28,7 +28,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>3</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="login">
      <property name="styleSheet">
@@ -140,7 +140,7 @@ border-image: url(:/imagenes/fondo.jpg);}</string>
        </property>
        <property name="styleSheet">
         <string notr="true">#i_gerente_pushButton{
-	background-color: rgb(255, 178, 21);
+	background-color: rgba(255, 255, 255,200);
 border-radius: 9px;
 }
 </string>
@@ -170,7 +170,7 @@ border-radius: 9px;
        </property>
        <property name="styleSheet">
         <string notr="true">#i_anfitrion_pushButton{
-	background-color: rgb(255, 178, 21);
+	background-color: rgba(255, 255, 255,200);
 border-radius: 9px;
 }
 </string>
@@ -200,7 +200,7 @@ border-radius: 9px;
        </property>
        <property name="styleSheet">
         <string notr="true">#i_cajero_pushButton{
-	background-color: rgb(255, 178, 21);
+	background-color: rgba(255, 255, 255,200);
 border-radius: 9px;
 }
 </string>
@@ -230,7 +230,7 @@ border-radius: 9px;
        </property>
        <property name="styleSheet">
         <string notr="true">#i_cocinero_pushButton{
-	background-color: rgb(255, 178, 21);
+	background-color: rgba(255, 255, 255,200);
 border-radius: 9px;
 }
 </string>
@@ -260,7 +260,7 @@ border-radius: 9px;
        </property>
        <property name="styleSheet">
         <string notr="true">#i_mesero_pushButton{
-background-color: rgb(255, 178, 21);
+background-color: rgba(255, 255, 255,200);
 border-radius: 9px;
 }
 </string>
@@ -295,7 +295,7 @@ border-radius: 9px;
         </font>
        </property>
        <property name="styleSheet">
-        <string notr="true">color: rgb(255, 255, 255);</string>
+        <string notr="true">color: rgb(0, 0, 0);</string>
        </property>
        <property name="text">
         <string>GERENTE</string>
@@ -320,7 +320,7 @@ border-radius: 9px;
         </font>
        </property>
        <property name="styleSheet">
-        <string notr="true">color: rgb(255, 255, 255);</string>
+        <string notr="true">color: rgb(0, 0, 0);</string>
        </property>
        <property name="text">
         <string>ANFITRIÓN</string>
@@ -345,7 +345,7 @@ border-radius: 9px;
         </font>
        </property>
        <property name="styleSheet">
-        <string notr="true">color: rgb(255, 255, 255);</string>
+        <string notr="true">color: rgb(0, 0, 0);</string>
        </property>
        <property name="text">
         <string>CAJERO</string>
@@ -370,7 +370,7 @@ border-radius: 9px;
         </font>
        </property>
        <property name="styleSheet">
-        <string notr="true">color: rgb(255, 255, 255);</string>
+        <string notr="true">color: rgb(0, 0, 0);</string>
        </property>
        <property name="text">
         <string>MESERO</string>
@@ -395,7 +395,7 @@ border-radius: 9px;
         </font>
        </property>
        <property name="styleSheet">
-        <string notr="true">color: rgb(255, 255, 255);</string>
+        <string notr="true">color: rgb(0, 0, 0);</string>
        </property>
        <property name="text">
         <string>COCINERO</string>
@@ -874,7 +874,7 @@ background-color: transparent;</string>
      <x>0</x>
      <y>0</y>
      <width>850</width>
-     <height>25</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>

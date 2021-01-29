@@ -23,11 +23,11 @@
      <x>0</x>
      <y>100</y>
      <width>850</width>
-     <height>700</height>
+     <height>701</height>
     </rect>
    </property>
    <property name="currentIndex">
-    <number>0</number>
+    <number>1</number>
    </property>
    <widget class="QWidget" name="nuevo_empleado">
     <property name="styleSheet">
@@ -282,10 +282,10 @@ border-radius:9px;}</string>
       <string notr="true">QPushButton{
 border-width: 0px;
 border-radius: 9px;
-	background: rgb(201, 37, 37);}
+	background: rgb(0, 143, 57);}
 
 QPushButton:hover{
-	background: rgba(244,67,54,0.7);
+	background: rgba(0,114,46,0.9);
     border-radius: 9px;
 	color: white;
     selection-color: white;  
@@ -472,9 +472,9 @@ border-radius:9px;}</string>
     <widget class="QPushButton" name="eliminarU_pushButton">
      <property name="geometry">
       <rect>
-       <x>610</x>
-       <y>650</y>
-       <width>200</width>
+       <x>660</x>
+       <y>580</y>
+       <width>171</width>
        <height>30</height>
       </rect>
      </property>
@@ -491,7 +491,7 @@ border-radius: 9px;
 	background: rgb(201, 37, 37);}
 
 QPushButton:hover{
-	background: rgba(244,67,54,0.7);
+	
     border-radius: 9px;
 	color: white;
     selection-color: white;  
@@ -507,9 +507,9 @@ QPushButton:hover{
     <widget class="QPushButton" name="edit_pushButton">
      <property name="geometry">
       <rect>
-       <x>380</x>
-       <y>650</y>
-       <width>200</width>
+       <x>460</x>
+       <y>580</y>
+       <width>191</width>
        <height>30</height>
       </rect>
      </property>
@@ -523,7 +523,7 @@ QPushButton:hover{
       <string notr="true">QPushButton{
 border-width: 0px;
 border-radius: 9px;
-	background: rgb(201, 37, 37)}
+	background: ;}
 
 QPushButton:hover{
 	background: rgba(244,67,54,0.7);
@@ -533,20 +533,415 @@ QPushButton:hover{
     padding: 2px 4px;
 
 }
+
+#edit_pushButton{
+border-width: 0px;
+border-radius: 9px;
+	background: rgba(244,67,54,0.7);
+}
 </string>
      </property>
      <property name="text">
       <string>EDITAR</string>
      </property>
     </widget>
-    <widget class="QTableWidget" name="tableWidget">
+    <widget class="QTableWidget" name="editar_tableWidget">
      <property name="geometry">
       <rect>
-       <x>40</x>
-       <y>80</y>
-       <width>761</width>
+       <x>20</x>
+       <y>40</y>
+       <width>401</width>
        <height>521</height>
       </rect>
+     </property>
+     <property name="cursor" stdset="0">
+      <cursorShape>PointingHandCursor</cursorShape>
+     </property>
+     <property name="autoScroll">
+      <bool>false</bool>
+     </property>
+     <property name="alternatingRowColors">
+      <bool>true</bool>
+     </property>
+     <attribute name="verticalHeaderVisible">
+      <bool>true</bool>
+     </attribute>
+    </widget>
+    <widget class="QGroupBox" name="groupBox_3">
+     <property name="geometry">
+      <rect>
+       <x>460</x>
+       <y>40</y>
+       <width>371</width>
+       <height>241</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Cambria</family>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QLineEdit{
+background-color:rgb(208, 208, 208);
+border:1px;
+border-radius:12px;}</string>
+     </property>
+     <property name="title">
+      <string>INFORMACIÓN PERSONAL</string>
+     </property>
+     <widget class="QLabel" name="label_5">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>50</y>
+        <width>81</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Calisto MT</family>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Nombre:</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_10">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>90</y>
+        <width>81</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Calisto MT</family>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Apellido:</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_11">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>130</y>
+        <width>71</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Calisto MT</family>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Telefono:</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_12">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>170</y>
+        <width>71</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Calisto MT</family>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>E-mail:</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="editnom_lineEdit">
+      <property name="geometry">
+       <rect>
+        <x>100</x>
+        <y>42</y>
+        <width>200</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLineEdit{
+background-color:rgb(208, 208, 208);
+border:1px;
+border-radius:9px;}
+</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="editapell_lineEdit">
+      <property name="geometry">
+       <rect>
+        <x>100</x>
+        <y>82</y>
+        <width>200</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLineEdit{
+background-color:rgb(208, 208, 208);
+border:1px;
+border-radius:9px;}</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="edittel_lineEdit">
+      <property name="geometry">
+       <rect>
+        <x>100</x>
+        <y>122</y>
+        <width>200</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLineEdit{
+background-color:rgb(208, 208, 208);
+border:1px;
+border-radius:9px;}</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="editcorreo_lineEdit">
+      <property name="geometry">
+       <rect>
+        <x>100</x>
+        <y>162</y>
+        <width>200</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLineEdit{
+background-color:rgb(208, 208, 208);
+border:1px;
+border-radius:9px;}</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QGroupBox" name="groupBox_4">
+     <property name="geometry">
+      <rect>
+       <x>460</x>
+       <y>300</y>
+       <width>371</width>
+       <height>251</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Cambria</family>
+      </font>
+     </property>
+     <property name="title">
+      <string>INFORMACION LABORAL</string>
+     </property>
+     <widget class="QLineEdit" name="editnip_lineEdit">
+      <property name="geometry">
+       <rect>
+        <x>140</x>
+        <y>150</y>
+        <width>150</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLineEdit{
+background-color:rgb(208, 208, 208);
+border:1px;
+border-radius:9px;}</string>
+      </property>
+      <property name="echoMode">
+       <enum>QLineEdit::Password</enum>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_14">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>150</y>
+        <width>91</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Calisto MT</family>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Nuevo NIP:</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_15">
+      <property name="geometry">
+       <rect>
+        <x>24</x>
+        <y>40</y>
+        <width>91</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Calisto MT</family>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Ocupación:</string>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="editocupacion_comboBox">
+      <property name="geometry">
+       <rect>
+        <x>140</x>
+        <y>40</y>
+        <width>200</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Calisto MT</family>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <item>
+       <property name="text">
+        <string>----Seleccione opción----</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Cajero</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Mesero</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Cocinero</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Bartender</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Anfitrión</string>
+       </property>
+      </item>
+     </widget>
+     <widget class="QLabel" name="label_16">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>200</y>
+        <width>111</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Calisto MT</family>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Confirmar NIP:</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="editconnip_lineEdit">
+      <property name="geometry">
+       <rect>
+        <x>140</x>
+        <y>200</y>
+        <width>150</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLineEdit{
+background-color:rgb(208, 208, 208);
+border:1px;
+border-radius:9px;}</string>
+      </property>
+      <property name="echoMode">
+       <enum>QLineEdit::Password</enum>
+      </property>
+     </widget>
+     <widget class="QLabel" name="NipActualLineEdit">
+      <property name="geometry">
+       <rect>
+        <x>150</x>
+        <y>90</y>
+        <width>131</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(0, 0, 255);
+font: 75 11pt &quot;MS Shell Dlg 2&quot;;</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_17">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>100</y>
+        <width>91</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Calisto MT</family>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Actual  NIP:</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QLabel" name="label_13">
+     <property name="geometry">
+      <rect>
+       <x>70</x>
+       <y>10</y>
+       <width>271</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(255, 255, 255);
+font: 10pt &quot;MS Shell Dlg 2&quot;;</string>
+     </property>
+     <property name="text">
+      <string>Seleccione un empleado para editar.</string>
      </property>
     </widget>
    </widget>
@@ -594,6 +989,9 @@ QPushButton:hover{
          <height>80</height>
         </size>
        </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: transparent;</string>
+       </property>
        <property name="text">
         <string/>
        </property>
@@ -629,6 +1027,9 @@ QPushButton:hover{
          <height>80</height>
         </size>
        </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: transparent;</string>
+       </property>
        <property name="text">
         <string/>
        </property>
@@ -663,6 +1064,9 @@ QPushButton:hover{
          <width>100</width>
          <height>80</height>
         </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: transparent;</string>
        </property>
        <property name="text">
         <string/>
