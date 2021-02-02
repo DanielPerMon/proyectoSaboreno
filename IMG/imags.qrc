@@ -9,10 +9,17 @@
         <file>mesero.png</file>
         <file>recepcion.png</file>
         <file>restaurante.png</file>
+        <file>anadir.png</file>
+        <file>menu.png</file>
+        <file>foto.png</file>
+        <file>mesa.png</file>
+        <file>restaurant.png</file>
+        <file>salida.png</file>
     </qresource>
     <qresource prefix="/imagenes">
         <file>LOGO.png</file>
         <file>fondo.jpg</file>
         <file>f1.jpg</file>
+        <file>rece.jpg</file>
     </qresource>
 </RCC>

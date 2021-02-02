@@ -18,15 +18,18 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
     gerente_menu.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    mesero_menu.cpp
 
 HEADERS += \
     gerente_menu.h \
-    mainwindow.h
+    mainwindow.h \
+    mesero_menu.h
 
 FORMS += \
     gerente_menu.ui \
-    mainwindow.ui
+    mainwindow.ui \
+    mesero_menu.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

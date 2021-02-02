@@ -365,3 +365,66 @@ void gerente_menu::on_eliminarU_pushButton_clicked()
         messageBox.exec();
     }
 }
+
+void gerente_menu::on_menu_pushButton_clicked()
+{
+    ui->Menu_gerente->setCurrentIndex(2);
+}
+
+void gerente_menu::on_anadir_pushButton_clicked()
+{
+    ui->Nuevo_Plato->show();
+}
+
+void gerente_menu::on_nuevoPlato_pushButton_clicked()
+{
+    QSqlQuery *insertaplato = new QSqlQuery();
+
+    //algún campo vacío
+    if(ui->nom_lineEdit->text() == "" || ui->precio_lineEdit->text() == "" || ui->desc_textEdit->text() == ""){
+
+        QMessageBox messageBox(QMessageBox::Information,
+                               tr("Campos vacíos"),
+                               tr("Por favor rellene todos los campos"),
+                               QMessageBox::Yes,
+                               this);
+        messageBox.setButtonText(QMessageBox::Yes, tr("Aceptar"));
+        messageBox.exec();
+    }
+    else{
+            //no se ha seleccionado ninguna categoria
+            if(ui->categoria_comboBox->currentIndex() == 0){
+                QMessageBox messageBox(QMessageBox::Information,
+                                       tr("Error"),
+                                       tr("Seleccione una categoria"),
+                                       QMessageBox::Yes,
+                                       this);
+                messageBox.setButtonText(QMessageBox::Yes, tr("Aceptar"));
+                messageBox.exec();
+            }
+            else{
+                //Se insertan los campos correctos
+                if(insertaplato->exec("insert into platillos(Categoria,NombrePlatillo,Precio,Descripcion)"
+                                 "values('"+ui->categoria_comboBox->itemText(ui->categoria_comboBox->currentIndex())+"','"+ui->nom_lineEdit->text()+"','"+ui->precio_lineEdit->text()+"',"
+                                 "'"+ui->desc_textEdit->text()+"')")){
+                    QMessageBox messageBox(QMessageBox::Information,
+                                           tr("Éxito"),
+                                           tr("Se agregó con éxito el nuevo platillo"),
+                                           QMessageBox::Yes,
+                                           this);
+                    messageBox.setButtonText(QMessageBox::Yes, tr("Aceptar"));
+                    messageBox.exec();
+                }
+                else
+                    qDebug() << "error de inserción" << insertaplato->lastError();
+
+                ui->nom_lineEdit->clear();
+                ui->precio_lineEdit->clear();
+                ui->desc_textEdit->clear();
+                ui->categoria_comboBox->setCurrentIndex(0);
+            }
+        }
+    }
+
+
+}

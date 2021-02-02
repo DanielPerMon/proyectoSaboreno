@@ -156,3 +156,8 @@ void MainWindow::on_NipGerente_lineEdit_returnPressed()
     ui->NipGerente_lineEdit->clear();
     delete inicia;
 }
+
+void MainWindow::on_gSalir_pushButton_2_clicked()
+{
+    ui->inicio->setCurrentIndex(0);
+}

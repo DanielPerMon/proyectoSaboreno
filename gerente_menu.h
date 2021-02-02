@@ -44,6 +44,12 @@ private slots:
 
     void on_eliminarU_pushButton_clicked();
 
+    void on_menu_pushButton_clicked();
+
+    void on_anadir_pushButton_clicked();
+
+    void on_nuevoPlato_pushButton_clicked();
+
 private:
     Ui::gerente_menu *ui;
     QSqlDatabase baseGerente;

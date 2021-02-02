@@ -26,8 +26,11 @@
      <height>701</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
    <property name="currentIndex">
-    <number>1</number>
+    <number>0</number>
    </property>
    <widget class="QWidget" name="nuevo_empleado">
     <property name="styleSheet">
@@ -37,7 +40,7 @@
     <widget class="QPushButton" name="cancel_pushButton">
      <property name="geometry">
       <rect>
-       <x>530</x>
+       <x>470</x>
        <y>620</y>
        <width>200</width>
        <height>30</height>
@@ -73,7 +76,7 @@ QPushButton:hover{
      <property name="geometry">
       <rect>
        <x>180</x>
-       <y>310</y>
+       <y>350</y>
        <width>551</width>
        <height>251</height>
       </rect>
@@ -266,7 +269,7 @@ border-radius:9px;}</string>
     <widget class="QPushButton" name="acept_pushButton">
      <property name="geometry">
       <rect>
-       <x>300</x>
+       <x>240</x>
        <y>620</y>
        <width>200</width>
        <height>30</height>
@@ -302,7 +305,7 @@ QPushButton:hover{
      <property name="geometry">
       <rect>
        <x>180</x>
-       <y>50</y>
+       <y>90</y>
        <width>551</width>
        <height>241</height>
       </rect>
@@ -463,6 +466,34 @@ border-radius:9px;}</string>
       </property>
      </widget>
     </widget>
+    <widget class="QLabel" name="label_22">
+     <property name="geometry">
+      <rect>
+       <x>-10</x>
+       <y>0</y>
+       <width>461</width>
+       <height>35</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Calisto MT</family>
+       <pointsize>20</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(255, 255, 255);
+border-radius: 12px;</string>
+     </property>
+     <property name="text">
+      <string>NUEVO EMPLEADO</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
    </widget>
    <widget class="QWidget" name="empleados">
     <property name="styleSheet">
@@ -473,7 +504,7 @@ border-radius:9px;}</string>
      <property name="geometry">
       <rect>
        <x>660</x>
-       <y>580</y>
+       <y>650</y>
        <width>171</width>
        <height>30</height>
       </rect>
@@ -508,7 +539,7 @@ QPushButton:hover{
      <property name="geometry">
       <rect>
        <x>460</x>
-       <y>580</y>
+       <y>650</y>
        <width>191</width>
        <height>30</height>
       </rect>
@@ -549,9 +580,9 @@ border-radius: 9px;
      <property name="geometry">
       <rect>
        <x>20</x>
-       <y>40</y>
-       <width>401</width>
-       <height>521</height>
+       <y>110</y>
+       <width>411</width>
+       <height>561</height>
       </rect>
      </property>
      <property name="cursor" stdset="0">
@@ -564,14 +595,14 @@ border-radius: 9px;
       <bool>true</bool>
      </property>
      <attribute name="verticalHeaderVisible">
-      <bool>true</bool>
+      <bool>false</bool>
      </attribute>
     </widget>
     <widget class="QGroupBox" name="groupBox_3">
      <property name="geometry">
       <rect>
        <x>460</x>
-       <y>40</y>
+       <y>110</y>
        <width>371</width>
        <height>241</height>
       </rect>
@@ -736,7 +767,7 @@ border-radius:9px;}</string>
      <property name="geometry">
       <rect>
        <x>460</x>
-       <y>300</y>
+       <y>370</y>
        <width>371</width>
        <height>251</height>
       </rect>
@@ -931,10 +962,19 @@ font: 75 11pt &quot;MS Shell Dlg 2&quot;;</string>
      <property name="geometry">
       <rect>
        <x>70</x>
-       <y>10</y>
+       <y>80</y>
        <width>271</width>
-       <height>16</height>
+       <height>21</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>MS Shell Dlg 2</family>
+       <pointsize>10</pointsize>
+       <weight>50</weight>
+       <italic>false</italic>
+       <bold>false</bold>
+      </font>
      </property>
      <property name="styleSheet">
       <string notr="true">color: rgb(255, 255, 255);
@@ -942,6 +982,664 @@ font: 10pt &quot;MS Shell Dlg 2&quot;;</string>
      </property>
      <property name="text">
       <string>Seleccione un empleado para editar.</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_21">
+     <property name="geometry">
+      <rect>
+       <x>450</x>
+       <y>20</y>
+       <width>361</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Calisto MT</family>
+       <pointsize>20</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(255, 255, 255);
+border-radius: 12px;</string>
+     </property>
+     <property name="text">
+      <string>EMPLEADOS</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="platillo">
+    <property name="styleSheet">
+     <string notr="true">#platillo{
+	background-color: rgb(255, 178, 21);}</string>
+    </property>
+    <widget class="QTableWidget" name="tableWidget">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>80</y>
+       <width>441</width>
+       <height>591</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QGroupBox" name="Nuevo_Plato">
+     <property name="geometry">
+      <rect>
+       <x>470</x>
+       <y>200</y>
+       <width>351</width>
+       <height>391</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Calisto MT</family>
+      </font>
+     </property>
+     <property name="title">
+      <string>NUEVO PLATILLO</string>
+     </property>
+     <widget class="QLabel" name="foto_label">
+      <property name="geometry">
+       <rect>
+        <x>190</x>
+        <y>10</y>
+        <width>150</width>
+        <height>150</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="nfoto_pushButton">
+      <property name="geometry">
+       <rect>
+        <x>190</x>
+        <y>100</y>
+        <width>60</width>
+        <height>60</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: transparent;</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset resource="IMG/imags.qrc">
+        <normaloff>:/iconos/foto.png</normaloff>:/iconos/foto.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>50</width>
+        <height>50</height>
+       </size>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="nom_lineEdit">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>130</y>
+        <width>150</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Calisto MT</family>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLineEdit{
+background-color:rgb(208, 208, 208);
+border:1px;
+border-radius:9px;}</string>
+      </property>
+      <property name="placeholderText">
+       <string>NOMBRE</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="precio_lineEdit">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>180</y>
+        <width>150</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Calisto MT</family>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLineEdit{
+background-color:rgb(208, 208, 208);
+border:1px;
+border-radius:9px;}</string>
+      </property>
+      <property name="placeholderText">
+       <string>PRECIO</string>
+      </property>
+     </widget>
+     <widget class="QTextEdit" name="desc_textEdit">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>230</y>
+        <width>311</width>
+        <height>91</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Calisto MT</family>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QTextEdit{
+background-color:rgb(208, 208, 208);
+border:1px;
+border-radius:9px;}</string>
+      </property>
+      <property name="placeholderText">
+       <string>DESCRIPCIÓN</string>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="categoria_comboBox">
+      <property name="geometry">
+       <rect>
+        <x>9</x>
+        <y>80</y>
+        <width>165</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <item>
+       <property name="text">
+        <string>---Selecione Categoria---</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Entradas</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Ensaladas</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Sopas</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Especialidades</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Carnes a las brasas</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Bebidas</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Postres</string>
+       </property>
+      </item>
+     </widget>
+     <widget class="QLabel" name="label_19">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>40</y>
+        <width>111</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Calisto MT</family>
+        <pointsize>9</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>CATEGORIA:</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="nuevoPlato_pushButton">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>350</y>
+        <width>120</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Calisto MT</family>
+        <pointsize>8</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton{
+border-width: 0px;
+border-radius: 9px;
+	background: rgb(201, 37, 37);}
+
+QPushButton:hover{
+	background: rgba(244,67,54,0.7);
+    border-radius: 9px;
+	color: white;
+    selection-color: white;  
+    padding: 2px 4px;
+
+}
+</string>
+      </property>
+      <property name="text">
+       <string>GUARDAR</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="cancela_pushButton">
+      <property name="geometry">
+       <rect>
+        <x>190</x>
+        <y>350</y>
+        <width>120</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Calisto MT</family>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton{
+border-width: 0px;
+border-radius: 9px;
+	background: rgb(201, 37, 37);}
+
+QPushButton:hover{
+	background: rgba(244,67,54,0.7);
+    border-radius: 9px;
+	color: white;
+    selection-color: white;  
+    padding: 2px 4px;
+
+}
+</string>
+      </property>
+      <property name="text">
+       <string>CANCELAR</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QLabel" name="label_18">
+     <property name="geometry">
+      <rect>
+       <x>450</x>
+       <y>10</y>
+       <width>361</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Calisto MT</family>
+       <pointsize>20</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(255, 255, 255);
+border-radius: 12px;</string>
+     </property>
+     <property name="text">
+      <string>MENÚ</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="anadir_pushButton">
+     <property name="geometry">
+      <rect>
+       <x>470</x>
+       <y>70</y>
+       <width>70</width>
+       <height>70</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(8, 8, 8);</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="icon">
+      <iconset resource="IMG/imags.qrc">
+       <normaloff>:/iconos/anadir.png</normaloff>:/iconos/anadir.png</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>100</width>
+       <height>70</height>
+      </size>
+     </property>
+    </widget>
+    <widget class="QGroupBox" name="EditarPlato">
+     <property name="geometry">
+      <rect>
+       <x>70</x>
+       <y>170</y>
+       <width>351</width>
+       <height>391</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Calisto MT</family>
+      </font>
+     </property>
+     <property name="title">
+      <string>PLATILLO</string>
+     </property>
+     <widget class="QLabel" name="verfoto_label">
+      <property name="geometry">
+       <rect>
+        <x>190</x>
+        <y>10</y>
+        <width>150</width>
+        <height>150</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="editnom_lineEdit_2">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>130</y>
+        <width>150</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Calisto MT</family>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLineEdit{
+background-color:rgb(208, 208, 208);
+border:1px;
+border-radius:9px;}</string>
+      </property>
+      <property name="placeholderText">
+       <string>NOMBRE</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="editprecio_lineEdit">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>180</y>
+        <width>150</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Calisto MT</family>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLineEdit{
+background-color:rgb(208, 208, 208);
+border:1px;
+border-radius:9px;}</string>
+      </property>
+      <property name="placeholderText">
+       <string>PRECIO</string>
+      </property>
+     </widget>
+     <widget class="QTextEdit" name="editdesc_textEdit">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>230</y>
+        <width>311</width>
+        <height>91</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Calisto MT</family>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QTextEdit{
+background-color:rgb(208, 208, 208);
+border:1px;
+border-radius:9px;}</string>
+      </property>
+      <property name="placeholderText">
+       <string>DESCRIPCIÓN</string>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="editcategoria_comboBox">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>80</y>
+        <width>165</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <item>
+       <property name="text">
+        <string>--Seleccione Categoria--</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Entradas</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Ensaladas</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Sopas</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Especialidades</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Carnes a las brasas</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Bebidas</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Postres</string>
+       </property>
+      </item>
+     </widget>
+     <widget class="QLabel" name="label_20">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>40</y>
+        <width>111</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Calisto MT</family>
+        <pointsize>9</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>CATEGORIA:</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="editplato_pushButton">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>350</y>
+        <width>120</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Calisto MT</family>
+        <pointsize>8</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton{
+border-width: 0px;
+border-radius: 9px;
+	background: rgb(201, 37, 37);}
+
+QPushButton:hover{
+	background: rgba(244,67,54,0.7);
+    border-radius: 9px;
+	color: white;
+    selection-color: white;  
+    padding: 2px 4px;
+
+}
+</string>
+      </property>
+      <property name="text">
+       <string>GUARDAR</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="eliminaPlatopushButton">
+      <property name="geometry">
+       <rect>
+        <x>190</x>
+        <y>350</y>
+        <width>120</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Calisto MT</family>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton{
+border-width: 0px;
+border-radius: 9px;
+	background: rgb(201, 37, 37);}
+
+QPushButton:hover{
+	background: rgba(244,67,54,0.7);
+    border-radius: 9px;
+	color: white;
+    selection-color: white;  
+    padding: 2px 4px;
+
+}
+</string>
+      </property>
+      <property name="text">
+       <string>ELIMINAR</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="editfoto_pushButton">
+      <property name="geometry">
+       <rect>
+        <x>190</x>
+        <y>100</y>
+        <width>60</width>
+        <height>60</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: transparent;</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset resource="IMG/imags.qrc">
+        <normaloff>:/iconos/foto.png</normaloff>:/iconos/foto.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>50</width>
+        <height>50</height>
+       </size>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QLabel" name="label_23">
+     <property name="geometry">
+      <rect>
+       <x>70</x>
+       <y>50</y>
+       <width>271</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>MS Shell Dlg 2</family>
+       <pointsize>10</pointsize>
+       <weight>50</weight>
+       <italic>false</italic>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(255, 255, 255);
+font: 10pt &quot;MS Shell Dlg 2&quot;;</string>
+     </property>
+     <property name="text">
+      <string>Seleccione un platillo para editar.</string>
      </property>
     </widget>
    </widget>
@@ -957,7 +1655,8 @@ font: 10pt &quot;MS Shell Dlg 2&quot;;</string>
    </property>
    <property name="styleSheet">
     <string notr="true">#menu{
-	background-color: rgb(72, 72, 72);}</string>
+	background-color: rgb(72, 72, 72);
+}</string>
    </property>
    <widget class="QWidget" name="horizontalLayoutWidget">
     <property name="geometry">
@@ -1041,6 +1740,44 @@ font: 10pt &quot;MS Shell Dlg 2&quot;;</string>
         <size>
          <width>100</width>
          <height>100</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="menu_pushButton">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>100</width>
+         <height>80</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>100</width>
+         <height>80</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: transparent;</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset resource="IMG/imags.qrc">
+         <normaloff>:/iconos/menu.png</normaloff>:/iconos/menu.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>80</width>
+         <height>70</height>
         </size>
        </property>
       </widget>

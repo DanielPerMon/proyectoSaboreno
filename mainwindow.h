@@ -39,6 +39,8 @@ private slots:
 
     void on_NipGerente_lineEdit_returnPressed();
 
+    void on_gSalir_pushButton_2_clicked();
+
 private:
     Ui::MainWindow *ui;
 };
