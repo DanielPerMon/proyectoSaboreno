@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 28-01-2021 a las 07:08:12
+-- Tiempo de generación: 03-02-2021 a las 03:23:20
 -- Versión del servidor: 10.4.8-MariaDB
 -- Versión de PHP: 7.3.11
 
@@ -32,6 +32,20 @@ CREATE TABLE `categoria` (
   `id_categoria` int(11) NOT NULL,
   `nombre` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `categoria`
+--
+
+INSERT INTO `categoria` (`id_categoria`, `nombre`) VALUES
+(1, 'Entradas'),
+(2, 'Sopas'),
+(3, 'Ensaladas'),
+(4, 'Carne a las brasas'),
+(5, 'Guarniciones'),
+(6, 'Especialidades'),
+(7, 'Postres'),
+(8, 'Bebidas');
 
 -- --------------------------------------------------------
 
@@ -68,8 +82,12 @@ CREATE TABLE `empleado` (
 --
 
 INSERT INTO `empleado` (`idEmpleado`, `NombreEmpleado`, `ApellidoPaterno`, `Correo`, `NumTelefono`, `Perfil`, `NIP`) VALUES
-(1, 'Daniel', 'Pérez Montiel', 'dannpm93@gmail.com', '2224910561', 'gerente', '134952'),
-(2, 'Marco', 'Martinez Cruz', 'marco.martinezcr@alumno.buap.mx', '2444484211', 'Mesero', '123456');
+(1, 'Daniel', 'Pérez Montiel', 'dannpm93@gmail.com', '2224910561', 'Gerente', '134952'),
+(2, 'Marco', 'Martinez Cruz', '2444484211', 'marco.martinezcr@alumno.buap.mx', 'Cajero', '123456'),
+(4, 'John', 'Heber Gómez', 'jhebreak@gmail.com', '2224249415', 'Mesero', '123456'),
+(5, 'Salma', 'Roman Montiel', 'salmaMontiel@gmail.com', '2225031556', 'Mesero', '456789'),
+(6, 'Marco Antonio', 'Montiel Sampedro', 'marco@hotmail.com', '2641329874', 'Mesero', '123456'),
+(7, 'Teresa', 'Reyes Montiel', 'terereyes54@yahoo.com.mx', '2226236627', 'Mesero', '987654');
 
 -- --------------------------------------------------------
 
@@ -84,6 +102,21 @@ CREATE TABLE `mesa` (
   `Estado` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Volcado de datos para la tabla `mesa`
+--
+
+INSERT INTO `mesa` (`idMesa`, `Mesero_idMesero`, `Zona`, `Estado`) VALUES
+(1, 1, '1', 'libre'),
+(2, 1, '1', 'libre'),
+(3, 1, '1', 'libre'),
+(4, 2, '2', 'ocupada'),
+(5, 2, '2', 'ocupada'),
+(6, 3, '2', 'ocupada'),
+(7, 3, '3', 'ocupada'),
+(8, 4, '3', 'reservada'),
+(9, 4, '3', 'libre');
+
 -- --------------------------------------------------------
 
 --
@@ -94,6 +127,16 @@ CREATE TABLE `mesero` (
   `id_mesero` int(11) NOT NULL,
   `id_empleado` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `mesero`
+--
+
+INSERT INTO `mesero` (`id_mesero`, `id_empleado`) VALUES
+(1, 4),
+(2, 5),
+(3, 6),
+(4, 7);
 
 -- --------------------------------------------------------
 
@@ -119,7 +162,8 @@ CREATE TABLE `platillos` (
   `idPlatillos` int(11) NOT NULL,
   `id_Categoria` int(11) NOT NULL,
   `NombrePlatillo` varchar(45) NOT NULL,
-  `Precio` varchar(45) NOT NULL
+  `Precio` varchar(45) NOT NULL,
+  `imagen` longblob NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -149,7 +193,7 @@ ALTER TABLE `empleado`
 -- Indices de la tabla `mesa`
 --
 ALTER TABLE `mesa`
-  ADD PRIMARY KEY (`idMesa`,`Mesero_idMesero`),
+  ADD PRIMARY KEY (`idMesa`) USING BTREE,
   ADD KEY `fk_Mesa_Mesero1_idx` (`Mesero_idMesero`);
 
 --
@@ -172,11 +216,17 @@ ALTER TABLE `orden`
 --
 ALTER TABLE `platillos`
   ADD PRIMARY KEY (`idPlatillos`) USING BTREE,
-  ADD KEY `fk_Platillos_Categorias1_idx` (`id_Categoria`);
+  ADD KEY `id_Categoria` (`id_Categoria`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
 --
+
+--
+-- AUTO_INCREMENT de la tabla `categoria`
+--
+ALTER TABLE `categoria`
+  MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `cuenta`
@@ -188,19 +238,31 @@ ALTER TABLE `cuenta`
 -- AUTO_INCREMENT de la tabla `empleado`
 --
 ALTER TABLE `empleado`
-  MODIFY `idEmpleado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `idEmpleado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT de la tabla `mesa`
+--
+ALTER TABLE `mesa`
+  MODIFY `idMesa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `mesero`
 --
 ALTER TABLE `mesero`
-  MODIFY `id_mesero` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_mesero` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `orden`
 --
 ALTER TABLE `orden`
   MODIFY `id_orden` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `platillos`
+--
+ALTER TABLE `platillos`
+  MODIFY `idPlatillos` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Restricciones para tablas volcadas
@@ -235,7 +297,7 @@ ALTER TABLE `orden`
 -- Filtros para la tabla `platillos`
 --
 ALTER TABLE `platillos`
-  ADD CONSTRAINT `fk_Platillos_Categorias1` FOREIGN KEY (`id_Categoria`) REFERENCES `categoria` (`id_categoria`);
+  ADD CONSTRAINT `platillos_ibfk_1` FOREIGN KEY (`id_Categoria`) REFERENCES `categoria` (`id_categoria`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
