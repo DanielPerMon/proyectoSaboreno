@@ -17,13 +17,27 @@ gerente_menu::gerente_menu(QSqlDatabase base, QWidget *parent) :
         qDebug() << "error en la base";
 
     Edito = false;
-    Id_Modificar = 0;
+    Id_Modificar = 0;//Indices seleccionados
+    Id_Categoria = 0;//Indices seleccionados
+    Id_Platillo = 0; //Indece del platillo a trabajar
+
     /*------------------Llenado de tabla Empleados----------------------*/
 
 
     ActualizarTablaEmpleados();
 
     /*-------------------------------------------------------------------------*/
+
+    /*Configuraccion tabla Categorias*/
+    ui->categorias_tableWidget->setSelectionMode(QAbstractItemView::SingleSelection);
+    ui->categorias_tableWidget->setSelectionBehavior(QAbstractItemView::SelectRows);
+    ui->categorias_tableWidget->setEditTriggers(QAbstractItemView::NoEditTriggers);
+
+    ui->platillos_tableWidget->setSelectionMode(QAbstractItemView::SingleSelection);
+    ui->platillos_tableWidget->setSelectionBehavior(QAbstractItemView::SelectRows);
+    ui->platillos_tableWidget->setEditTriggers(QAbstractItemView::NoEditTriggers);
+
+    /*-------------------------------*/
 }
 
 gerente_menu::~gerente_menu()
@@ -185,6 +199,7 @@ void gerente_menu::on_edit_pushButton_clicked()
         QMessageBox confirmacion(this);
         confirmacion.addButton("Sí",QMessageBox::YesRole);
         confirmacion.addButton("No",QMessageBox::NoRole);
+        confirmacion.setWindowTitle("Confirmación");
         confirmacion.setIcon(QMessageBox::Question);
         confirmacion.setText("¿Seguro que quieres editar este empleado?");
         int ret = confirmacion.exec();
@@ -294,8 +309,6 @@ void gerente_menu::ActualizarTablaEmpleados()
     ui->editar_tableWidget->setColumnCount(4);
     ui->editar_tableWidget->setHorizontalHeaderLabels(titulos);
 
-    ui->editar_tableWidget->setSelectionMode(QAbstractItemView::SingleSelection);
-    ui->editar_tableWidget->setSelectionBehavior(QAbstractItemView::SelectRows);
 
     QSqlQuery empleados;
 
@@ -323,6 +336,7 @@ void gerente_menu::on_eliminarU_pushButton_clicked()
         QMessageBox confirmacion(this);
         confirmacion.addButton("Sí",QMessageBox::YesRole);
         confirmacion.addButton("No",QMessageBox::NoRole);
+        confirmacion.setWindowTitle("Confirmación");
         confirmacion.setIcon(QMessageBox::Question);
         confirmacion.setText("¿Seguro que quieres eliminar este empleado?");
         int ret = confirmacion.exec();
@@ -371,17 +385,53 @@ void gerente_menu::on_menu_pushButton_clicked()
     ui->Menu_gerente->setCurrentIndex(2);
 }
 
-void gerente_menu::on_anadir_pushButton_clicked()
+/*void gerente_menu::on_anadir_pushButton_clicked()
 {
     ui->Nuevo_Plato->show();
+}*/
+
+
+/*Metodo para actualiar el numero de platillos registrado por categoria*/
+void gerente_menu::on_categorias_tableWidget_cellClicked(int row)
+{
+    QTableWidgetItem *valor = ui->categorias_tableWidget->item(row,0);
+    QString valor_mandar = valor->text();
+    qDebug() << "Fila seleccionada " << row;
+    qDebug() << "valor obtenido" << valor_mandar;
+    Id_Categoria = valor_mandar.toInt();
+    QueryCuentaPLatillosCategoria(Id_Categoria);
+
+    //QueryEditarEmpleado(Id_Modificar);
+    //qDebug() << "Nip seleccionado : " << Id_Modificar;
+}
+/*   Metodo para abrir la ventana siguiente y llenar la tabla de acuerdo a categorias*/
+void gerente_menu::on_categorias_tableWidget_cellDoubleClicked(int row)
+{
+    QTableWidgetItem *valor = ui->categorias_tableWidget->item(row,0);
+    QString valor_mandar = valor->text();
+    QTableWidgetItem *valor2 = ui->categorias_tableWidget->item(row,1);
+    QString valor_mandar2 = valor2->text();
+    Id_Categoria = valor_mandar.toInt();
+    ActualizarTablaPlatillos(Id_Categoria);
+    ui->Menu_gerente->setCurrentIndex(3);
+    ui->Categoria_usada_label->setText( "Categoria actual:  " + valor_mandar2);
 }
 
-void gerente_menu::on_nuevoPlato_pushButton_clicked()
+void gerente_menu::on_volver_categoria_pushButton_clicked()
 {
-    QSqlQuery *insertaplato = new QSqlQuery();
-
+    //Limpiar todo el formulario y la tabla
+    ui->nom_lineEdit->clear();
+    ui->precio_lineEdit->clear();
+    ui->desc_textEdit->clear();
+    ui->foto_label->clear();
+    Id_Categoria = 0;
+    ui->Menu_gerente->setCurrentIndex(2);
+}
+/*Botonoes de agregar nuevo platillo*/
+void gerente_menu::on_Guardarplato_pushButton_clicked()
+{
     //algún campo vacío
-    if(ui->nom_lineEdit->text() == "" || ui->precio_lineEdit->text() == "" || ui->desc_textEdit->toPlainText() == ""){
+    if(ui->nuevo_nombre_lineEdit->text() == "" || ui->nuevoprecio_lineEdit->text() == "" || ui->nuevadesc_textEdit->toPlainText() == "" || archivo_foto == ""){
 
         QMessageBox messageBox(QMessageBox::Information,
                                tr("Campos vacíos"),
@@ -390,41 +440,238 @@ void gerente_menu::on_nuevoPlato_pushButton_clicked()
                                this);
         messageBox.setButtonText(QMessageBox::Yes, tr("Aceptar"));
         messageBox.exec();
-    }
-    else{
-            //no se ha seleccionado ninguna categoria
-            if(ui->categoria_comboBox->currentIndex() == 0){
-                QMessageBox messageBox(QMessageBox::Information,
-                                       tr("Error"),
-                                       tr("Seleccione una categoria"),
-                                       QMessageBox::Yes,
-                                       this);
-                messageBox.setButtonText(QMessageBox::Yes, tr("Aceptar"));
-                messageBox.exec();
-            }
-            else{
-                QString aux = ui->desc_textEdit->toPlainText();
-                //Se insertan los campos correctos
-                if(insertaplato->exec("insert into platillos(Categoria,NombrePlatillo,Precio,Descripcion)"
-                                 "values('"+ui->categoria_comboBox->itemText(ui->categoria_comboBox->currentIndex())+"','"+ui->nom_lineEdit->text()+"','"+ui->precio_lineEdit->text()+"',"
-                                 "'"+aux+"')")){
-                    QMessageBox messageBox(QMessageBox::Information,
-                                           tr("Éxito"),
-                                           tr("Se agregó con éxito el nuevo platillo"),
-                                           QMessageBox::Yes,
-                                           this);
-                    messageBox.setButtonText(QMessageBox::Yes, tr("Aceptar"));
-                    messageBox.exec();
-                }
-                else
-                    qDebug() << "error de inserción" << insertaplato->lastError();
+    }else{
+        QMessageBox confirmacion(this);
+        confirmacion.addButton("Sí",QMessageBox::YesRole);
+        confirmacion.addButton("No",QMessageBox::NoRole);
+        confirmacion.setWindowTitle("Confirmación");
+        confirmacion.setIcon(QMessageBox::Question);
+        confirmacion.setText("¿Seguro que quieres insertar este platillo?");
+        int ret = confirmacion.exec();
+        if(ret == 0)
+        {
+            QSqlQuery query;
 
+
+            query.prepare("INSERT INTO platillos (id_Categoria, NombrePlatillo, precio,descripcion,imagen) "
+                          "VALUES (:id_categoria, :nombre, :precio,:descripcion, :img)");
+            query.bindValue(":id_categoria", Id_Categoria);
+            query.bindValue(":nombre", ui->nuevo_nombre_lineEdit->text());
+            query.bindValue(":precio", ui->nuevoprecio_lineEdit->text());
+            query.bindValue(":descripcion", ui->nuevadesc_textEdit->toPlainText());
+
+            QFile file(archivo_foto);
+            file.open(QIODevice::ReadOnly);
+            QByteArray bytes = file.readAll();
+            query.bindValue(":img", QVariant(bytes));
+            query.exec();
+
+            QMessageBox messageBox2(QMessageBox::Information,
+                                   tr("Platillo Insertado"),
+                                   tr("El platillo se registró con éxito"),
+                                   QMessageBox::Yes,
+                                   this);
+            messageBox2.setButtonText(QMessageBox::Yes, tr("Aceptar"));
+            messageBox2.exec();
+            ui->nuevo_nombre_lineEdit->clear();
+            ui->nuevoprecio_lineEdit->clear();
+            ui->nuevadesc_textEdit->clear();
+            ui->nuevafoto_label->clear();
+            archivo_foto.clear();
+             ActualizarTablaPlatillos(Id_Categoria);
+            ui->Menu_gerente->setCurrentIndex(3);
+        }
+
+
+    }
+}
+/*Metodo para cancelar un registro de platillo*/
+void gerente_menu::on_CancelarPlatopushButton_clicked()
+{
+    //Limpiar celdas de nuevo producto.
+    ui->Menu_gerente->setCurrentIndex(3);
+    ui->nuevo_nombre_lineEdit->clear();
+    ui->nuevoprecio_lineEdit->clear();
+    ui->nuevadesc_textEdit->clear();
+    ui->nuevafoto_label->clear();
+    archivo_foto.clear();
+
+}
+/*Botones de agredar nuevo platillo*/
+void gerente_menu::on_Nuevo_platillo_pushButton_clicked()
+{
+   ui->Menu_gerente->setCurrentIndex(4);
+}
+/*Metodo para subir una foto a la interfaz de qt*/
+void gerente_menu::on_nuevafoto_pushButton_clicked()
+{
+    archivo_foto = QFileDialog::getOpenFileName(this,tr("Abrir Archivo"),tr("/home/"),tr("Imagenes(*.png *.xpm *.jpg *.jpeg"));
+    ui->nuevafoto_label->setPixmap(archivo_foto);
+    qDebug() << "Ruta de la foto : " << archivo_foto;
+
+
+
+}
+/*Metodo para actualizar la tabla de acuerdo a la categoria se actualiza la tabla de platillos registrados*/
+void gerente_menu::ActualizarTablaPlatillos(int id_categoria)
+{
+    //ui->editar_tableWidget->clearContents();
+    ui->platillos_tableWidget->setEditTriggers(QAbstractItemView::NoEditTriggers);
+    ui->platillos_tableWidget->clear();
+    ui->platillos_tableWidget->setRowCount(0);
+    QStringList titulos;
+    titulos<<"ID"<<"NOMBRE"<<"PRECIO";
+    ui->platillos_tableWidget->setColumnWidth(0,30);
+    ui->platillos_tableWidget->setColumnWidth(1,190);
+    ui->platillos_tableWidget->setColumnWidth(2,70);
+    ui->platillos_tableWidget->setColumnCount(3);
+    ui->platillos_tableWidget->setHorizontalHeaderLabels(titulos);
+
+
+    QSqlQuery platillos;
+
+    /*Query para llenar la tabla resumida de los empleados*/
+    if(platillos.prepare("select idPlatillos, NombrePlatillo,Precio from platillos where id_Categoria = "+QString::number(id_categoria)+";"))
+    {
+        platillos.exec();
+        while(platillos.next()){
+
+            ui->platillos_tableWidget->insertRow(ui->platillos_tableWidget->rowCount());
+            int fila2 = ui->platillos_tableWidget->rowCount()-1;
+            ui->platillos_tableWidget->setItem(fila2,0,new QTableWidgetItem(platillos.value(0).toString()));
+            ui->platillos_tableWidget->setItem(fila2,1,new QTableWidgetItem(platillos.value(1).toString()));
+            ui->platillos_tableWidget->setItem(fila2,2,new QTableWidgetItem(platillos.value(2).toString()));
+        }
+    }
+
+}
+/*Metodo para resaltar un platillo a modificar*/
+void gerente_menu::on_platillos_tableWidget_cellClicked(int row)
+{
+    QTableWidgetItem *valor = ui->platillos_tableWidget->item(row,0);
+    QString valor_mandar = valor->text();
+    qDebug() << "Fila seleccionada " << row;
+    qDebug() << "valor obtenido" << valor_mandar;
+    Id_Platillo = valor_mandar.toInt();
+    QueryEditarPlatillo(Id_Platillo);
+    qDebug() << "Nip platillo seleccionado : " << Id_Platillo;
+
+
+}
+
+void gerente_menu::QueryEditarPlatillo(int id)
+{
+    QSqlQuery platillo;
+    QPixmap pix;
+    /*Query para llenar la tabla resumida de los empleados*/
+    if(platillo.prepare("select NombrePlatillo,Precio,"
+                         "descripcion,imagen from platillos WHERE idPlatillos ="+ QString::number(id) +";"))
+    {
+        platillo.exec(); // LLenado de campos de edicion
+        while(platillo.next()){
+            ui->nom_lineEdit->setText(platillo.value(0).toString());
+            ui->precio_lineEdit->setText(platillo.value(1).toString());
+            ui->desc_textEdit->setText(platillo.value(2).toString());
+            pix.loadFromData(platillo.value(3).toByteArray());
+            ui->foto_label->setPixmap(pix);
+        }
+    }
+
+}
+
+void gerente_menu::on_eliminaplatillo_pushButton_clicked()
+{
+    if(Id_Platillo != 0){
+        QMessageBox confirmacion(this);
+        confirmacion.addButton("Sí",QMessageBox::YesRole);
+        confirmacion.addButton("No",QMessageBox::NoRole);
+        confirmacion.setWindowTitle("Confirmación");
+        confirmacion.setIcon(QMessageBox::Question);
+        confirmacion.setText("¿Seguro que quieres eliminar este platillo?");
+        int ret = confirmacion.exec();
+        if(ret == 0)
+        {
+            QSqlQuery Elimina;
+            if(Elimina.exec("DELETE from platillos WHERE idPlatillos = '"+QString::number(Id_Platillo)+"'; "))
+            {
+                qDebug()<<"Se Elimino el platillo";
+                QMessageBox::warning(this,"Informacion","Se elimino el platillo");
                 ui->nom_lineEdit->clear();
                 ui->precio_lineEdit->clear();
                 ui->desc_textEdit->clear();
-                ui->categoria_comboBox->setCurrentIndex(0);
+                ui->foto_label->clear();
+                Id_Platillo = 0;
+
+                ActualizarTablaPlatillos(Id_Categoria);
             }
+            else
+            {
+                qDebug()<<"No se elimino platillo";
+                qDebug()<<Elimina.lastError();
+            }
+        }else{
+            qDebug() << "Prefirio no eliminar platillo";
         }
+
+    }
+    else{
+        QMessageBox messageBox(QMessageBox::Warning,
+                               tr("Informacion"),
+                               tr("Seleccione un platillo"),
+                               QMessageBox::Yes,
+                               this);
+        messageBox.setButtonText(QMessageBox::Yes, tr("Aceptar"));
+        messageBox.exec();
+    }
+}
+/*Cuenta el numero de platillos dada un id de categoria*/
+void gerente_menu::QueryCuentaPLatillosCategoria(int id)
+{
+    QSqlQuery platillo;
+
+    /*Query para llenar la tabla resumida de los empleados*/
+    if(platillo.prepare("select count(*) from platillos where id_Categoria = "+QString::number(id)+";"))
+    {
+        platillo.exec(); // LLenado de campos de edicion
+        while(platillo.next()){
+        ui->num_platilloslabel->setText(platillo.value(0).toString());
+        }
+    }
+}
+
+void gerente_menu::on_editarPlato_push_clicked()
+{
+
+
+    QMessageBox confirmacion(this);
+    confirmacion.addButton("Sí",QMessageBox::YesRole);
+    confirmacion.addButton("No",QMessageBox::NoRole);
+    confirmacion.setWindowTitle("Confirmación");
+    confirmacion.setIcon(QMessageBox::Question);
+    confirmacion.setText("¿Seguro que desea editar el platillo?");
+    int ret = confirmacion.exec();
+    if(ret == 0)
+    {
+        QSqlQuery platillo;
+        if( platillo.exec("UPDATE platillos SET NombrePlatillo = '"+ui->nom_lineEdit->text()+"', Precio = '"+ui->precio_lineEdit->text()+"',"
+                          "descripcion = '"+ui->desc_textEdit->toPlainText()+"' WHERE idPlatillos = '"+QString::number(Id_Platillo)+"'; "))
+        {
+            QMessageBox messageBox2(QMessageBox::Information,
+                                   tr("Cambios Completos"),
+                                   tr("Se editó la información con éxito"),
+                                   QMessageBox::Yes,
+                                   this);
+            messageBox2.setButtonText(QMessageBox::Yes, tr("Aceptar"));
+            messageBox2.exec();
+
+            ActualizarTablaPlatillos(Id_Categoria);
+        }
+        else
+        {
+            qDebug()<<"Error de edición";
+            qDebug()<<platillo.lastError();
+        }
+    }
 
 
 }

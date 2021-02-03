@@ -15,6 +15,13 @@
         <file>mesa.png</file>
         <file>restaurant.png</file>
         <file>salida.png</file>
+        <file>bebida.png</file>
+        <file>carne.png</file>
+        <file>ensalada.png</file>
+        <file>entradas.png</file>
+        <file>especialidad.png</file>
+        <file>postre.png</file>
+        <file>sopa.png</file>
     </qresource>
     <qresource prefix="/imagenes">
         <file>LOGO.png</file>
