@@ -381,7 +381,7 @@ void gerente_menu::on_nuevoPlato_pushButton_clicked()
     QSqlQuery *insertaplato = new QSqlQuery();
 
     //algún campo vacío
-    if(ui->nom_lineEdit->text() == "" || ui->precio_lineEdit->text() == "" || ui->desc_textEdit->text() == ""){
+    if(ui->nom_lineEdit->text() == "" || ui->precio_lineEdit->text() == "" || ui->desc_textEdit->toPlainText() == ""){
 
         QMessageBox messageBox(QMessageBox::Information,
                                tr("Campos vacíos"),
@@ -403,10 +403,11 @@ void gerente_menu::on_nuevoPlato_pushButton_clicked()
                 messageBox.exec();
             }
             else{
+                QString aux = ui->desc_textEdit->toPlainText();
                 //Se insertan los campos correctos
                 if(insertaplato->exec("insert into platillos(Categoria,NombrePlatillo,Precio,Descripcion)"
                                  "values('"+ui->categoria_comboBox->itemText(ui->categoria_comboBox->currentIndex())+"','"+ui->nom_lineEdit->text()+"','"+ui->precio_lineEdit->text()+"',"
-                                 "'"+ui->desc_textEdit->text()+"')")){
+                                 "'"+aux+"')")){
                     QMessageBox messageBox(QMessageBox::Information,
                                            tr("Éxito"),
                                            tr("Se agregó con éxito el nuevo platillo"),
@@ -424,7 +425,6 @@ void gerente_menu::on_nuevoPlato_pushButton_clicked()
                 ui->categoria_comboBox->setCurrentIndex(0);
             }
         }
-    }
 
 
 }

@@ -882,6 +882,9 @@ QPushButton:hover{
         <string notr="true">QLineEdit{
 border-radius: 9px;}</string>
        </property>
+       <property name="echoMode">
+        <enum>QLineEdit::Password</enum>
+       </property>
        <property name="placeholderText">
         <string>NIP</string>
        </property>
@@ -973,12 +976,43 @@ background-color: transparent;</string>
         </size>
        </property>
       </widget>
+      <widget class="QLabel" name="label_18">
+       <property name="geometry">
+        <rect>
+         <x>60</x>
+         <y>80</y>
+         <width>271</width>
+         <height>61</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Calisto MT</family>
+         <pointsize>18</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(0, 0, 0);
+border-image: none;
+background-color: white;
+border-radius: 9px;</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
       <zorder>Mingresar_pushButton</zorder>
       <zorder>mesero_nip_lineEdit</zorder>
       <zorder>label_11</zorder>
       <zorder>label_16</zorder>
       <zorder>label_17</zorder>
       <zorder>gSalir_pushButton_2</zorder>
+      <zorder>label_18</zorder>
      </widget>
      <widget class="QWidget" name="m_der" native="true">
       <property name="geometry">
@@ -1002,7 +1036,7 @@ background-color: transparent;</string>
      <x>0</x>
      <y>0</y>
      <width>850</width>
-     <height>26</height>
+     <height>25</height>
     </rect>
    </property>
   </widget>

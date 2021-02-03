@@ -8,6 +8,7 @@
 #include <QMainWindow>
 #include <QMessageBox>
 #include "gerente_menu.h"
+#include "mesero_menu.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -41,7 +42,15 @@ private slots:
 
     void on_gSalir_pushButton_2_clicked();
 
+    void handleMesero();
+
+    void on_Mingresar_pushButton_clicked();
+
 private:
     Ui::MainWindow *ui;
+
+    QList<QPushButton *> botones;
+    QString user;
+
 };
 #endif // MAINWINDOW_H

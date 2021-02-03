@@ -7,6 +7,7 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     setWindowTitle("Iniciar Sesion");
+    user = "";
 
     mDatabase = QSqlDatabase::addDatabase("QMYSQL");
     /* Suegerencia, cada quien agrege sus métodos de acceso y coméntelos en bloque, recuerden que es una versión de git*/
@@ -31,7 +32,7 @@ MainWindow::MainWindow(QWidget *parent)
         qDebug() << "Base abierta";
     }
     else{
-        qDebug() << "Error de base";
+        qDebug() << "Error de base" << mDatabase.lastError();
     }
 
 }
@@ -59,6 +60,33 @@ void MainWindow::on_i_cajero_pushButton_clicked()
 
 void MainWindow::on_i_mesero_pushButton_clicked()
 {
+    QSqlQuery *meseros = new QSqlQuery();
+    int conta=0,x=30,y=70;
+
+    meseros->exec("SELECT NombreEmpleado FROM empleado WHERE Perfil = 'Mesero'");
+    while(meseros->next()){
+        QPushButton *boton =  new QPushButton(ui->m_der);
+        if(conta%3==0 && conta!=0){
+            x=30;
+            y+=135;
+        }
+        boton->setStyleSheet("* {border-image: none; background-color: rgba(255, 255, 255,200); border-radius: 9px; font-family: Calisto MT;"
+                             "font-style: normal;font-size: 15pt;font-weight: bold;}"
+                             "*:hover{border: 2px solid black}");
+        boton->setText(meseros->value(0).toString());
+        boton->setObjectName(meseros->value(0).toString());
+        boton->resize(120,100);
+        boton->move(x,y);
+        boton->show();
+        x+=20 + boton->width();
+        conta++;
+    }
+
+    botones = ui->m_der->findChildren<QPushButton *>();
+    for(int i=0;i<botones.size();i++){
+        connect(botones[i], SIGNAL (clicked()),this, SLOT (handleMesero()));
+    }
+
     ui->inicio->setCurrentIndex(5);
 }
 
@@ -160,4 +188,52 @@ void MainWindow::on_NipGerente_lineEdit_returnPressed()
 void MainWindow::on_gSalir_pushButton_2_clicked()
 {
     ui->inicio->setCurrentIndex(0);
+}
+
+void MainWindow::handleMesero()
+{
+    QObject *senderObj = sender(); // This will give Sender object
+    ui->label_18->setText(senderObj->objectName());
+    user = senderObj->objectName();
+}
+
+void MainWindow::on_Mingresar_pushButton_clicked()
+{
+    QSqlQuery *inicia = new QSqlQuery();
+    QString aux;
+    if(ui->mesero_nip_lineEdit->text() != ""){
+        if(inicia->exec("SELECT * FROM empleado WHERE Perfil = 'Mesero' and NombreEmpleado = '"+user+"' and NIP = '"+ui->mesero_nip_lineEdit->text()+"'")){
+            while(inicia->next()){
+                aux = inicia->value(6).toString();
+            }
+            if(aux == ui->mesero_nip_lineEdit->text()){
+                mesero_menu *ventana = new mesero_menu(mDatabase,user, this);
+                ventana->show();
+            }
+            else{
+                QMessageBox messageBox(QMessageBox::Information,
+                                       tr("Error de credenciales"),
+                                       tr("El número de identificación no es el correcto"),
+                                       QMessageBox::Yes,
+                                       this);
+                messageBox.setButtonText(QMessageBox::Yes, tr("Aceptar"));
+                messageBox.exec();
+            }
+        }
+        else{
+            qDebug() << inicia->lastError();
+        }
+    }
+    else{
+        QMessageBox messageBox(QMessageBox::Information,
+                               tr("Campos vacíos"),
+                               tr("Por favor ingrese un nip válido"),
+                               QMessageBox::Yes,
+                               this);
+        messageBox.setButtonText(QMessageBox::Yes, tr("Aceptar"));
+        messageBox.exec();
+
+    }
+    ui->mesero_nip_lineEdit->clear();
+    delete inicia;
 }

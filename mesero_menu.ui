@@ -116,6 +116,46 @@
      </size>
     </property>
    </widget>
+   <widget class="QLabel" name="lblMesero">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>10</y>
+      <width>151</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="font">
+     <font>
+      <family>Calisto MT</family>
+      <pointsize>12</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="layoutDirection">
+     <enum>Qt::LeftToRight</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(0, 0, 0);
+</string>
+    </property>
+    <property name="text">
+     <string>Bienvenido/a</string>
+    </property>
+    <property name="textFormat">
+     <enum>Qt::RichText</enum>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignJustify|Qt::AlignTop</set>
+    </property>
+   </widget>
   </widget>
   <widget class="QStackedWidget" name="Mesero_menu">
    <property name="geometry">
@@ -135,10 +175,10 @@
 	background-color: rgb(72, 72, 72);
 }</string>
     </property>
-    <widget class="QPushButton" name="pushButton_3">
+    <widget class="QPushButton" name="mesa1">
      <property name="geometry">
       <rect>
-       <x>60</x>
+       <x>110</x>
        <y>130</y>
        <width>120</width>
        <height>120</height>
@@ -187,6 +227,214 @@ border-radius: 12px;</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="mesa2">
+     <property name="geometry">
+      <rect>
+       <x>110</x>
+       <y>300</y>
+       <width>120</width>
+       <height>120</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: transparent;</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="icon">
+      <iconset resource="IMG/imags.qrc">
+       <normaloff>:/iconos/mesa.png</normaloff>:/iconos/mesa.png</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>120</width>
+       <height>120</height>
+      </size>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="mesa3">
+     <property name="geometry">
+      <rect>
+       <x>110</x>
+       <y>470</y>
+       <width>120</width>
+       <height>120</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: transparent;</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="icon">
+      <iconset resource="IMG/imags.qrc">
+       <normaloff>:/iconos/mesa.png</normaloff>:/iconos/mesa.png</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>120</width>
+       <height>120</height>
+      </size>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="mesa4">
+     <property name="geometry">
+      <rect>
+       <x>360</x>
+       <y>130</y>
+       <width>120</width>
+       <height>120</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: transparent;</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="icon">
+      <iconset resource="IMG/imags.qrc">
+       <normaloff>:/iconos/mesa.png</normaloff>:/iconos/mesa.png</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>120</width>
+       <height>120</height>
+      </size>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="mesa5">
+     <property name="geometry">
+      <rect>
+       <x>360</x>
+       <y>300</y>
+       <width>120</width>
+       <height>120</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: transparent;</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="icon">
+      <iconset resource="IMG/imags.qrc">
+       <normaloff>:/iconos/mesa.png</normaloff>:/iconos/mesa.png</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>120</width>
+       <height>120</height>
+      </size>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="mesa6">
+     <property name="geometry">
+      <rect>
+       <x>360</x>
+       <y>470</y>
+       <width>120</width>
+       <height>120</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: transparent;</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="icon">
+      <iconset resource="IMG/imags.qrc">
+       <normaloff>:/iconos/mesa.png</normaloff>:/iconos/mesa.png</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>120</width>
+       <height>120</height>
+      </size>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="mesa7">
+     <property name="geometry">
+      <rect>
+       <x>600</x>
+       <y>130</y>
+       <width>120</width>
+       <height>120</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: transparent;</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="icon">
+      <iconset resource="IMG/imags.qrc">
+       <normaloff>:/iconos/mesa.png</normaloff>:/iconos/mesa.png</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>120</width>
+       <height>120</height>
+      </size>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="mesa8">
+     <property name="geometry">
+      <rect>
+       <x>600</x>
+       <y>300</y>
+       <width>120</width>
+       <height>120</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: transparent;</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="icon">
+      <iconset resource="IMG/imags.qrc">
+       <normaloff>:/iconos/mesa.png</normaloff>:/iconos/mesa.png</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>120</width>
+       <height>120</height>
+      </size>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="mesa9">
+     <property name="geometry">
+      <rect>
+       <x>600</x>
+       <y>470</y>
+       <width>120</width>
+       <height>120</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: transparent;</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="icon">
+      <iconset resource="IMG/imags.qrc">
+       <normaloff>:/iconos/mesa.png</normaloff>:/iconos/mesa.png</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>120</width>
+       <height>120</height>
+      </size>
      </property>
     </widget>
    </widget>
