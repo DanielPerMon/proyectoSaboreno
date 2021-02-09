@@ -30,7 +30,7 @@
     <string notr="true"/>
    </property>
    <property name="currentIndex">
-    <number>0</number>
+    <number>1</number>
    </property>
    <widget class="QWidget" name="nuevo_empleado">
     <property name="styleSheet">
@@ -1053,14 +1053,14 @@ border-radius: 12px;</string>
      <attribute name="horizontalHeaderCascadingSectionResizes">
       <bool>true</bool>
      </attribute>
+     <attribute name="horizontalHeaderMinimumSectionSize">
+      <number>39</number>
+     </attribute>
      <attribute name="horizontalHeaderDefaultSectionSize">
       <number>250</number>
      </attribute>
      <attribute name="horizontalHeaderHighlightSections">
       <bool>true</bool>
-     </attribute>
-     <attribute name="horizontalHeaderMinimumSectionSize">
-      <number>39</number>
      </attribute>
      <attribute name="horizontalHeaderShowSortIndicator" stdset="0">
       <bool>false</bool>
@@ -1734,7 +1734,7 @@ border-radius: 12px;</string>
        <x>430</x>
        <y>50</y>
        <width>371</width>
-       <height>27</height>
+       <height>30</height>
       </rect>
      </property>
      <layout class="QHBoxLayout" name="horizontalLayout_2">

@@ -30,9 +30,9 @@
     <property name="geometry">
      <rect>
       <x>590</x>
-      <y>10</y>
+      <y>2</y>
       <width>100</width>
-      <height>80</height>
+      <height>85</height>
      </rect>
     </property>
     <property name="sizePolicy">
@@ -44,18 +44,18 @@
     <property name="minimumSize">
      <size>
       <width>100</width>
-      <height>80</height>
+      <height>85</height>
      </size>
     </property>
     <property name="maximumSize">
      <size>
       <width>100</width>
-      <height>80</height>
+      <height>85</height>
      </size>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: transparent;
-</string>
+     <string notr="true">background-color: rgba(255, 255, 255,200);
+border-radius:7px;</string>
     </property>
     <property name="text">
      <string/>
@@ -75,9 +75,9 @@
     <property name="geometry">
      <rect>
       <x>720</x>
-      <y>10</y>
+      <y>1</y>
       <width>100</width>
-      <height>80</height>
+      <height>85</height>
      </rect>
     </property>
     <property name="sizePolicy">
@@ -89,7 +89,7 @@
     <property name="minimumSize">
      <size>
       <width>100</width>
-      <height>80</height>
+      <height>85</height>
      </size>
     </property>
     <property name="maximumSize">
@@ -99,7 +99,8 @@
      </size>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: transparent;
+     <string notr="true">background-color: rgba(255, 255, 255,200);
+border-radius: 7px;
 </string>
     </property>
     <property name="text">
@@ -119,10 +120,10 @@
    <widget class="QLabel" name="lblMesero">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>10</y>
-      <width>151</width>
-      <height>71</height>
+      <x>160</x>
+      <y>60</y>
+      <width>131</width>
+      <height>41</height>
      </rect>
     </property>
     <property name="sizePolicy">
@@ -134,9 +135,9 @@
     <property name="font">
      <font>
       <family>Calisto MT</family>
-      <pointsize>12</pointsize>
-      <weight>75</weight>
-      <bold>true</bold>
+      <pointsize>10</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
      </font>
     </property>
     <property name="layoutDirection">
@@ -147,13 +148,72 @@
 </string>
     </property>
     <property name="text">
-     <string>Bienvenido/a</string>
+     <string>Bienvenido/a:</string>
     </property>
     <property name="textFormat">
      <enum>Qt::RichText</enum>
     </property>
     <property name="alignment">
      <set>Qt::AlignJustify|Qt::AlignTop</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>580</x>
+      <y>70</y>
+      <width>101</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Calisto MT</family>
+     </font>
+    </property>
+    <property name="text">
+     <string>Área de mesas</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>710</x>
+      <y>70</y>
+      <width>101</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Calisto MT</family>
+     </font>
+    </property>
+    <property name="text">
+     <string>Salir</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_4">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>0</y>
+      <width>130</width>
+      <height>100</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/imagenes/SABO.png);
+	background-color:transparent;</string>
+    </property>
+    <property name="text">
+     <string/>
     </property>
    </widget>
   </widget>
@@ -167,7 +227,7 @@
     </rect>
    </property>
    <property name="currentIndex">
-    <number>0</number>
+    <number>1</number>
    </property>
    <widget class="QWidget" name="mesas">
     <property name="styleSheet">
@@ -178,8 +238,8 @@
     <widget class="QPushButton" name="mesa1">
      <property name="geometry">
       <rect>
-       <x>110</x>
-       <y>130</y>
+       <x>60</x>
+       <y>120</y>
        <width>120</width>
        <height>120</height>
       </rect>
@@ -232,7 +292,7 @@ border-radius: 12px;</string>
     <widget class="QPushButton" name="mesa2">
      <property name="geometry">
       <rect>
-       <x>110</x>
+       <x>120</x>
        <y>300</y>
        <width>120</width>
        <height>120</height>
@@ -258,8 +318,8 @@ border-radius: 12px;</string>
     <widget class="QPushButton" name="mesa3">
      <property name="geometry">
       <rect>
-       <x>110</x>
-       <y>470</y>
+       <x>60</x>
+       <y>490</y>
        <width>120</width>
        <height>120</height>
       </rect>
@@ -285,7 +345,7 @@ border-radius: 12px;</string>
      <property name="geometry">
       <rect>
        <x>360</x>
-       <y>130</y>
+       <y>70</y>
        <width>120</width>
        <height>120</height>
       </rect>
@@ -337,7 +397,7 @@ border-radius: 12px;</string>
      <property name="geometry">
       <rect>
        <x>360</x>
-       <y>470</y>
+       <y>540</y>
        <width>120</width>
        <height>120</height>
       </rect>
@@ -362,8 +422,8 @@ border-radius: 12px;</string>
     <widget class="QPushButton" name="mesa7">
      <property name="geometry">
       <rect>
-       <x>600</x>
-       <y>130</y>
+       <x>650</x>
+       <y>120</y>
        <width>120</width>
        <height>120</height>
       </rect>
@@ -388,7 +448,7 @@ border-radius: 12px;</string>
     <widget class="QPushButton" name="mesa8">
      <property name="geometry">
       <rect>
-       <x>600</x>
+       <x>590</x>
        <y>300</y>
        <width>120</width>
        <height>120</height>
@@ -414,8 +474,8 @@ border-radius: 12px;</string>
     <widget class="QPushButton" name="mesa9">
      <property name="geometry">
       <rect>
-       <x>600</x>
-       <y>470</y>
+       <x>650</x>
+       <y>490</y>
        <width>120</width>
        <height>120</height>
       </rect>
@@ -437,8 +497,382 @@ border-radius: 12px;</string>
       </size>
      </property>
     </widget>
+    <widget class="QWidget" name="horizontalLayoutWidget">
+     <property name="geometry">
+      <rect>
+       <x>560</x>
+       <y>50</y>
+       <width>281</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <widget class="QLabel" name="label_3">
+        <property name="font">
+         <font>
+          <family>Calisto MT</family>
+          <pointsize>9</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(255, 255, 255);
+</string>
+        </property>
+        <property name="text">
+         <string>STATUS DE MESA:</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QComboBox" name="comboBox">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>120</width>
+          <height>30</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>120</width>
+          <height>30</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgba(255, 255, 255,200);
+border-radius: 7px;
+</string>
+        </property>
+        <item>
+         <property name="text">
+          <string>DISPONIBLE</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>RESERVADA</string>
+         </property>
+        </item>
+       </widget>
+      </item>
+     </layout>
+    </widget>
    </widget>
-   <widget class="QWidget" name="page_2"/>
+   <widget class="QWidget" name="Agregaritems">
+    <property name="styleSheet">
+     <string notr="true">#Agregaritems{
+	background-color: rgb(72, 72, 72);}</string>
+    </property>
+    <widget class="QTabWidget" name="menu_Platillos">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>500</width>
+       <height>701</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Calisto MT</family>
+      </font>
+     </property>
+     <property name="tabPosition">
+      <enum>QTabWidget::North</enum>
+     </property>
+     <property name="tabShape">
+      <enum>QTabWidget::Rounded</enum>
+     </property>
+     <property name="currentIndex">
+      <number>2</number>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>60</width>
+       <height>70</height>
+      </size>
+     </property>
+     <widget class="QWidget" name="entradas">
+      <attribute name="icon">
+       <iconset resource="IMG/imags.qrc">
+        <normaloff>:/iconos/entradas.png</normaloff>:/iconos/entradas.png</iconset>
+      </attribute>
+      <attribute name="title">
+       <string>ENTRADAS</string>
+      </attribute>
+     </widget>
+     <widget class="QWidget" name="ensaladas">
+      <attribute name="icon">
+       <iconset resource="IMG/imags.qrc">
+        <normaloff>:/iconos/ensalada.png</normaloff>:/iconos/ensalada.png</iconset>
+      </attribute>
+      <attribute name="title">
+       <string>ENSALADAS</string>
+      </attribute>
+     </widget>
+     <widget class="QWidget" name="sopas">
+      <attribute name="icon">
+       <iconset resource="IMG/imags.qrc">
+        <normaloff>:/iconos/sopa.png</normaloff>:/iconos/sopa.png</iconset>
+      </attribute>
+      <attribute name="title">
+       <string>SOPAS</string>
+      </attribute>
+     </widget>
+     <widget class="QWidget" name="carne">
+      <attribute name="icon">
+       <iconset resource="IMG/imags.qrc">
+        <normaloff>:/iconos/carne.png</normaloff>:/iconos/carne.png</iconset>
+      </attribute>
+      <attribute name="title">
+       <string>CARNE</string>
+      </attribute>
+     </widget>
+     <widget class="QWidget" name="guarn">
+      <attribute name="title">
+       <string>GUARNICIONES</string>
+      </attribute>
+     </widget>
+     <widget class="QWidget" name="esp">
+      <attribute name="icon">
+       <iconset resource="IMG/imags.qrc">
+        <normaloff>:/iconos/especialidad.png</normaloff>:/iconos/especialidad.png</iconset>
+      </attribute>
+      <attribute name="title">
+       <string>ESPECIALIDADES</string>
+      </attribute>
+     </widget>
+     <widget class="QWidget" name="postres">
+      <attribute name="icon">
+       <iconset resource="IMG/imags.qrc">
+        <normaloff>:/iconos/postre.png</normaloff>:/iconos/postre.png</iconset>
+      </attribute>
+      <attribute name="title">
+       <string>POSTRES</string>
+      </attribute>
+     </widget>
+     <widget class="QWidget" name="tab_3">
+      <attribute name="icon">
+       <iconset resource="IMG/imags.qrc">
+        <normaloff>:/iconos/bebida.png</normaloff>:/iconos/bebida.png</iconset>
+      </attribute>
+      <attribute name="title">
+       <string>BEBIDAS</string>
+      </attribute>
+     </widget>
+    </widget>
+    <widget class="QTabWidget" name="orden">
+     <property name="geometry">
+      <rect>
+       <x>505</x>
+       <y>60</y>
+       <width>339</width>
+       <height>611</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">#orden{
+border-color: rgb(255, 170, 0);}</string>
+     </property>
+     <property name="currentIndex">
+      <number>0</number>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>98</width>
+       <height>80</height>
+      </size>
+     </property>
+     <widget class="QWidget" name="tab">
+      <attribute name="icon">
+       <iconset resource="IMG/imags.qrc">
+        <normaloff>:/iconos/infoPlato.png</normaloff>:/iconos/infoPlato.png</iconset>
+      </attribute>
+      <attribute name="title">
+       <string>Platillo</string>
+      </attribute>
+      <widget class="QPushButton" name="pushButton">
+       <property name="geometry">
+        <rect>
+         <x>70</x>
+         <y>460</y>
+         <width>200</width>
+         <height>51</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Calisto MT</family>
+         <pointsize>9</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton{
+border-width: 0px;
+border-radius: 5px;
+	border-color: rgb(169, 169, 169);
+background: rgba(255, 255, 255,200);}
+
+QPushButton:hover{
+	background: rgba(169, 169, 169,0.7);
+    border-radius: 5px;
+
+
+}</string>
+       </property>
+       <property name="text">
+        <string>Añadir a la orden</string>
+       </property>
+       <property name="icon">
+        <iconset resource="IMG/imags.qrc">
+         <normaloff>:/iconos/agrgar.png</normaloff>:/iconos/agrgar.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>50</width>
+         <height>45</height>
+        </size>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="tab_2">
+      <attribute name="icon">
+       <iconset resource="IMG/imags.qrc">
+        <normaloff>:/iconos/orden.png</normaloff>:/iconos/orden.png</iconset>
+      </attribute>
+      <attribute name="title">
+       <string>Orden</string>
+      </attribute>
+      <widget class="QPushButton" name="enviarord_pushButton">
+       <property name="geometry">
+        <rect>
+         <x>-10</x>
+         <y>460</y>
+         <width>181</width>
+         <height>61</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Calisto MT</family>
+         <pointsize>7</pointsize>
+        </font>
+       </property>
+       <property name="toolTip">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enviar orden a cocina&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton{
+border-width: 0px;
+border-radius: 5px;
+	background: rgba(255, 255, 255,200);}
+
+QPushButton:hover{
+	background: rgba(169, 169, 169,0.7);
+    border-radius: 5px;
+
+
+}
+</string>
+       </property>
+       <property name="text">
+        <string>Enviar orden a cocina</string>
+       </property>
+       <property name="icon">
+        <iconset resource="IMG/imags.qrc">
+         <normaloff>:/iconos/enviar.png</normaloff>:/iconos/enviar.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>65</width>
+         <height>60</height>
+        </size>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pagarord_pushButton">
+       <property name="geometry">
+        <rect>
+         <x>179</x>
+         <y>460</y>
+         <width>161</width>
+         <height>61</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Calisto MT</family>
+         <pointsize>7</pointsize>
+        </font>
+       </property>
+       <property name="layoutDirection">
+        <enum>Qt::LeftToRight</enum>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton{
+border-width: 0px;
+border-radius: 5px;
+	background: rgba(255, 255, 255,200)}
+
+QPushButton:hover{
+	background: rgba(169, 169, 169,0.7);
+    border-radius: 5px;
+
+
+}</string>
+       </property>
+       <property name="text">
+        <string>Finalizar pedido</string>
+       </property>
+       <property name="icon">
+        <iconset resource="IMG/imags.qrc">
+         <normaloff>:/iconos/terminar.png</normaloff>:/iconos/terminar.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>70</width>
+         <height>65</height>
+        </size>
+       </property>
+      </widget>
+     </widget>
+    </widget>
+    <widget class="QLabel" name="label_23">
+     <property name="geometry">
+      <rect>
+       <x>590</x>
+       <y>-2</y>
+       <width>200</width>
+       <height>35</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Calisto MT</family>
+       <pointsize>12</pointsize>
+       <weight>50</weight>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(255, 255, 255);
+border-radius: 12px;</string>
+     </property>
+     <property name="text">
+      <string>TOMAR ORDEN</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+   </widget>
   </widget>
  </widget>
  <resources>

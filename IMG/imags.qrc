@@ -22,11 +22,18 @@
         <file>especialidad.png</file>
         <file>postre.png</file>
         <file>sopa.png</file>
+        <file>infoPlato.png</file>
+        <file>orden.png</file>
+        <file>eliminar.png</file>
+        <file>enviar.png</file>
+        <file>terminar.png</file>
+        <file>agrgar.png</file>
     </qresource>
     <qresource prefix="/imagenes">
         <file>LOGO.png</file>
         <file>fondo.jpg</file>
         <file>f1.jpg</file>
         <file>rece.jpg</file>
+        <file>SABO.png</file>
     </qresource>
 </RCC>
