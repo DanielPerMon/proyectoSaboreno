@@ -540,7 +540,7 @@ void gerente_menu::ActualizarTablaPlatillos(int id_categoria)
             int fila2 = ui->platillos_tableWidget->rowCount()-1;
             ui->platillos_tableWidget->setItem(fila2,0,new QTableWidgetItem(platillos.value(0).toString()));
             ui->platillos_tableWidget->setItem(fila2,1,new QTableWidgetItem(platillos.value(1).toString()));
-            ui->platillos_tableWidget->setItem(fila2,2,new QTableWidgetItem(platillos.value(2).toString()));
+            ui->platillos_tableWidget->setItem(fila2,2,new QTableWidgetItem("$"+platillos.value(2).toString()+".00"));
         }
     }
 
@@ -570,7 +570,7 @@ void gerente_menu::QueryEditarPlatillo(int id)
         platillo.exec(); // LLenado de campos de edicion
         while(platillo.next()){
             ui->nom_lineEdit->setText(platillo.value(0).toString());
-            ui->precio_lineEdit->setText(platillo.value(1).toString());
+            ui->precio_lineEdit->setText("$"+platillo.value(1).toString()+".00");
             ui->desc_textEdit->setText(platillo.value(2).toString());
             pix.loadFromData(platillo.value(3).toByteArray());
             ui->foto_label->setPixmap(pix);
