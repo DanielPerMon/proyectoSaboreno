@@ -35,6 +35,7 @@ MainWindow::MainWindow(QWidget *parent)
         qDebug() << "Error de base" << mDatabase.lastError();
     }
 
+    ui->inicio->setCurrentIndex(0);
 }
 
 MainWindow::~MainWindow()

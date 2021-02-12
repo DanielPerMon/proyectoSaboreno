@@ -30,7 +30,7 @@
     <string notr="true"/>
    </property>
    <property name="currentIndex">
-    <number>1</number>
+    <number>2</number>
    </property>
    <widget class="QWidget" name="nuevo_empleado">
     <property name="styleSheet">
@@ -1053,14 +1053,14 @@ border-radius: 12px;</string>
      <attribute name="horizontalHeaderCascadingSectionResizes">
       <bool>true</bool>
      </attribute>
-     <attribute name="horizontalHeaderMinimumSectionSize">
-      <number>39</number>
-     </attribute>
      <attribute name="horizontalHeaderDefaultSectionSize">
       <number>250</number>
      </attribute>
      <attribute name="horizontalHeaderHighlightSections">
       <bool>true</bool>
+     </attribute>
+     <attribute name="horizontalHeaderMinimumSectionSize">
+      <number>39</number>
      </attribute>
      <attribute name="horizontalHeaderShowSortIndicator" stdset="0">
       <bool>false</bool>
@@ -1491,10 +1491,10 @@ border-radius: 12px;</string>
      <widget class="QPushButton" name="nfoto_pushButton">
       <property name="geometry">
        <rect>
-        <x>190</x>
-        <y>100</y>
-        <width>60</width>
-        <height>60</height>
+        <x>30</x>
+        <y>180</y>
+        <width>41</width>
+        <height>41</height>
        </rect>
       </property>
       <property name="styleSheet">
