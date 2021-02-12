@@ -16,10 +16,13 @@ mesero_menu::mesero_menu(QSqlDatabase base, QString usuario, QWidget *parent) :
     temporal = "";
     cargarMesas();
 
-    QSqlQuery aux;
-    aux.exec("SELECT id_mesero FROM mesero INNER JOIN empleado ON mesero.id_empleado = empleado.idEmpleado WHERE NombreEmpleado = '"+usuario+"'");
-    aux.next();
-    idMesero = aux.value(0).toInt();
+    QSqlQuery *aux = new QSqlQuery();
+    aux->exec("SELECT id_mesero FROM mesero INNER JOIN empleado ON mesero.id_empleado = empleado.idEmpleado WHERE NombreEmpleado = '"+usuario+"'");
+    aux->next();
+    idMesero = aux->value(0).toInt();
+    platillosNuevos=0;
+
+    delete aux;
 }
 
 mesero_menu::~mesero_menu()
@@ -30,6 +33,7 @@ mesero_menu::~mesero_menu()
 void mesero_menu::on_salir_clicked()
 {
     this->close();
+    delete ui;
 }
 
 void mesero_menu::on_verMesas_pushButton_clicked()
@@ -68,11 +72,13 @@ void mesero_menu::cargarMesas()
         qDebug() << "Error en ver mesas  " << estado->lastError();
     }
     botones.clear();
+    delete estado;
 }
 
 void mesero_menu::agregarProducto(QString numMesa)
 {
     ui->label_23->setText("TOMAR ORDEN MESA "+numMesa);
+    mesa = numMesa;
 
     QSqlQuery *verEstado = new QSqlQuery();
 
@@ -80,7 +86,6 @@ void mesero_menu::agregarProducto(QString numMesa)
     verEstado->next();
 
     if(verEstado->value(0).toString() == "libre" || verEstado->value(0).toString() == "reservada"){
-        qDebug() << "entra al if";
         QDate fecha = QDate::currentDate();
         QString FechaActual = fecha.toString("yyyy-MM-dd");
         QMessageBox confirmacion(this);
@@ -92,18 +97,20 @@ void mesero_menu::agregarProducto(QString numMesa)
         int ret = confirmacion.exec();
         if(ret == 0)
         {
-            QSqlQuery item;
-            if( item.exec("INSERT INTO cuenta(fecha, estado, idmesa, idmesero) VALUES('"+FechaActual+"', 0, '"+numMesa+"', '"+QString::number(idMesero)+"')"))
+            QSqlQuery *item = new QSqlQuery();
+            if( item->exec("INSERT INTO cuenta(fecha, estado, idmesa, idmesero) VALUES('"+FechaActual+"', 0, '"+numMesa+"', '"+QString::number(idMesero)+"')"))
             {
-                QSqlQuery actualizaEstado;
-                actualizaEstado.exec("UPDATE mesa SET estado = 'ocupada' WHERE idMesa = '"+numMesa+"'");
+                QSqlQuery *actualizaEstado = new QSqlQuery();
+                actualizaEstado->exec("UPDATE mesa SET estado = 'ocupada' WHERE idMesa = '"+numMesa+"'");
                 cargarMesas();
+                delete actualizaEstado;
             }
             else
             {
                 qDebug()<<"Error de crear cuenta";
-                qDebug()<<item.lastError();
+                qDebug()<<item->lastError();
             }
+            delete item;
         }
         else
         {
@@ -111,44 +118,44 @@ void mesero_menu::agregarProducto(QString numMesa)
         }
     }
     else{
-        QSqlQuery vercuenta;
+        QSqlQuery *vercuenta = new QSqlQuery();
 
-        vercuenta.exec("SELECT id_cuenta FROM cuenta WHERE idmesa = '"+numMesa+"' AND estado = '0' ");
-        vercuenta.next();
-        numeroCuenta = vercuenta.value(0).toInt();
-
-        ui->tablaOrden->setRowCount(0);
-        QStringList titulos;
-        titulos<<"Platillo"<<"Cantidad"<<"";
-        ui->tablaOrden->setColumnCount(3);
-        ui->tablaOrden->setHorizontalHeaderLabels(titulos);
-
-        vercuenta.exec("SELECT p.NombrePlatillo, o.cantidadPlatillo FROM platillos as p INNER JOIN orden as o ON p.idPlatillos = o.id_platillo "
-                       " INNER JOIN cuenta as c ON o.id_cuenta = c.id_cuenta INNER JOIN mesa as m ON c.idmesa = m.idMesa WHERE c.estado = '0' "
-                       "AND m.idMesa = '"+numMesa+"' ");
-
-        int fila;
-        while(vercuenta.next()){
-            fila = ui->tablaOrden->rowCount();
-            ui->tablaOrden->insertRow(ui->tablaOrden->rowCount());
-            ui->tablaOrden->setItem(fila,0,new QTableWidgetItem(vercuenta.value(0).toString()));
-            ui->tablaOrden->setItem(fila,1,new QTableWidgetItem(vercuenta.value(1).toString()));
-        }
+        vercuenta->exec("SELECT id_cuenta FROM cuenta WHERE idmesa = '"+numMesa+"' AND estado = '0' ");
+        vercuenta->next();
+        numeroCuenta = vercuenta->value(0).toInt();
+        cargarOrden(numMesa);
+        delete vercuenta;
     }
 
     delete verEstado;
 }
 
-void mesero_menu::cargarMenu()
+void mesero_menu::cargarOrden(QString numMesa)
 {
-    QSqlQuery *items = new QSqlQuery();
-    QSqlQuery *cat = new QSqlQuery();
-    cat->exec("SELECT * FROM categoria");
-    if(items->exec("SELECT NombrePlatillos, id_Categoria FROM platillos WHERE id_Categoria = '"+cat->value(0).toString()+"' ")){
-        qDebug() << "Error en cargar menú " << items->lastError();
+    QSqlQuery *vercuenta = new QSqlQuery;
+    ui->tablaOrden->clear();
+    ui->tablaOrden->setRowCount(0);
+    QStringList titulos;
+    titulos<<"Platillo"<<"Cantidad"<<"";
+    ui->tablaOrden->setColumnCount(3);
+    ui->tablaOrden->setHorizontalHeaderLabels(titulos);
+    ui->tablaOrden->setColumnWidth(2,50);
+
+    vercuenta->exec("SELECT p.NombrePlatillo, o.cantidadPlatillo FROM platillos as p INNER JOIN orden as o ON p.idPlatillos = o.id_platillo "
+                   " INNER JOIN cuenta as c ON o.id_cuenta = c.id_cuenta INNER JOIN mesa as m ON c.idmesa = m.idMesa WHERE c.estado = '0' "
+                   "AND m.idMesa = '"+numMesa+"' ");
+
+    int fila;
+    while(vercuenta->next()){
+        fila = ui->tablaOrden->rowCount();
+        ui->tablaOrden->insertRow(ui->tablaOrden->rowCount());
+        ui->tablaOrden->setItem(fila,0,new QTableWidgetItem(vercuenta->value(0).toString()));
+        ui->tablaOrden->setItem(fila,1,new QTableWidgetItem(vercuenta->value(1).toString()));
     }
-    else
-        qDebug() << "Error en cargar menú " << items->lastError();
+
+    filaactual = ui->tablaOrden->rowCount();
+    filafinal = filaactual;
+    delete vercuenta;
 }
 
 
@@ -163,7 +170,7 @@ void mesero_menu::on_mesa2_clicked()
 {
     ui->Mesero_menu->setCurrentIndex(1);
     ui->tablaOrden->clear();
-    agregarProducto("1");
+    agregarProducto("2");
 }
 
 void mesero_menu::on_mesa3_clicked()
@@ -453,7 +460,11 @@ void mesero_menu::on_agregarord_pushButton_clicked()
 
     QWidget* pWidget = new QWidget();
     QPushButton* btn_edit = new QPushButton();
-    btn_edit->setText("Elim");
+    btn_edit->setStyleSheet("border-image: url(:/iconos/minus.png);background-color: transparent;");
+    btn_edit->setMinimumWidth(41);
+    btn_edit->setMinimumHeight(41);
+    btn_edit->setMaximumWidth(41);
+    btn_edit->setMaximumHeight(41);
     QHBoxLayout* pLayout = new QHBoxLayout(pWidget);
     pLayout->addWidget(btn_edit);
     pLayout->setAlignment(Qt::AlignCenter);
@@ -465,6 +476,7 @@ void mesero_menu::on_agregarord_pushButton_clicked()
     btn_edit->setProperty("row",fila);
 
     connect(btn_edit, SIGNAL (clicked()),this, SLOT (borrarItem()));
+    filafinal++;
 }
 
 void mesero_menu::on_btnmenos_clicked()
@@ -497,26 +509,31 @@ void mesero_menu::on_enviarord_pushButton_clicked()
     int ret = confirmacion.exec();
     if(ret == 0)
     {
-        QSqlQuery orden;
-        for(int i = 0; i < ui->tablaOrden->rowCount();i++){
-            QSqlQuery aux;
-            aux.exec("SELECT * FROM platillos WHERE NombrePlatillo = '"+ui->tablaOrden->item(i,0)->text()+"'");
-            aux.next();
-            orden.exec("INSERT INTO orden(id_cuenta,precio,cantidadPlatillo,id_platillo) VALUES('"+QString::number(numeroCuenta)+"',"
-                        "'"+aux.value(3).toString()+"','"+ui->tablaOrden->item(i,1)->text()+"', '"+aux.value(0).toString()+"' )");
+        QSqlQuery *orden = new QSqlQuery();
+        int ayuda = filaactual;
+        QSqlQuery *aux = new QSqlQuery();
+        while(ayuda < filafinal){
+
+            aux->exec("SELECT * FROM platillos WHERE NombrePlatillo = '"+ui->tablaOrden->item(ayuda,0)->text()+"'");
+            aux->next();
+            orden->exec("INSERT INTO orden(id_cuenta,precio,cantidadPlatillo,id_platillo) VALUES('"+QString::number(numeroCuenta)+"',"
+                        "'"+aux->value(3).toString()+"','"+ui->tablaOrden->item(ayuda,1)->text()+"', '"+aux->value(0).toString()+"' )");
+            ui->tablaOrden->item(ayuda,1)->setData(Qt::BackgroundRole, QVariant(QColor(Qt::yellow)));
+            ui->tablaOrden->item(ayuda,0)->setData(Qt::BackgroundRole, QVariant(QColor(Qt::yellow)));
+            QWidget* focused = ui->tablaOrden->cellWidget(ayuda,2);
+            focused->hide();
+            ayuda++;
         }
+        delete orden;
+        delete aux;
+        cargarOrden(mesa);
     }
 }
 
 void mesero_menu::borrarItem()
 {
-    QObject *senderObj = sender();
-    int row = ui->tablaOrden->currentRow();
-    if (row == -1) {
-      if (QWidget* focused = ui->tablaOrden->focusWidget()) {
-        row = focused->property("row").toInt();
-      }
-    }
-
+    QWidget* focused = ui->tablaOrden->focusWidget();
+    int row = focused->property("row").toInt();
+    qDebug() << QString::number(row);
     ui->tablaOrden->removeRow(row);
 }

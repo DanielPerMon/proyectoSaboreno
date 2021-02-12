@@ -1135,6 +1135,12 @@ QPushButton:hover{
          <family>Calisto MT</family>
         </font>
        </property>
+       <attribute name="verticalHeaderDefaultSectionSize">
+        <number>50</number>
+       </attribute>
+       <attribute name="verticalHeaderMinimumSectionSize">
+        <number>50</number>
+       </attribute>
        <column>
         <property name="text">
          <string>Platillo</string>
@@ -1157,7 +1163,7 @@ QPushButton:hover{
        </column>
        <column>
         <property name="text">
-         <string>   </string>
+         <string/>
         </property>
        </column>
       </widget>

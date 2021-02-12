@@ -28,6 +28,7 @@
         <file>enviar.png</file>
         <file>terminar.png</file>
         <file>agrgar.png</file>
+        <file>minus.png</file>
     </qresource>
     <qresource prefix="/imagenes">
         <file>LOGO.png</file>

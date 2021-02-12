@@ -66,12 +66,16 @@ private:
 
     void cargarMesas();
     void agregarProducto(QString);
-    void cargarMenu();
+    void cargarOrden(QString);
     QList<QPushButton *> botones;
     QList<QString> listaProductos;
     QString temporal;
     int numeroCuenta;
     int idMesero;
+    int filaactual;
+    int filafinal;
+    QString mesa;
+    int platillosNuevos;
 };
 
 #endif // MESERO_MENU_H
