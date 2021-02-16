@@ -60,6 +60,8 @@ private slots:
 
     void borrarItem();
 
+    void on_pagarord_pushButton_clicked();
+
 private:
     Ui::mesero_menu *ui;
     QSqlDatabase baseMesero;
@@ -69,6 +71,7 @@ private:
     void cargarOrden(QString);
     QList<QPushButton *> botones;
     QList<QString> listaProductos;
+    QList<int> aux;
     QString temporal;
     int numeroCuenta;
     int idMesero;

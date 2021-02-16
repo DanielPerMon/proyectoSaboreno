@@ -63,6 +63,10 @@ void mesero_menu::cargarMesas()
                         if(estado->value(0).toString() == botones[i]->objectName().right(1) && estado->value(1) == "reservada"){
                             botones[i]->setStyleSheet("*{background-color: rgb(255, 178, 21); border-radius:15px;}");
                         }
+                        else{
+                            if(estado->value(0).toString() == botones[i]->objectName().right(1) && estado->value(1) == "sucia")
+                                botones[i]->setStyleSheet("*{background-color: #0f790f; border-radius:15px; border: 4px solid red;}");
+                        }
                     }
                 }
             }
@@ -72,6 +76,7 @@ void mesero_menu::cargarMesas()
         qDebug() << "Error en ver mesas  " << estado->lastError();
     }
     botones.clear();
+    aux.clear();
     delete estado;
 }
 
@@ -487,6 +492,7 @@ void mesero_menu::on_agregarord_pushButton_clicked()
 
     btn_edit->setObjectName("btn"+QString::number(fila));
     btn_edit->setProperty("row",fila);
+    aux.append(fila);
 
     connect(btn_edit, SIGNAL (clicked()),this, SLOT (borrarItem()));
     filafinal++;
@@ -536,6 +542,7 @@ void mesero_menu::on_enviarord_pushButton_clicked()
         }
         qDebug() << orden.lastError();
         cargarOrden(mesa);
+        aux.clear();
     }
 }
 
@@ -550,11 +557,53 @@ void mesero_menu::borrarItem()
 
     botons = ui->tablaOrden->findChildren<QPushButton *>();
     for(int i = 0; i < botons.size(); i++){
-        qDebug() << botons[i]->property("row");
+        botons[i]->setProperty("row",aux[i]);
+        qDebug() << "ciclo" << botons[i]->property("row") << aux[i];
     }
 
     if(filafinal > filaactual)
         filafinal--;
     qDebug() << "fila actual" << filaactual;
     qDebug() << "fila final" << filafinal;
+}
+
+void mesero_menu::on_pagarord_pushButton_clicked()
+{
+    QSqlQuery finaliza;
+    QSqlQuery monto;
+    int montoAux = 0;
+
+    QMessageBox confirmacion(this);
+    confirmacion.addButton("Sí",QMessageBox::YesRole);
+    confirmacion.addButton("No",QMessageBox::NoRole);
+    confirmacion.setWindowTitle("Confirmación");
+    confirmacion.setIcon(QMessageBox::Question);
+    confirmacion.setText("¿Desea finalizar el servicio de la mesa " +mesa+ "?");
+    int ret = confirmacion.exec();
+
+    if(ret == 0){
+        monto.exec("SELECT precio, cantidadPlatillo FROM orden WHERE id_cuenta = '"+QString::number(numeroCuenta)+"'");
+
+        while(monto.next()){
+            montoAux += (monto.value(0).toInt() * monto.value(1).toInt());
+        }
+
+        if(finaliza.exec("UPDATE cuenta SET total = '"+QString::number(montoAux)+"', estado = '1' WHERE id_cuenta = '"+QString::number(numeroCuenta)+"'")){
+            QMessageBox messageBox(QMessageBox::Information,
+                                   tr("Confirmación"),
+                                   tr("Se ha finalizado el servicio"),
+                                   QMessageBox::Yes,
+                                   this);
+            messageBox.setButtonText(QMessageBox::Yes, tr("Aceptar"));
+            messageBox.exec();
+
+            finaliza.exec("UPDATE mesa SET Estado = 'libre' WHERE idMesa = '"+mesa+"'");
+            ui->tablaOrden->setRowCount(0);
+            cargarMesas();
+            ui->Mesero_menu->setCurrentIndex(0);
+
+        }
+        else
+            qDebug() << finaliza.lastError();
+    }
 }
