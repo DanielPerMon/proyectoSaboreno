@@ -1,0 +1,392 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>cocinero_menu</class>
+ <widget class="QDialog" name="cocinero_menu">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>850</width>
+    <height>750</height>
+   </rect>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>850</width>
+    <height>800</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Cocinero</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="IMG/imags.qrc">
+    <normaloff>:/iconos/restaurante.png</normaloff>:/iconos/restaurante.png</iconset>
+  </property>
+  <widget class="QWidget" name="Cmenu" native="true">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>850</width>
+     <height>100</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#Cmenu{
+	background-color: rgb(255, 178, 21);}</string>
+   </property>
+   <widget class="QLabel" name="lblCocinero">
+    <property name="geometry">
+     <rect>
+      <x>150</x>
+      <y>50</y>
+      <width>131</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="font">
+     <font>
+      <family>Calisto MT</family>
+      <pointsize>10</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="layoutDirection">
+     <enum>Qt::LeftToRight</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(0, 0, 0);
+</string>
+    </property>
+    <property name="text">
+     <string>Bienvenido/a:</string>
+    </property>
+    <property name="textFormat">
+     <enum>Qt::RichText</enum>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignJustify|Qt::AlignTop</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>0</y>
+      <width>130</width>
+      <height>100</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/imagenes/SABO.png);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="Csalir_pushButton">
+    <property name="geometry">
+     <rect>
+      <x>710</x>
+      <y>10</y>
+      <width>100</width>
+      <height>85</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgba(255, 255, 255,200);
+border-radius:7px;</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset resource="IMG/imags.qrc">
+      <normaloff>:/iconos/salida.png</normaloff>:/iconos/salida.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>100</width>
+      <height>65</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="oridenes_pushButton">
+    <property name="geometry">
+     <rect>
+      <x>580</x>
+      <y>10</y>
+      <width>100</width>
+      <height>86</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgba(255, 255, 255,200);
+border-radius:7px;</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset resource="IMG/imags.qrc">
+      <normaloff>:/iconos/ordenes.png</normaloff>:/iconos/ordenes.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>100</width>
+      <height>75</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>700</x>
+      <y>70</y>
+      <width>101</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Calisto MT</family>
+     </font>
+    </property>
+    <property name="text">
+     <string>Salir</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>570</x>
+      <y>80</y>
+      <width>101</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Calisto MT</family>
+     </font>
+    </property>
+    <property name="text">
+     <string>Ordenes</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QTabWidget" name="tabWidget">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>170</y>
+     <width>450</width>
+     <height>550</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Calisto MT</family>
+     <pointsize>9</pointsize>
+    </font>
+   </property>
+   <property name="currentIndex">
+    <number>1</number>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>104</width>
+     <height>80</height>
+    </size>
+   </property>
+   <widget class="QWidget" name="colaordenes">
+    <attribute name="icon">
+     <iconset resource="IMG/imags.qrc">
+      <normaloff>:/iconos/cola ordenes.png</normaloff>:/iconos/cola ordenes.png</iconset>
+    </attribute>
+    <attribute name="title">
+     <string>Cola de ordenes</string>
+    </attribute>
+    <widget class="QScrollArea" name="scrollArea_2">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>450</width>
+       <height>460</height>
+      </rect>
+     </property>
+     <property name="widgetResizable">
+      <bool>true</bool>
+     </property>
+     <widget class="QWidget" name="scrollAreaWidgetContents_2">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>448</width>
+        <height>458</height>
+       </rect>
+      </property>
+     </widget>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="ordneshechas">
+    <attribute name="icon">
+     <iconset resource="IMG/imags.qrc">
+      <normaloff>:/iconos/listaorden.png</normaloff>:/iconos/listaorden.png</iconset>
+    </attribute>
+    <attribute name="title">
+     <string>Ordenes listas</string>
+    </attribute>
+    <widget class="QScrollArea" name="scrollArea">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>450</width>
+       <height>460</height>
+      </rect>
+     </property>
+     <property name="widgetResizable">
+      <bool>true</bool>
+     </property>
+     <widget class="QWidget" name="scrollAreaWidgetContents">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>448</width>
+        <height>458</height>
+       </rect>
+      </property>
+     </widget>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QGroupBox" name="detalles">
+   <property name="geometry">
+    <rect>
+     <x>480</x>
+     <y>200</y>
+     <width>340</width>
+     <height>525</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Calisto MT</family>
+     <pointsize>9</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">
+#detalles{
+color: rgb(255, 255, 255);
+}</string>
+   </property>
+   <property name="title">
+    <string>DETALLES DE ORDEN</string>
+   </property>
+   <widget class="QPushButton" name="ordenlista_pushButton">
+    <property name="geometry">
+     <rect>
+      <x>5</x>
+      <y>450</y>
+      <width>330</width>
+      <height>65</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Calisto MT</family>
+     </font>
+    </property>
+    <property name="layoutDirection">
+     <enum>Qt::LeftToRight</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+border-width: 0px;
+border-radius: 7px;
+background: rgb(255, 255, 255);
+}
+
+QPushButton:hover{
+	background: rgba(255, 178, 21,0.7);
+
+    border-radius: 7px;
+	font: 75 9pt &quot;Calisto MT&quot;;
+    selection-color: white;  
+    padding: 2px 4px;
+}
+</string>
+    </property>
+    <property name="text">
+     <string>ORDEN LISTA</string>
+    </property>
+    <property name="icon">
+     <iconset resource="IMG/imags.qrc">
+      <normaloff>:/iconos/ordenlista.png</normaloff>:/iconos/ordenlista.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>80</width>
+      <height>70</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QLabel" name="orden">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>30</y>
+      <width>320</width>
+      <height>401</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 255, 255);</string>
+    </property>
+    <property name="text">
+     <string>Orden:</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QWidget" name="fondo" native="true">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>-100</y>
+     <width>850</width>
+     <height>850</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-image: url(:/imagenes/fondoc.jpg);</string>
+   </property>
+  </widget>
+  <zorder>fondo</zorder>
+  <zorder>Cmenu</zorder>
+  <zorder>tabWidget</zorder>
+  <zorder>detalles</zorder>
+ </widget>
+ <resources>
+  <include location="IMG/imags.qrc"/>
+ </resources>
+ <connections/>
+</ui>

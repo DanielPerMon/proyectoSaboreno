@@ -238,3 +238,8 @@ void MainWindow::on_Mingresar_pushButton_clicked()
     ui->mesero_nip_lineEdit->clear();
     delete inicia;
 }
+
+void MainWindow::on_cSalir_pushButton_clicked()
+{
+  ui->inicio->setCurrentIndex(0);
+}

@@ -28,7 +28,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>3</number>
     </property>
     <widget class="QWidget" name="login">
      <property name="styleSheet">
@@ -622,6 +622,11 @@ QPushButton:hover{
          <verstretch>0</verstretch>
         </sizepolicy>
        </property>
+       <property name="font">
+        <font>
+         <family>Calisto MT</family>
+        </font>
+       </property>
        <property name="styleSheet">
         <string notr="true">QLineEdit{
 border-radius: 9px;}</string>
@@ -756,35 +761,10 @@ border-radius: 9px;
        <string notr="true">#co_izq{
 	background-color: rgb(72, 72, 72);}</string>
       </property>
-      <widget class="QLabel" name="label_10">
-       <property name="geometry">
-        <rect>
-         <x>100</x>
-         <y>300</y>
-         <width>161</width>
-         <height>21</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <family>Calisto MT</family>
-         <pointsize>11</pointsize>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color: rgb(255, 255, 255);</string>
-       </property>
-       <property name="text">
-        <string>COCINERO</string>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
-       </property>
-      </widget>
       <widget class="QWidget" name="co" native="true">
        <property name="geometry">
         <rect>
-         <x>100</x>
+         <x>120</x>
          <y>160</y>
          <width>161</width>
          <height>131</height>
@@ -801,7 +781,184 @@ border-radius: 9px;
 	border-image: url(:/iconos/chef.png);
 }</string>
        </property>
+       <widget class="QLabel" name="label_20">
+        <property name="geometry">
+         <rect>
+          <x>-20</x>
+          <y>140</y>
+          <width>201</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Calisto MT</family>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(0, 0, 0);</string>
+        </property>
+        <property name="text">
+         <string>MESERO</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
       </widget>
+      <widget class="QLineEdit" name="NipCocinero_lineEdit">
+       <property name="geometry">
+        <rect>
+         <x>110</x>
+         <y>370</y>
+         <width>180</width>
+         <height>30</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Calisto MT</family>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QLineEdit{
+border-radius: 9px;}</string>
+       </property>
+       <property name="placeholderText">
+        <string>NIP</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="IngreCocinero_pushButton">
+       <property name="geometry">
+        <rect>
+         <x>100</x>
+         <y>450</y>
+         <width>200</width>
+         <height>40</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Calisto MT</family>
+         <pointsize>9</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton{
+border-width: 0px;
+border-radius: 9px;
+background-color: rgb(255, 178, 21);}
+
+QPushButton:hover{
+	background: rgba(244,67,54,0.7);
+    border-radius: 9px;
+    selection-color: white;  
+    padding: 2px 4px;
+
+}</string>
+       </property>
+       <property name="text">
+        <string>INGRESAR</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="cSalir_pushButton">
+       <property name="geometry">
+        <rect>
+         <x>340</x>
+         <y>750</y>
+         <width>45</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">
+background-color: transparent;</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset resource="IMG/imags.qrc">
+         <normaloff>:/iconos/salir.png</normaloff>:/iconos/salir.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>80</width>
+         <height>55</height>
+        </size>
+       </property>
+      </widget>
+      <widget class="QLabel" name="cocinero_label">
+       <property name="geometry">
+        <rect>
+         <x>70</x>
+         <y>80</y>
+         <width>271</width>
+         <height>61</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(0, 0, 0);
+border-image: none;
+background-color: white;
+border-radius: 9px;</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_19">
+       <property name="geometry">
+        <rect>
+         <x>100</x>
+         <y>150</y>
+         <width>200</width>
+         <height>171</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QLabel{
+	background-color: rgba(255, 255, 255,200);
+border-radius: 9px;
+}</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_21">
+       <property name="geometry">
+        <rect>
+         <x>100</x>
+         <y>300</y>
+         <width>201</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Calisto MT</family>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(0, 0, 0);</string>
+       </property>
+       <property name="text">
+        <string>COCINERO</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+      <zorder>NipCocinero_lineEdit</zorder>
+      <zorder>IngreCocinero_pushButton</zorder>
+      <zorder>cSalir_pushButton</zorder>
+      <zorder>cocinero_label</zorder>
+      <zorder>label_19</zorder>
+      <zorder>co</zorder>
+      <zorder>label_21</zorder>
      </widget>
      <widget class="QWidget" name="co_der" native="true">
       <property name="geometry">
@@ -811,6 +968,9 @@ border-radius: 9px;
         <width>460</width>
         <height>800</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-image: url(:/imagenes/cocina.png);</string>
       </property>
      </widget>
     </widget>
@@ -858,7 +1018,6 @@ background-color: rgb(255, 178, 21);}
 QPushButton:hover{
 	background: rgba(244,67,54,0.7);
     border-radius: 9px;
-	color: white;
     selection-color: white;  
     padding: 2px 4px;
 
@@ -877,6 +1036,11 @@ QPushButton:hover{
          <width>180</width>
          <height>30</height>
         </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Calisto MT</family>
+        </font>
        </property>
        <property name="styleSheet">
         <string notr="true">QLineEdit{
@@ -1036,7 +1200,7 @@ border-radius: 9px;</string>
      <x>0</x>
      <y>0</y>
      <width>850</width>
-     <height>25</height>
+     <height>26</height>
     </rect>
    </property>
   </widget>

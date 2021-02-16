@@ -121,7 +121,7 @@ border-radius: 7px;
     <property name="geometry">
      <rect>
       <x>160</x>
-      <y>60</y>
+      <y>50</y>
       <width>131</width>
       <height>41</height>
      </rect>
@@ -575,7 +575,7 @@ border-radius: 7px;
      <property name="geometry">
       <rect>
        <x>0</x>
-       <y>1</y>
+       <y>10</y>
        <width>500</width>
        <height>701</height>
       </rect>
@@ -592,7 +592,7 @@ border-radius: 7px;
       <enum>QTabWidget::Rounded</enum>
      </property>
      <property name="currentIndex">
-      <number>5</number>
+      <number>4</number>
      </property>
      <property name="iconSize">
       <size>
@@ -1007,7 +1007,7 @@ QPushButton:hover{
         <rect>
          <x>40</x>
          <y>290</y>
-         <width>81</width>
+         <width>161</width>
          <height>21</height>
         </rect>
        </property>
@@ -1018,7 +1018,7 @@ QPushButton:hover{
         </font>
        </property>
        <property name="text">
-        <string>Indicaciones</string>
+        <string>Indicaciones especiales:</string>
        </property>
       </widget>
      </widget>
@@ -1135,10 +1135,10 @@ QPushButton:hover{
          <family>Calisto MT</family>
         </font>
        </property>
-       <attribute name="verticalHeaderDefaultSectionSize">
+       <attribute name="verticalHeaderMinimumSectionSize">
         <number>50</number>
        </attribute>
-       <attribute name="verticalHeaderMinimumSectionSize">
+       <attribute name="verticalHeaderDefaultSectionSize">
         <number>50</number>
        </attribute>
        <column>

@@ -16,17 +16,20 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    cocinero_menu.cpp \
     gerente_menu.cpp \
     main.cpp \
     mainwindow.cpp \
     mesero_menu.cpp
 
 HEADERS += \
+    cocinero_menu.h \
     gerente_menu.h \
     mainwindow.h \
     mesero_menu.h
 
 FORMS += \
+    cocinero_menu.ui \
     gerente_menu.ui \
     mainwindow.ui \
     mesero_menu.ui

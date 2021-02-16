@@ -29,6 +29,11 @@
         <file>terminar.png</file>
         <file>agrgar.png</file>
         <file>minus.png</file>
+        <file>cola ordenes.png</file>
+        <file>listaorden.png</file>
+        <file>ordenes.png</file>
+        <file>ordenlista.png</file>
+        <file>pedido.png</file>
     </qresource>
     <qresource prefix="/imagenes">
         <file>LOGO.png</file>
@@ -36,5 +41,7 @@
         <file>f1.jpg</file>
         <file>rece.jpg</file>
         <file>SABO.png</file>
+        <file>cocina.png</file>
+        <file>fondoc.jpg</file>
     </qresource>
 </RCC>
