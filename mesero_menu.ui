@@ -61,7 +61,7 @@ border-radius:7px;</string>
      <string/>
     </property>
     <property name="icon">
-     <iconset resource="IMG/imags.qrc">
+     <iconset resource="../../../../../Desktop/proyectoSaboreno/IMG/imags.qrc">
       <normaloff>:/iconos/restaurant.png</normaloff>:/iconos/restaurant.png</iconset>
     </property>
     <property name="iconSize">
@@ -107,7 +107,7 @@ border-radius: 7px;
      <string/>
     </property>
     <property name="icon">
-     <iconset resource="IMG/imags.qrc">
+     <iconset resource="../../../../../Desktop/proyectoSaboreno/IMG/imags.qrc">
       <normaloff>:/iconos/salida.png</normaloff>:/iconos/salida.png</iconset>
     </property>
     <property name="iconSize">
@@ -251,7 +251,7 @@ border-radius: 7px;
       <string/>
      </property>
      <property name="icon">
-      <iconset resource="IMG/imags.qrc">
+      <iconset resource="../../../../../Desktop/proyectoSaboreno/IMG/imags.qrc">
        <normaloff>:/iconos/mesa.png</normaloff>:/iconos/mesa.png</iconset>
      </property>
      <property name="iconSize">
@@ -305,7 +305,7 @@ border-radius: 12px;</string>
       <string/>
      </property>
      <property name="icon">
-      <iconset resource="IMG/imags.qrc">
+      <iconset resource="../../../../../Desktop/proyectoSaboreno/IMG/imags.qrc">
        <normaloff>:/iconos/mesa.png</normaloff>:/iconos/mesa.png</iconset>
      </property>
      <property name="iconSize">
@@ -331,7 +331,7 @@ border-radius: 12px;</string>
       <string/>
      </property>
      <property name="icon">
-      <iconset resource="IMG/imags.qrc">
+      <iconset resource="../../../../../Desktop/proyectoSaboreno/IMG/imags.qrc">
        <normaloff>:/iconos/mesa.png</normaloff>:/iconos/mesa.png</iconset>
      </property>
      <property name="iconSize">
@@ -357,7 +357,7 @@ border-radius: 12px;</string>
       <string/>
      </property>
      <property name="icon">
-      <iconset resource="IMG/imags.qrc">
+      <iconset resource="../../../../../Desktop/proyectoSaboreno/IMG/imags.qrc">
        <normaloff>:/iconos/mesa.png</normaloff>:/iconos/mesa.png</iconset>
      </property>
      <property name="iconSize">
@@ -383,7 +383,7 @@ border-radius: 12px;</string>
       <string/>
      </property>
      <property name="icon">
-      <iconset resource="IMG/imags.qrc">
+      <iconset resource="../../../../../Desktop/proyectoSaboreno/IMG/imags.qrc">
        <normaloff>:/iconos/mesa.png</normaloff>:/iconos/mesa.png</iconset>
      </property>
      <property name="iconSize">
@@ -409,7 +409,7 @@ border-radius: 12px;</string>
       <string/>
      </property>
      <property name="icon">
-      <iconset resource="IMG/imags.qrc">
+      <iconset resource="../../../../../Desktop/proyectoSaboreno/IMG/imags.qrc">
        <normaloff>:/iconos/mesa.png</normaloff>:/iconos/mesa.png</iconset>
      </property>
      <property name="iconSize">
@@ -435,7 +435,7 @@ border-radius: 12px;</string>
       <string/>
      </property>
      <property name="icon">
-      <iconset resource="IMG/imags.qrc">
+      <iconset resource="../../../../../Desktop/proyectoSaboreno/IMG/imags.qrc">
        <normaloff>:/iconos/mesa.png</normaloff>:/iconos/mesa.png</iconset>
      </property>
      <property name="iconSize">
@@ -461,7 +461,7 @@ border-radius: 12px;</string>
       <string/>
      </property>
      <property name="icon">
-      <iconset resource="IMG/imags.qrc">
+      <iconset resource="../../../../../Desktop/proyectoSaboreno/IMG/imags.qrc">
        <normaloff>:/iconos/mesa.png</normaloff>:/iconos/mesa.png</iconset>
      </property>
      <property name="iconSize">
@@ -487,7 +487,7 @@ border-radius: 12px;</string>
       <string/>
      </property>
      <property name="icon">
-      <iconset resource="IMG/imags.qrc">
+      <iconset resource="../../../../../Desktop/proyectoSaboreno/IMG/imags.qrc">
        <normaloff>:/iconos/mesa.png</normaloff>:/iconos/mesa.png</iconset>
      </property>
      <property name="iconSize">
@@ -602,7 +602,7 @@ border-radius: 7px;
      </property>
      <widget class="QWidget" name="entradas">
       <attribute name="icon">
-       <iconset resource="IMG/imags.qrc">
+       <iconset resource="../../../../../Desktop/proyectoSaboreno/IMG/imags.qrc">
         <normaloff>:/iconos/entradas.png</normaloff>:/iconos/entradas.png</iconset>
       </attribute>
       <attribute name="title">
@@ -634,7 +634,7 @@ border-radius: 7px;
      </widget>
      <widget class="QWidget" name="ensaladas">
       <attribute name="icon">
-       <iconset resource="IMG/imags.qrc">
+       <iconset resource="../../../../../Desktop/proyectoSaboreno/IMG/imags.qrc">
         <normaloff>:/iconos/ensalada.png</normaloff>:/iconos/ensalada.png</iconset>
       </attribute>
       <attribute name="title">
@@ -666,7 +666,7 @@ border-radius: 7px;
      </widget>
      <widget class="QWidget" name="sopas">
       <attribute name="icon">
-       <iconset resource="IMG/imags.qrc">
+       <iconset resource="../../../../../Desktop/proyectoSaboreno/IMG/imags.qrc">
         <normaloff>:/iconos/sopa.png</normaloff>:/iconos/sopa.png</iconset>
       </attribute>
       <attribute name="title">
@@ -698,7 +698,7 @@ border-radius: 7px;
      </widget>
      <widget class="QWidget" name="carnes">
       <attribute name="icon">
-       <iconset resource="IMG/imags.qrc">
+       <iconset resource="../../../../../Desktop/proyectoSaboreno/IMG/imags.qrc">
         <normaloff>:/iconos/carne.png</normaloff>:/iconos/carne.png</iconset>
       </attribute>
       <attribute name="title">
@@ -758,7 +758,7 @@ border-radius: 7px;
      </widget>
      <widget class="QWidget" name="especialidades">
       <attribute name="icon">
-       <iconset resource="IMG/imags.qrc">
+       <iconset resource="../../../../../Desktop/proyectoSaboreno/IMG/imags.qrc">
         <normaloff>:/iconos/especialidad.png</normaloff>:/iconos/especialidad.png</iconset>
       </attribute>
       <attribute name="title">
@@ -790,7 +790,7 @@ border-radius: 7px;
      </widget>
      <widget class="QWidget" name="postres">
       <attribute name="icon">
-       <iconset resource="IMG/imags.qrc">
+       <iconset resource="../../../../../Desktop/proyectoSaboreno/IMG/imags.qrc">
         <normaloff>:/iconos/postre.png</normaloff>:/iconos/postre.png</iconset>
       </attribute>
       <attribute name="title">
@@ -822,7 +822,7 @@ border-radius: 7px;
      </widget>
      <widget class="QWidget" name="bebidas">
       <attribute name="icon">
-       <iconset resource="IMG/imags.qrc">
+       <iconset resource="../../../../../Desktop/proyectoSaboreno/IMG/imags.qrc">
         <normaloff>:/iconos/bebida.png</normaloff>:/iconos/bebida.png</iconset>
       </attribute>
       <attribute name="title">
@@ -877,7 +877,7 @@ border-color: rgb(255, 170, 0);}</string>
      </property>
      <widget class="QWidget" name="tab">
       <attribute name="icon">
-       <iconset resource="IMG/imags.qrc">
+       <iconset resource="../../../../../Desktop/proyectoSaboreno/IMG/imags.qrc">
         <normaloff>:/iconos/infoPlato.png</normaloff>:/iconos/infoPlato.png</iconset>
       </attribute>
       <attribute name="title">
@@ -916,7 +916,7 @@ QPushButton:hover{
         <string>Añadir a la orden</string>
        </property>
        <property name="icon">
-        <iconset resource="IMG/imags.qrc">
+        <iconset resource="../../../../../Desktop/proyectoSaboreno/IMG/imags.qrc">
          <normaloff>:/iconos/agrgar.png</normaloff>:/iconos/agrgar.png</iconset>
        </property>
        <property name="iconSize">
@@ -966,7 +966,7 @@ QPushButton:hover{
         <set>Qt::AlignCenter</set>
        </property>
       </widget>
-      <widget class="QTextEdit" name="textEdit">
+      <widget class="QTextEdit" name="indicacionestxt">
        <property name="geometry">
         <rect>
          <x>30</x>
@@ -1024,7 +1024,7 @@ QPushButton:hover{
      </widget>
      <widget class="QWidget" name="tab_2">
       <attribute name="icon">
-       <iconset resource="IMG/imags.qrc">
+       <iconset resource="../../../../../Desktop/proyectoSaboreno/IMG/imags.qrc">
         <normaloff>:/iconos/orden.png</normaloff>:/iconos/orden.png</iconset>
       </attribute>
       <attribute name="title">
@@ -1066,7 +1066,7 @@ QPushButton:hover{
         <string>Enviar orden a cocina</string>
        </property>
        <property name="icon">
-        <iconset resource="IMG/imags.qrc">
+        <iconset resource="../../../../../Desktop/proyectoSaboreno/IMG/imags.qrc">
          <normaloff>:/iconos/enviar.png</normaloff>:/iconos/enviar.png</iconset>
        </property>
        <property name="iconSize">
@@ -1111,7 +1111,7 @@ QPushButton:hover{
         <string>Finalizar pedido</string>
        </property>
        <property name="icon">
-        <iconset resource="IMG/imags.qrc">
+        <iconset resource="../../../../../Desktop/proyectoSaboreno/IMG/imags.qrc">
          <normaloff>:/iconos/terminar.png</normaloff>:/iconos/terminar.png</iconset>
        </property>
        <property name="iconSize">
@@ -1135,10 +1135,10 @@ QPushButton:hover{
          <family>Calisto MT</family>
         </font>
        </property>
-       <attribute name="verticalHeaderMinimumSectionSize">
+       <attribute name="verticalHeaderDefaultSectionSize">
         <number>50</number>
        </attribute>
-       <attribute name="verticalHeaderDefaultSectionSize">
+       <attribute name="verticalHeaderMinimumSectionSize">
         <number>50</number>
        </attribute>
        <column>
@@ -1200,8 +1200,6 @@ border-radius: 12px;</string>
    </widget>
   </widget>
  </widget>
- <resources>
-  <include location="IMG/imags.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>

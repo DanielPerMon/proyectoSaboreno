@@ -90,8 +90,8 @@ void mesero_menu::agregarProducto(QString numMesa)
     verEstado->exec("SELECT Estado FROM mesa WHERE idMesa = '"+numMesa+"'");
     verEstado->next();
     QStringList titulos;
-    titulos<<"Platillo"<<"Cantidad"<<"";
-    ui->tablaOrden->setColumnCount(3);
+    titulos<<"Platillo"<<"Cantidad"<<""<< "Indicaciones";
+    ui->tablaOrden->setColumnCount(4);
     ui->tablaOrden->setHorizontalHeaderLabels(titulos);
     ui->tablaOrden->setColumnWidth(2,50);
 
@@ -143,12 +143,12 @@ void mesero_menu::cargarOrden(QString numMesa)
     //ui->tablaOrden->clear();
     ui->tablaOrden->setRowCount(0);
     QStringList titulos;
-    titulos<<"Platillo"<<"Cantidad"<<"";
-    ui->tablaOrden->setColumnCount(3);
+    titulos<<"Platillo"<<"Cantidad"<<"" << "Indicaciones";
+    ui->tablaOrden->setColumnCount(4);
     ui->tablaOrden->setHorizontalHeaderLabels(titulos);
     ui->tablaOrden->setColumnWidth(2,50);
 
-    vercuenta->exec("SELECT p.NombrePlatillo, o.cantidadPlatillo, o.estado FROM platillos as p INNER JOIN orden as o ON p.idPlatillos = o.id_platillo "
+    vercuenta->exec("SELECT p.NombrePlatillo, o.cantidadPlatillo, o.estado,o.detalles FROM platillos as p INNER JOIN orden as o ON p.idPlatillos = o.id_platillo "
                    " INNER JOIN cuenta as c ON o.id_cuenta = c.id_cuenta INNER JOIN mesa as m ON c.idmesa = m.idMesa WHERE c.estado = '0' "
                    "AND m.idMesa = '"+numMesa+"' ");
 
@@ -158,15 +158,16 @@ void mesero_menu::cargarOrden(QString numMesa)
         ui->tablaOrden->insertRow(ui->tablaOrden->rowCount());
         ui->tablaOrden->setItem(fila,0,new QTableWidgetItem(vercuenta->value(0).toString()));
         ui->tablaOrden->setItem(fila,1,new QTableWidgetItem(vercuenta->value(1).toString()));
+        ui->tablaOrden->setItem(fila,3,new QTableWidgetItem(vercuenta->value(3).toString()));
 
         if(vercuenta->value(2).toInt() == 0 ){
-            ui->tablaOrden->item(fila,1)->setData(Qt::BackgroundRole, QVariant(QColor(Qt::yellow)));
-            ui->tablaOrden->item(fila,0)->setData(Qt::BackgroundRole, QVariant(QColor(Qt::yellow)));
+            ui->tablaOrden->item(fila,1)->setData(Qt::BackgroundRole, QVariant(QColor(255, 0, 0, 127)));
+            ui->tablaOrden->item(fila,0)->setData(Qt::BackgroundRole, QVariant(QColor(255, 0, 0, 127)));
         }
         else
         {
-            ui->tablaOrden->item(fila,1)->setData(Qt::BackgroundRole, QVariant(QColor(Qt::green)));
-            ui->tablaOrden->item(fila,0)->setData(Qt::BackgroundRole, QVariant(QColor(Qt::green)));
+            ui->tablaOrden->item(fila,1)->setData(Qt::BackgroundRole, QVariant(QColor(0, 255, 0, 127)));
+            ui->tablaOrden->item(fila,0)->setData(Qt::BackgroundRole, QVariant(QColor(0, 255, 0, 127)));
         }
     }
 
@@ -475,6 +476,7 @@ void mesero_menu::on_agregarord_pushButton_clicked()
     int fila = ui->tablaOrden->rowCount()-1;
     ui->tablaOrden->setItem(fila,0,new QTableWidgetItem(temporal));
     ui->tablaOrden->setItem(fila,1,new QTableWidgetItem(ui->cantidad_lineEdit->text()));
+    ui->tablaOrden->setItem(fila,3,new QTableWidgetItem(ui->indicacionestxt->toPlainText()));
 
     QWidget* pWidget = new QWidget();
     QPushButton* btn_edit = new QPushButton();
@@ -496,6 +498,7 @@ void mesero_menu::on_agregarord_pushButton_clicked()
 
     connect(btn_edit, SIGNAL (clicked()),this, SLOT (borrarItem()));
     filafinal++;
+    ui->indicacionestxt->clear();
 }
 
 void mesero_menu::on_btnmenos_clicked()
@@ -536,8 +539,8 @@ void mesero_menu::on_enviarord_pushButton_clicked()
             qDebug() << "Enviar a cocina" << " Fila actual " << ayuda << "Fila final " << filafinal;
             aux.exec("SELECT * FROM platillos WHERE NombrePlatillo = '"+ui->tablaOrden->item(ayuda,0)->text()+"'");
             aux.next();
-            orden.exec("INSERT INTO orden(id_cuenta,precio,cantidadPlatillo,id_platillo) VALUES('"+QString::number(numeroCuenta)+"',"
-                        "'"+aux.value(3).toString()+"','"+ui->tablaOrden->item(ayuda,1)->text()+"', '"+aux.value(0).toString()+"' )");
+            orden.exec("INSERT INTO orden(id_cuenta,precio,cantidadPlatillo,id_platillo,detalles,estado) VALUES('"+QString::number(numeroCuenta)+"',"
+                        "'"+aux.value(3).toString()+"','"+ui->tablaOrden->item(ayuda,1)->text()+"', '"+aux.value(0).toString()+"','"+ ui->tablaOrden->item(ayuda,3)->text()+"',0)");
             ayuda++;
         }
         qDebug() << orden.lastError();

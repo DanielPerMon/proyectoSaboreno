@@ -28,7 +28,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>3</number>
+     <number>4</number>
     </property>
     <widget class="QWidget" name="login">
      <property name="styleSheet">
@@ -889,25 +889,6 @@ background-color: transparent;</string>
         </size>
        </property>
       </widget>
-      <widget class="QLabel" name="cocinero_label">
-       <property name="geometry">
-        <rect>
-         <x>70</x>
-         <y>80</y>
-         <width>271</width>
-         <height>61</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color: rgb(0, 0, 0);
-border-image: none;
-background-color: white;
-border-radius: 9px;</string>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
       <widget class="QLabel" name="label_19">
        <property name="geometry">
         <rect>
@@ -955,7 +936,6 @@ border-radius: 9px;
       <zorder>NipCocinero_lineEdit</zorder>
       <zorder>IngreCocinero_pushButton</zorder>
       <zorder>cSalir_pushButton</zorder>
-      <zorder>cocinero_label</zorder>
       <zorder>label_19</zorder>
       <zorder>co</zorder>
       <zorder>label_21</zorder>
@@ -1200,7 +1180,7 @@ border-radius: 9px;</string>
      <x>0</x>
      <y>0</y>
      <width>850</width>
-     <height>26</height>
+     <height>25</height>
     </rect>
    </property>
   </widget>

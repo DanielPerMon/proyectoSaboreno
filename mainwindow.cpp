@@ -243,3 +243,44 @@ void MainWindow::on_cSalir_pushButton_clicked()
 {
   ui->inicio->setCurrentIndex(0);
 }
+
+void MainWindow::on_IngreCocinero_pushButton_clicked()
+{
+    QSqlQuery *inicia = new QSqlQuery();
+    QString aux;
+    if(ui->NipCocinero_lineEdit->text() != ""){
+        if(inicia->exec("SELECT * FROM empleado WHERE Perfil = 'Cocinero' and NIP = '"+ui->NipCocinero_lineEdit->text()+"'")){
+            while(inicia->next()){
+                aux = inicia->value(6).toString();
+            }
+            if(aux == ui->NipCocinero_lineEdit->text()){
+                cocinero_menu *ventana = new cocinero_menu(mDatabase,user, this);
+                ventana->show();
+            }
+            else{
+                QMessageBox messageBox(QMessageBox::Information,
+                                       tr("Error de credenciales"),
+                                       tr("El número de identificación no es el correcto"),
+                                       QMessageBox::Yes,
+                                       this);
+                messageBox.setButtonText(QMessageBox::Yes, tr("Aceptar"));
+                messageBox.exec();
+            }
+        }
+        else{
+            qDebug() << inicia->lastError();
+        }
+    }
+    else{
+        QMessageBox messageBox(QMessageBox::Information,
+                               tr("Campos vacíos"),
+                               tr("Por favor ingrese un nip válido"),
+                               QMessageBox::Yes,
+                               this);
+        messageBox.setButtonText(QMessageBox::Yes, tr("Aceptar"));
+        messageBox.exec();
+
+    }
+    ui->NipCocinero_lineEdit->clear();
+    delete inicia;
+}
