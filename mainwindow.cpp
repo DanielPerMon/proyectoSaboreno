@@ -20,11 +20,18 @@ MainWindow::MainWindow(QWidget *parent)
 
 
      //Acceso Daniel Perez Montiel
-    mDatabase.setPort(3306);
+    /*mDatabase.setPort(3306);
     mDatabase.setHostName("localhost");
     mDatabase.setUserName("root");
     mDatabase.setPassword("root");
-    mDatabase.setDatabaseName("restaurantdb");
+    mDatabase.setDatabaseName("restaurantdb");*/
+
+    //Acceso Itzel Lopez
+   mDatabase.setPort(3306);
+   mDatabase.setHostName("localhost");
+   mDatabase.setUserName("root");
+   mDatabase.setPassword("");
+   mDatabase.setDatabaseName("restaurantdb");
 
 
 
@@ -283,4 +290,47 @@ void MainWindow::on_IngreCocinero_pushButton_clicked()
     }
     ui->NipCocinero_lineEdit->clear();
     delete inicia;
+}
+
+//Inicio sesion cajero
+void MainWindow::on_gIngresar_pushButton_5_clicked()
+{
+    QSqlQuery *inicia = new QSqlQuery();
+    QString aux;
+    if(ui->NipCajero_lineEdit->text() != ""){
+        if(inicia->exec("SELECT * FROM empleado WHERE Perfil = 'Cajero' and NIP = '"+ui->NipCajero_lineEdit->text()+"'")){
+            while(inicia->next()){
+                aux = inicia->value(6).toString();
+            }
+            if(aux == ui->NipCajero_lineEdit->text()){
+                cajero_menu *ventana = new cajero_menu(mDatabase,user, this);
+                ventana->show();
+            }
+            else{
+                QMessageBox messageBox(QMessageBox::Information,
+                                       tr("Error de credenciales"),
+                                       tr("El número de identificación no es el correcto"),
+                                       QMessageBox::Yes,
+                                       this);
+                messageBox.setButtonText(QMessageBox::Yes, tr("Aceptar"));
+                messageBox.exec();
+            }
+        }
+        else{
+            qDebug() << inicia->lastError();
+        }
+    }
+    else{
+        QMessageBox messageBox(QMessageBox::Information,
+                               tr("Campos vacíos"),
+                               tr("Por favor ingrese un nip válido"),
+                               QMessageBox::Yes,
+                               this);
+        messageBox.setButtonText(QMessageBox::Yes, tr("Aceptar"));
+        messageBox.exec();
+
+    }
+    ui->NipCajero_lineEdit->clear();
+    delete inicia;
+
 }

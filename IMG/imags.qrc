@@ -34,6 +34,9 @@
         <file>ordenes.png</file>
         <file>ordenlista.png</file>
         <file>pedido.png</file>
+        <file>cobrar.png</file>
+        <file>historial.png</file>
+        <file>anadi.png</file>
     </qresource>
     <qresource prefix="/imagenes">
         <file>LOGO.png</file>
@@ -43,5 +46,7 @@
         <file>SABO.png</file>
         <file>cocina.png</file>
         <file>fondoc.jpg</file>
+        <file>caja.jpg</file>
+        <file>caje.jpg</file>
     </qresource>
 </RCC>
