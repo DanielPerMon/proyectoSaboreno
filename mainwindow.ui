@@ -562,11 +562,39 @@ QPushButton:hover{
         <string>INGRESAR</string>
        </property>
       </widget>
+      <widget class="QPushButton" name="cSalir">
+       <property name="geometry">
+        <rect>
+         <x>342</x>
+         <y>752</y>
+         <width>45</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">
+background-color: transparent;</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset resource="IMG/imags.qrc">
+         <normaloff>:/iconos/salir.png</normaloff>:/iconos/salir.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>80</width>
+         <height>55</height>
+        </size>
+       </property>
+      </widget>
       <zorder>label_59</zorder>
       <zorder>label_58</zorder>
       <zorder>ca</zorder>
       <zorder>NipCajero_lineEdit</zorder>
       <zorder>gIngresar_pushButton_5</zorder>
+      <zorder>cSalir</zorder>
      </widget>
      <widget class="QWidget" name="c_izq" native="true">
       <property name="geometry">
@@ -1386,7 +1414,7 @@ border-radius: 9px;</string>
      <x>0</x>
      <y>0</y>
      <width>850</width>
-     <height>26</height>
+     <height>25</height>
     </rect>
    </property>
   </widget>
