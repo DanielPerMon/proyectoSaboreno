@@ -54,6 +54,8 @@ private slots:
 
     void on_gIngresar_pushButton_5_clicked();
 
+    void on_cSalir_clicked();
+
 private:
     Ui::MainWindow *ui;
 

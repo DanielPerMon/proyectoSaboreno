@@ -1,4 +1,5 @@
 QT       += core gui sql
+QT       += printsupport
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -21,21 +22,27 @@ SOURCES += \
     gerente_menu.cpp \
     main.cpp \
     mainwindow.cpp \
-    mesero_menu.cpp
+    mesero_menu.cpp \
+    pago.cpp \
+    autoriza.cpp
 
 HEADERS += \
     cajero_menu.h \
     cocinero_menu.h \
     gerente_menu.h \
     mainwindow.h \
-    mesero_menu.h
+    mesero_menu.h \
+    pago.h \
+    autoriza.h
 
 FORMS += \
     cajero_menu.ui \
     cocinero_menu.ui \
     gerente_menu.ui \
     mainwindow.ui \
-    mesero_menu.ui
+    mesero_menu.ui \
+    pago.ui \
+    autoriza.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

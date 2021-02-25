@@ -70,7 +70,7 @@ border-top-left-radius:7px 7px;</string>
      <string/>
     </property>
    </widget>
-   <widget class="QPushButton" name="cobrar_pushButton">
+   <widget class="QPushButton" name="btnHistorial">
     <property name="geometry">
      <rect>
       <x>600</x>
@@ -98,7 +98,7 @@ border-top-left-radius:7px 7px;</string>
      </size>
     </property>
    </widget>
-   <widget class="QPushButton" name="historial_pushButton">
+   <widget class="QPushButton" name="cobrar_pushButton">
     <property name="geometry">
      <rect>
       <x>470</x>
@@ -209,13 +209,13 @@ border-bottom-left-radius:7px 7px;</string>
    <property name="geometry">
     <rect>
      <x>0</x>
-     <y>100</y>
+     <y>99</y>
      <width>850</width>
-     <height>700</height>
+     <height>701</height>
     </rect>
    </property>
    <property name="currentIndex">
-    <number>1</number>
+    <number>0</number>
    </property>
    <widget class="QWidget" name="cobro">
     <property name="styleSheet">
@@ -224,18 +224,57 @@ border-bottom-left-radius:7px 7px;</string>
 	background-color: rgb(72, 72, 72);
 }</string>
     </property>
-    <widget class="QTableWidget" name="cuentas_tableWidget">
+    <widget class="QTableWidget" name="Cuentas_tableWidget">
      <property name="geometry">
       <rect>
        <x>20</x>
        <y>130</y>
-       <width>400</width>
+       <width>381</width>
        <height>500</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>9</pointsize>
+       <weight>50</weight>
+       <italic>true</italic>
+       <bold>false</bold>
+       <underline>false</underline>
+       <strikeout>false</strikeout>
+       <kerning>true</kerning>
+      </font>
+     </property>
+     <property name="cursor" stdset="0">
+      <cursorShape>PointingHandCursor</cursorShape>
+     </property>
+     <property name="editTriggers">
+      <set>QAbstractItemView::NoEditTriggers</set>
+     </property>
+     <property name="selectionBehavior">
+      <enum>QAbstractItemView::SelectRows</enum>
+     </property>
+     <property name="gridStyle">
+      <enum>Qt::DashLine</enum>
+     </property>
+     <property name="sortingEnabled">
+      <bool>false</bool>
+     </property>
+     <attribute name="horizontalHeaderMinimumSectionSize">
+      <number>100</number>
+     </attribute>
+     <attribute name="verticalHeaderVisible">
+      <bool>false</bool>
+     </attribute>
+     <attribute name="verticalHeaderDefaultSectionSize">
+      <number>30</number>
+     </attribute>
+     <attribute name="verticalHeaderMinimumSectionSize">
+      <number>30</number>
+     </attribute>
      <column>
       <property name="text">
-       <string>NUM.ORDEN</string>
+       <string>NUM.CUENTA</string>
       </property>
      </column>
      <column>
@@ -282,10 +321,10 @@ border-top-left-radius:10px 10px;</string>
     <widget class="QGroupBox" name="det">
      <property name="geometry">
       <rect>
-       <x>440</x>
+       <x>419</x>
        <y>130</y>
-       <width>400</width>
-       <height>500</height>
+       <width>421</width>
+       <height>551</height>
       </rect>
      </property>
      <property name="font">
@@ -302,13 +341,13 @@ color: rgb(255, 255, 255);}</string>
      <property name="title">
       <string>DETALLES DE CUENTA</string>
      </property>
-     <widget class="QPushButton" name="pushButton">
+     <widget class="QPushButton" name="cobrar_pushButton_2">
       <property name="geometry">
        <rect>
-        <x>80</x>
-        <y>450</y>
-        <width>250</width>
-        <height>35</height>
+        <x>40</x>
+        <y>440</y>
+        <width>91</width>
+        <height>41</height>
        </rect>
       </property>
       <property name="font">
@@ -337,18 +376,29 @@ QPushButton:hover{
        <string>COBRAR</string>
       </property>
      </widget>
-     <widget class="QTableWidget" name="detallesC_tableWidget">
+     <widget class="QTableWidget" name="DetallesC_tableWidget">
       <property name="geometry">
        <rect>
-        <x>30</x>
+        <x>10</x>
         <y>60</y>
-        <width>350</width>
+        <width>391</width>
         <height>330</height>
        </rect>
       </property>
+      <property name="showGrid">
+       <bool>false</bool>
+      </property>
+      <attribute name="verticalHeaderVisible">
+       <bool>false</bool>
+      </attribute>
       <column>
        <property name="text">
         <string>Producto</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Precio</string>
        </property>
       </column>
       <column>
@@ -397,6 +447,8 @@ QPushButton:hover{
        <font>
         <family>Calisto MT</family>
         <pointsize>9</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
        </font>
       </property>
       <property name="styleSheet">
@@ -494,14 +546,128 @@ QPushButton:hover{
        <string>...</string>
       </property>
      </widget>
-     <zorder>pushButton</zorder>
-     <zorder>detallesC_tableWidget</zorder>
+     <widget class="QPushButton" name="btnImprimir">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>490</y>
+        <width>91</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Calisto MT</family>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton{
+border-width: 0px;
+border-radius: 7px;
+background: rgba(255, 178, 21,0.7);
+
+}
+
+QPushButton:hover{
+	background: rgba(0, 143, 57,0.7);
+    border-radius: 7px;
+	font: 75 9pt &quot;Calisto MT&quot;;
+    selection-color: white;  
+    padding: 2px 4px;
+}
+</string>
+      </property>
+      <property name="text">
+       <string>IMPRIMIR</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="btnCancelarProducto">
+      <property name="geometry">
+       <rect>
+        <x>150</x>
+        <y>440</y>
+        <width>191</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Calisto MT</family>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton{
+border-width: 0px;
+border-radius: 7px;
+background: rgba(255, 178, 21,0.7);
+
+}
+
+QPushButton:hover{
+	background: rgba(0, 143, 57,0.7);
+    border-radius: 7px;
+	font: 75 9pt &quot;Calisto MT&quot;;
+    selection-color: white;  
+    padding: 2px 4px;
+}
+</string>
+      </property>
+      <property name="text">
+       <string>CANCELAR PRODUCTO</string>
+      </property>
+      <property name="flat">
+       <bool>false</bool>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="btnCancelarProducto_2">
+      <property name="geometry">
+       <rect>
+        <x>150</x>
+        <y>490</y>
+        <width>191</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Calisto MT</family>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton{
+border-width: 0px;
+border-radius: 7px;
+background: rgba(255, 178, 21,0.7);
+
+}
+
+QPushButton:hover{
+	background: rgba(0, 143, 57,0.7);
+    border-radius: 7px;
+	font: 75 9pt &quot;Calisto MT&quot;;
+    selection-color: white;  
+    padding: 2px 4px;
+}
+</string>
+      </property>
+      <property name="text">
+       <string>ELIMINAR CUENTA</string>
+      </property>
+      <property name="flat">
+       <bool>false</bool>
+      </property>
+     </widget>
+     <zorder>cobrar_pushButton_2</zorder>
+     <zorder>DetallesC_tableWidget</zorder>
      <zorder>label_2</zorder>
      <zorder>pagar_label</zorder>
      <zorder>label_8</zorder>
      <zorder>label_7</zorder>
      <zorder>order_label</zorder>
      <zorder>m_label</zorder>
+     <zorder>btnImprimir</zorder>
+     <zorder>btnCancelarProducto</zorder>
+     <zorder>btnCancelarProducto_2</zorder>
     </widget>
    </widget>
    <widget class="QWidget" name="historial">
@@ -540,7 +706,7 @@ border-top-left-radius:10px 10px;</string>
       <set>Qt::AlignJustify|Qt::AlignVCenter</set>
      </property>
     </widget>
-    <widget class="QTableWidget" name="tableWidget_2">
+    <widget class="QTableWidget" name="Historial_tableWidget">
      <property name="geometry">
       <rect>
        <x>20</x>
@@ -548,6 +714,17 @@ border-top-left-radius:10px 10px;</string>
        <width>400</width>
        <height>500</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <italic>true</italic>
+      </font>
+     </property>
+     <property name="cursor" stdset="0">
+      <cursorShape>PointingHandCursor</cursorShape>
+     </property>
+     <property name="gridStyle">
+      <enum>Qt::DashLine</enum>
      </property>
      <column>
       <property name="text">
@@ -557,6 +734,11 @@ border-top-left-radius:10px 10px;</string>
      <column>
       <property name="text">
        <string>MESA</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>TOTAL</string>
       </property>
      </column>
     </widget>
@@ -778,9 +960,9 @@ QPushButton:hover{
       </property>
      </widget>
     </widget>
-    <zorder>tableWidget_2</zorder>
     <zorder>label_23</zorder>
     <zorder>group</zorder>
+    <zorder>Historial_tableWidget</zorder>
    </widget>
   </widget>
  </widget>

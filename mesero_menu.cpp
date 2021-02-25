@@ -108,7 +108,7 @@ void mesero_menu::agregarProducto(QString numMesa)
         if(ret == 0)
         {
             QSqlQuery item;
-            if( item.exec("INSERT INTO cuenta(fecha, estado, idmesa, idmesero) VALUES('"+FechaActual+"', 0, '"+numMesa+"', '"+QString::number(idMesero)+"')"))
+            if( item.exec("INSERT INTO cuenta(fecha, estado, idmesa, idmesero) VALUES('"+FechaActual+"', 'abierta', '"+numMesa+"', '"+QString::number(idMesero)+"')"))
             {
                 QSqlQuery actualizaEstado;
                 actualizaEstado.exec("UPDATE mesa SET estado = 'ocupada' WHERE idMesa = '"+numMesa+"'");
@@ -591,7 +591,7 @@ void mesero_menu::on_pagarord_pushButton_clicked()
             montoAux += (monto.value(0).toInt() * monto.value(1).toInt());
         }
 
-        if(finaliza.exec("UPDATE cuenta SET total = '"+QString::number(montoAux)+"', estado = '1' WHERE id_cuenta = '"+QString::number(numeroCuenta)+"'")){
+        if(finaliza.exec("UPDATE cuenta SET total = '"+QString::number(montoAux)+"', estado = 'finalizada' WHERE id_cuenta = '"+QString::number(numeroCuenta)+"'")){
             QMessageBox messageBox(QMessageBox::Information,
                                    tr("Confirmación"),
                                    tr("Se ha finalizado el servicio"),

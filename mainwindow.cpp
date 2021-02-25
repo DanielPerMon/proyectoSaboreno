@@ -10,9 +10,9 @@ MainWindow::MainWindow(QWidget *parent)
     user = "";
 
     mDatabase = QSqlDatabase::addDatabase("QMYSQL");
-    /* Suegerencia, cada quien agrege sus métodos de acceso y coméntelos en bloque, recuerden que es una versión de git*/
+    /* Suegerencia, cada quien agrege sus métodos de acceso y coméntelos en bloque, recuerden que es una versión de git
     //Acceso Marco Antonio Martinez Cruz
-    /*mDatabase.setPort(3307);
+    mDatabase.setPort(3307);
     mDatabase.setHostName("localhost");
     mDatabase.setUserName("root");
     mDatabase.setPassword("");
@@ -20,18 +20,20 @@ MainWindow::MainWindow(QWidget *parent)
 
 
      //Acceso Daniel Perez Montiel
-    /*mDatabase.setPort(3306);
+    mDatabase.setPort(3306);
     mDatabase.setHostName("localhost");
     mDatabase.setUserName("root");
     mDatabase.setPassword("root");
-    mDatabase.setDatabaseName("restaurantdb");*/
+    mDatabase.setDatabaseName("restaurantdb");
 
     //Acceso Itzel Lopez
+    /*
    mDatabase.setPort(3306);
    mDatabase.setHostName("localhost");
    mDatabase.setUserName("root");
    mDatabase.setPassword("");
    mDatabase.setDatabaseName("restaurantdb");
+   */
 
 
 
@@ -333,4 +335,9 @@ void MainWindow::on_gIngresar_pushButton_5_clicked()
     ui->NipCajero_lineEdit->clear();
     delete inicia;
 
+}
+
+void MainWindow::on_cSalir_clicked()
+{
+    ui->inicio->setCurrentIndex(0);
 }

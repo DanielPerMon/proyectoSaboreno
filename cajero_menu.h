@@ -8,7 +8,8 @@
 #include <QDebug>
 #include <QMessageBox>
 #include <QWidget>
-
+#include "pago.h"
+#include "autoriza.h"
 
 namespace Ui {
 class cajero_menu;
@@ -25,11 +26,29 @@ public:
 private slots:
     void on_saliC_pushButton_clicked();
 
-    void on_historial_pushButton_clicked();
+    void on_cobrar_pushButton_clicked();
+
+    void ActualizarTabla();
+
+    void CuentaElegida(int);
+
+    void CuentaElegidaDet(int);
+
+    void on_Cuentas_tableWidget_cellClicked(int row, int column);
+
+    void on_cobrar_pushButton_2_clicked();
+
+    void on_btnHistorial_clicked();
+
+    void on_Historial_tableWidget_cellClicked(int row, int column);
+
+    void on_btnCancelarProducto_2_clicked();
 
 private:
     Ui::cajero_menu *ui;
       QSqlDatabase baseCajero;
+      int FilaCuentas;
+      double monto_enviar;
 };
 
 #endif // CAJERO_MENU_H
