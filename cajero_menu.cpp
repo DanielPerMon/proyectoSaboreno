@@ -9,8 +9,8 @@ cajero_menu::cajero_menu(QSqlDatabase base, QString usuario, QWidget *parent) :
     baseCajero = base;
     setWindowTitle("Saboreño Cajero");
     setWindowFlags(windowFlags() & ~Qt::WindowContextHelpButtonHint);
-    FilaCuentas = 0;
     monto_enviar = 0;
+    FilaCuentas = -1;
     if(baseCajero.isOpen())
         qDebug() << "está abierta la bdd";
     else
@@ -64,11 +64,6 @@ void cajero_menu::ActualizarTabla()
         ui->Cuentas_tableWidget->setItem(fila,2,new QTableWidgetItem(vercuentas->value(2).toString() + ".00"));
 
     }
-    QTableWidgetItem *valor = ui->Cuentas_tableWidget->item(0,0);
-    FilaCuentas = valor->text().toInt();
-    QTableWidgetItem *valor2 = ui->Cuentas_tableWidget->item(0,2);
-    monto_enviar = valor2->text().toDouble();
-    CuentaElegida(FilaCuentas);
   //  ui->orden_tableWidget->item(0,1)->setData(Qt::BackgroundRole, QVariant(QColor(255, 0, 0, 127)));
   //  ui->orden_tableWidget->item(0,0)->setData(Qt::BackgroundRole, QVariant(QColor(255, 0, 0, 127)));
     }
@@ -127,13 +122,14 @@ void cajero_menu::CuentaElegidaDet(int id_cuenta)
 
     /*Query para llenar el detalle de la cuenta*/
 
-    if(cuenta.prepare("SELECT id_cuenta, idmesa, total FROM cuenta WHERE id_cuenta= " + QString::number(id_cuenta)+";"))
+    if(cuenta.prepare("SELECT id_cuenta, idmesa, total, estado FROM cuenta WHERE id_cuenta= " + QString::number(id_cuenta)+";"))
     {
         cuenta.exec(); // LLenado de campos de edicion
         while(cuenta.next()){
             ui->orden_label->setText(cuenta.value(0).toString());
             ui->mesa_label->setText(cuenta.value(1).toString());
             ui->total_label->setText(cuenta.value(2).toString() + ".00");
+            ui->estado_label->setText(cuenta.value(3).toString());
         }
     }
     QString Signo = "     $";
@@ -186,14 +182,14 @@ void cajero_menu::on_btnHistorial_clicked()
     ui->Historial_tableWidget->setRowCount(0);
     ui->Historial_tableWidget->setColumnWidth(2,170);
     QString Signo = "       $ ";
-    contar->exec("SELECT count(1) numero_ordenes FROM cuenta WHERE estado = 'pagada';");
+    contar->exec("SELECT count(1) numero_ordenes FROM cuenta WHERE estado = 'pagada' OR estado = 'cancelada';");
     int OrdenesCola = 0;
     while(contar->next()){
         OrdenesCola = contar->value(0).toInt();
         qDebug()<< "Ordenes Contadas : " << OrdenesCola;
     }
     if(OrdenesCola != 0){
-    vercuentas->exec("SELECT id_cuenta, idmesa, total FROM cuenta WHERE estado = 'pagada';");
+    vercuentas->exec("SELECT id_cuenta, idmesa, total FROM cuenta WHERE estado = 'pagada' OR estado = 'cancelada' ;");
     int fila;
 
     while(vercuentas->next()){
@@ -205,11 +201,6 @@ void cajero_menu::on_btnHistorial_clicked()
         ui->Historial_tableWidget->setItem(fila,2,new QTableWidgetItem(vercuentas->value(2).toString() + ".00"));
 
     }
-    QTableWidgetItem *valor = ui->Historial_tableWidget->item(0,0);
-    FilaCuentas = valor->text().toInt();
-    QTableWidgetItem *valor2 = ui->Historial_tableWidget->item(0,2);
-    monto_enviar = valor2->text().toDouble();
-    CuentaElegidaDet(FilaCuentas);
   //  ui->orden_tableWidget->item(0,1)->setData(Qt::BackgroundRole, QVariant(QColor(255, 0, 0, 127)));
   //  ui->orden_tableWidget->item(0,0)->setData(Qt::BackgroundRole, QVariant(QColor(255, 0, 0, 127)));
     }
@@ -221,24 +212,74 @@ void cajero_menu::on_btnHistorial_clicked()
 void cajero_menu::on_Historial_tableWidget_cellClicked(int row, int column)
 {
     QTableWidgetItem *valor = ui->Historial_tableWidget->item(row,0);
-    FilaCuentas = valor->text().toInt();
-    qDebug() << FilaCuentas;
+    FilaDet = valor->text().toInt();
+    qDebug() << FilaDet;
     QTableWidgetItem *valor2 = ui->Historial_tableWidget->item(row,2);
     monto_enviar = valor2->text().toDouble();
-    CuentaElegidaDet(FilaCuentas);
+    CuentaElegidaDet(FilaDet);
 }
 
-void cajero_menu::on_btnCancelarProducto_2_clicked()
+void cajero_menu::on_btnEliminaCuenta_clicked()
 {
-    autoriza *ventana = new autoriza(this);
-    ventana->exec();
-
-    if(ventana->valor() == 1){
-        qDebug() << "está autorizado";
+    if(FilaCuentas == -1){
+        QMessageBox messageBox(QMessageBox::Warning,
+                               tr("Error"),
+                               tr("Seleccione una cuenta para la operación"),
+                               QMessageBox::Yes,
+                               this);
+        messageBox.setButtonText(QMessageBox::Yes, tr("Aceptar"));
+        messageBox.exec();
     }
     else{
-        qDebug() << "No está autorizado";
-        ventana->close();
-        delete ventana;
+        QMessageBox confirmacion(this);
+        confirmacion.addButton("Sí",QMessageBox::YesRole);
+        confirmacion.addButton("No",QMessageBox::NoRole);
+        confirmacion.setWindowTitle("Confirmación");
+        confirmacion.setIcon(QMessageBox::Question);
+        confirmacion.setText("Se cancelará toda la cuenta "+QString::number(FilaCuentas)+"\n¿Desea continuar?");
+        int res = confirmacion.exec();
+        if(res == 0){
+            autoriza *ventana = new autoriza(this);
+            ventana->exec();
+
+            if(ventana->valor() == 1){
+                qDebug() << "está autorizado";
+                QSqlQuery cancela;
+                cancela.exec("UPDATE cuenta SET estado = 'cancelada' WHERE id_cuenta = '"+QString::number(FilaCuentas)+"'");
+                FilaCuentas = -1;
+                ActualizarTabla();
+            }
+            else{
+                qDebug() << "No está autorizado";
+                ventana->close();
+                delete ventana;
+            }
+        }
+    }
+}
+
+void cajero_menu::on_btnCancelarProducto_clicked()
+{
+    if(FilaCuentas == -1){
+        QMessageBox messageBox(QMessageBox::Warning,
+                               tr("Error"),
+                               tr("Seleccione una cuenta para la operación"),
+                               QMessageBox::Yes,
+                               this);
+        messageBox.setButtonText(QMessageBox::Yes, tr("Aceptar"));
+        messageBox.exec();
+    }
+    else{
+        autoriza *ventana = new autoriza(this);
+        ventana->exec();
+
+        if(ventana->valor() == 1){
+            qDebug() << "está autorizado";
+        }
+        else{
+            qDebug() << "No está autorizado";
+            ventana->close();
+            delete ventana;
+        }
     }
 }

@@ -42,12 +42,15 @@ private slots:
 
     void on_Historial_tableWidget_cellClicked(int row, int column);
 
-    void on_btnCancelarProducto_2_clicked();
+    void on_btnEliminaCuenta_clicked();
+
+    void on_btnCancelarProducto_clicked();
 
 private:
     Ui::cajero_menu *ui;
       QSqlDatabase baseCajero;
       int FilaCuentas;
+      int FilaDet;
       double monto_enviar;
 };
 
