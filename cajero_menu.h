@@ -10,6 +10,7 @@
 #include <QWidget>
 #include "pago.h"
 #include "autoriza.h"
+#include "cancelar.h"
 
 namespace Ui {
 class cajero_menu;
@@ -51,6 +52,7 @@ private:
       QSqlDatabase baseCajero;
       int FilaCuentas;
       int FilaDet;
+      int mesa;
       double monto_enviar;
 };
 

@@ -5,6 +5,7 @@ Pago::Pago(QWidget *parent, int id, double monto) :
     QDialog(parent),
     ui(new Ui::Pago)
 {
+    setWindowFlags(windowFlags() & ~Qt::WindowContextHelpButtonHint);
     ui->setupUi(this);
     Id_cuenta = id;
     Monto = monto;

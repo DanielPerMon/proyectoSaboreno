@@ -215,7 +215,7 @@ border-bottom-left-radius:7px 7px;</string>
     </rect>
    </property>
    <property name="currentIndex">
-    <number>1</number>
+    <number>0</number>
    </property>
    <widget class="QWidget" name="cobro">
     <property name="styleSheet">

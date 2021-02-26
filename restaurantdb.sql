@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 12-02-2021 a las 00:29:32
+-- Tiempo de generación: 26-02-2021 a las 01:01:28
 -- Versión del servidor: 10.4.8-MariaDB
 -- Versión de PHP: 7.3.11
 
@@ -57,7 +57,7 @@ CREATE TABLE `cuenta` (
   `id_cuenta` int(11) NOT NULL,
   `total` double(10,2) DEFAULT NULL,
   `fecha` date NOT NULL,
-  `estado` tinyint(1) NOT NULL DEFAULT 0,
+  `estado` varchar(20) NOT NULL DEFAULT '0',
   `idmesa` int(11) NOT NULL,
   `idmesero` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -67,8 +67,11 @@ CREATE TABLE `cuenta` (
 --
 
 INSERT INTO `cuenta` (`id_cuenta`, `total`, `fecha`, `estado`, `idmesa`, `idmesero`) VALUES
-(1, NULL, '2021-02-11', 0, 1, 1),
-(2, NULL, '2021-02-11', 0, 4, 4);
+(1, 1075.00, '2021-02-15', 'finalizada', 1, 4),
+(2, 790.00, '2021-02-15', 'finalizada', 2, 4),
+(3, 165.00, '2021-02-15', 'finalizada', 1, 4),
+(4, 70.00, '2021-02-15', 'cancelada', 5, 4),
+(5, 1165.00, '2021-02-16', 'pagada', 9, 4);
 
 -- --------------------------------------------------------
 
@@ -91,12 +94,13 @@ CREATE TABLE `empleado` (
 --
 
 INSERT INTO `empleado` (`idEmpleado`, `NombreEmpleado`, `ApellidoPaterno`, `Correo`, `NumTelefono`, `Perfil`, `NIP`) VALUES
-(1, 'Daniel', 'Pérez Montiel', 'dannpm93@gmail.com', '2224910561', 'Gerente', '134952'),
 (2, 'Marco', 'Martinez Cruz', 'marco.martinezcr@alumno.buap.mx', '2444484211', 'Cajero', '123456'),
 (4, 'John', 'Heber Gómez', 'jhebreak@gmail.com', '2224249415', 'Mesero', '123456'),
 (5, 'Salma', 'Roman Montiel', 'salmaMontiel@gmail.com', '2225031556', 'Mesero', '456789'),
 (6, 'Marco A.', 'Montiel Sampedro', 'marco@hotmail.com', '2641329874', 'Mesero', '123456'),
-(7, 'Teresa', 'Reyes Montiel', 'terereyes54@yahoo.com.mx', '2226236627', 'Mesero', '987654');
+(7, 'Teresa', 'Reyes Montiel', 'terereyes54@yahoo.com.mx', '2226236627', 'Mesero', '987654'),
+(8, 'Moises', 'Viveros Juarez', 'viversmoi@gmail.com', '2211657846', 'Cocinero', '654321'),
+(7658, 'Daniel', 'Pérez Montiel', 'dannpm93@gmail.com', '2224910561', 'Gerente', '134952');
 
 -- --------------------------------------------------------
 
@@ -114,10 +118,10 @@ CREATE TABLE `mesa` (
 --
 
 INSERT INTO `mesa` (`idMesa`, `Estado`) VALUES
-(1, 'ocupada'),
+(1, 'libre'),
 (2, 'libre'),
 (3, 'libre'),
-(4, 'ocupada'),
+(4, 'libre'),
 (5, 'libre'),
 (6, 'libre'),
 (7, 'libre'),
@@ -156,18 +160,28 @@ CREATE TABLE `orden` (
   `id_cuenta` int(11) NOT NULL,
   `id_platillo` int(11) NOT NULL,
   `precio` double(10,2) NOT NULL,
-  `cantidadPlatillo` int(11) NOT NULL
+  `cantidadPlatillo` int(11) NOT NULL,
+  `estado` tinyint(11) NOT NULL DEFAULT 0,
+  `detalles` varchar(500) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `orden`
 --
 
-INSERT INTO `orden` (`id_orden`, `id_cuenta`, `id_platillo`, `precio`, `cantidadPlatillo`) VALUES
-(1, 2, 9, 240.00, 1),
-(2, 2, 8, 145.00, 2),
-(3, 1, 5, 120.00, 1),
-(4, 1, 1, 220.00, 2);
+INSERT INTO `orden` (`id_orden`, `id_cuenta`, `id_platillo`, `precio`, `cantidadPlatillo`, `estado`, `detalles`) VALUES
+(1, 1, 8, 145.00, 1, 1, ''),
+(2, 1, 9, 240.00, 2, 1, ''),
+(3, 1, 4, 90.00, 1, 1, ''),
+(4, 1, 1, 220.00, 1, 1, ''),
+(5, 1, 6, 70.00, 1, 1, ''),
+(6, 1, 6, 70.00, 1, 1, ''),
+(7, 2, 11, 790.00, 1, 1, ''),
+(8, 3, 6, 70.00, 1, 1, ''),
+(9, 3, 7, 95.00, 1, 1, ''),
+(10, 4, 6, 70.00, 1, 1, 'sin cilantro'),
+(12, 5, 11, 790.00, 1, 1, 'termino medio'),
+(13, 5, 10, 375.00, 1, 1, 'sellada');
 
 -- --------------------------------------------------------
 
@@ -277,13 +291,13 @@ ALTER TABLE `categoria`
 -- AUTO_INCREMENT de la tabla `cuenta`
 --
 ALTER TABLE `cuenta`
-  MODIFY `id_cuenta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_cuenta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `empleado`
 --
 ALTER TABLE `empleado`
-  MODIFY `idEmpleado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `idEmpleado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7659;
 
 --
 -- AUTO_INCREMENT de la tabla `mesa`
@@ -301,7 +315,7 @@ ALTER TABLE `mesero`
 -- AUTO_INCREMENT de la tabla `orden`
 --
 ALTER TABLE `orden`
-  MODIFY `id_orden` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_orden` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT de la tabla `platillos`

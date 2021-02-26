@@ -1,69 +1,71 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>autoriza</class>
- <widget class="QDialog" name="autoriza">
+ <class>cancelar</class>
+ <widget class="QDialog" name="cancelar">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>134</height>
+    <width>792</width>
+    <height>548</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Autorización del Gerente</string>
+   <string>Cancelar Productos</string>
   </property>
   <property name="windowIcon">
    <iconset resource="IMG/imags.qrc">
     <normaloff>:/iconos/restaurante.png</normaloff>:/iconos/restaurante.png</iconset>
   </property>
   <property name="styleSheet">
-   <string notr="true">#autoriza{
+   <string notr="true">#cancelar{
 	background-color: rgb(255, 178, 21);}</string>
   </property>
-  <widget class="QLabel" name="label">
+  <widget class="QTableWidget" name="tablaItems">
    <property name="geometry">
     <rect>
-     <x>40</x>
-     <y>30</y>
-     <width>71</width>
-     <height>16</height>
+     <x>10</x>
+     <y>40</y>
+     <width>761</width>
+     <height>411</height>
     </rect>
    </property>
-   <property name="font">
-    <font>
-     <family>Calisto MT</family>
-     <pointsize>10</pointsize>
-    </font>
-   </property>
-   <property name="text">
-    <string>Usuario</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_2">
-   <property name="geometry">
-    <rect>
-     <x>40</x>
-     <y>70</y>
-     <width>91</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>Calisto MT</family>
-     <pointsize>10</pointsize>
-    </font>
-   </property>
-   <property name="text">
-    <string>Contraseña</string>
-   </property>
+   <column>
+    <property name="text">
+     <string>Id</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Producto</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Cantidad</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Precio</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Subtotal</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string/>
+    </property>
+   </column>
   </widget>
   <widget class="QPushButton" name="btnAceptar">
    <property name="geometry">
     <rect>
-     <x>200</x>
-     <y>100</y>
+     <x>500</x>
+     <y>490</y>
      <width>80</width>
      <height>25</height>
     </rect>
@@ -91,8 +93,8 @@ QPushButton:hover{
   <widget class="QPushButton" name="btnCancelar">
    <property name="geometry">
     <rect>
-     <x>300</x>
-     <y>100</y>
+     <x>630</x>
+     <y>490</y>
      <width>80</width>
      <height>25</height>
     </rect>
@@ -115,32 +117,6 @@ QPushButton:hover{
    </property>
    <property name="text">
     <string>Cancelar</string>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="lnUs">
-   <property name="geometry">
-    <rect>
-     <x>140</x>
-     <y>30</y>
-     <width>113</width>
-     <height>24</height>
-    </rect>
-   </property>
-   <property name="echoMode">
-    <enum>QLineEdit::Password</enum>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="lnPs">
-   <property name="geometry">
-    <rect>
-     <x>140</x>
-     <y>65</y>
-     <width>113</width>
-     <height>24</height>
-    </rect>
-   </property>
-   <property name="echoMode">
-    <enum>QLineEdit::Password</enum>
    </property>
   </widget>
  </widget>

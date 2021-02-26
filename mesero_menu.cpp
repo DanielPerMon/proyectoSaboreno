@@ -149,8 +149,8 @@ void mesero_menu::cargarOrden(QString numMesa)
     ui->tablaOrden->setColumnWidth(2,50);
 
     vercuenta->exec("SELECT p.NombrePlatillo, o.cantidadPlatillo, o.estado,o.detalles FROM platillos as p INNER JOIN orden as o ON p.idPlatillos = o.id_platillo "
-                   " INNER JOIN cuenta as c ON o.id_cuenta = c.id_cuenta INNER JOIN mesa as m ON c.idmesa = m.idMesa WHERE c.estado = '0' "
-                   "AND m.idMesa = '"+numMesa+"' ");
+                   " INNER JOIN cuenta as c ON o.id_cuenta = c.id_cuenta INNER JOIN mesa as m ON c.idmesa = m.idMesa WHERE c.estado = 'abierta' "
+                   "AND m.idMesa = '"+numMesa+"'");
 
     int fila;
     while(vercuenta->next()){

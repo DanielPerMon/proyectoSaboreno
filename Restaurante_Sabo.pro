@@ -24,7 +24,8 @@ SOURCES += \
     mainwindow.cpp \
     mesero_menu.cpp \
     pago.cpp \
-    autoriza.cpp
+    autoriza.cpp \
+    cancelar.cpp
 
 HEADERS += \
     cajero_menu.h \
@@ -33,7 +34,8 @@ HEADERS += \
     mainwindow.h \
     mesero_menu.h \
     pago.h \
-    autoriza.h
+    autoriza.h \
+    cancelar.h
 
 FORMS += \
     cajero_menu.ui \
@@ -42,7 +44,8 @@ FORMS += \
     mainwindow.ui \
     mesero_menu.ui \
     pago.ui \
-    autoriza.ui
+    autoriza.ui \
+    cancelar.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

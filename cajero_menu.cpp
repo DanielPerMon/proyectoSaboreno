@@ -142,8 +142,8 @@ void cajero_menu::CuentaElegidaDet(int id_cuenta)
             fila = ui->detallesH_tableWidget->rowCount();
             ui->detallesH_tableWidget->insertRow(ui->detallesH_tableWidget->rowCount());
             ui->detallesH_tableWidget->setItem(fila,0,new QTableWidgetItem(platillo.value(0).toString()));
-            ui->detallesH_tableWidget->setItem(fila,1,new QTableWidgetItem(platillo.value(1).toString()));
-            ui->detallesH_tableWidget->setItem(fila,2,new QTableWidgetItem(platillo.value(2).toString()));
+            ui->detallesH_tableWidget->setItem(fila,2,new QTableWidgetItem(platillo.value(1).toString()));
+            ui->detallesH_tableWidget->setItem(fila,1,new QTableWidgetItem(platillo.value(2).toString()));
             double sub = platillo.value(2).toDouble() * platillo.value(1).toDouble();
             QString SubTotal = QString::number(sub);
             ui->detallesH_tableWidget->setItem(fila,3,new QTableWidgetItem(Signo + SubTotal + ".00"));
@@ -163,6 +163,8 @@ void cajero_menu::on_Cuentas_tableWidget_cellClicked(int row, int column)
     FilaCuentas = valor->text().toInt();
     QTableWidgetItem *valor2 = ui->Cuentas_tableWidget->item(row,2);
     monto_enviar = valor2->text().toDouble();
+    QTableWidgetItem *table = ui->Cuentas_tableWidget->item(row,1);
+    mesa = table->text().toDouble();
     CuentaElegida(FilaCuentas);
 }
 
@@ -270,16 +272,7 @@ void cajero_menu::on_btnCancelarProducto_clicked()
         messageBox.exec();
     }
     else{
-        autoriza *ventana = new autoriza(this);
+        cancelar *ventana = new cancelar(this,FilaCuentas,mesa);
         ventana->exec();
-
-        if(ventana->valor() == 1){
-            qDebug() << "está autorizado";
-        }
-        else{
-            qDebug() << "No está autorizado";
-            ventana->close();
-            delete ventana;
-        }
     }
 }
