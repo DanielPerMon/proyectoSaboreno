@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 26-02-2021 a las 01:01:28
+-- Tiempo de generación: 01-03-2021 a las 22:59:02
 -- Versión del servidor: 10.4.8-MariaDB
 -- Versión de PHP: 7.3.11
 
@@ -42,7 +42,6 @@ INSERT INTO `categoria` (`id_categoria`, `nombre`) VALUES
 (2, 'Sopas'),
 (3, 'Ensaladas'),
 (4, 'Carnes'),
-(5, 'Guarniciones'),
 (6, 'Especialidades'),
 (7, 'Postres'),
 (8, 'Bebidas');
@@ -58,6 +57,7 @@ CREATE TABLE `cuenta` (
   `total` double(10,2) DEFAULT NULL,
   `fecha` date NOT NULL,
   `estado` varchar(20) NOT NULL DEFAULT '0',
+  `tipoPago` varchar(20) DEFAULT NULL,
   `idmesa` int(11) NOT NULL,
   `idmesero` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -66,12 +66,14 @@ CREATE TABLE `cuenta` (
 -- Volcado de datos para la tabla `cuenta`
 --
 
-INSERT INTO `cuenta` (`id_cuenta`, `total`, `fecha`, `estado`, `idmesa`, `idmesero`) VALUES
-(1, 1075.00, '2021-02-15', 'finalizada', 1, 4),
-(2, 790.00, '2021-02-15', 'finalizada', 2, 4),
-(3, 165.00, '2021-02-15', 'finalizada', 1, 4),
-(4, 70.00, '2021-02-15', 'cancelada', 5, 4),
-(5, 1165.00, '2021-02-16', 'pagada', 9, 4);
+INSERT INTO `cuenta` (`id_cuenta`, `total`, `fecha`, `estado`, `tipoPago`, `idmesa`, `idmesero`) VALUES
+(1, 1075.00, '2021-02-15', 'pagada', 'efectivo', 1, 4),
+(2, 1580.00, '2021-02-15', 'pagada', 'tarjeta', 2, 4),
+(3, 165.00, '2021-02-15', 'cancelada', NULL, 1, 4),
+(4, 70.00, '2021-02-15', 'cancelada', NULL, 5, 4),
+(5, 1165.00, '2021-02-16', 'pagada', 'efectivo', 9, 4),
+(6, 1355.00, '2021-02-25', 'pagada', 'tarjeta', 7, 2),
+(7, 385.00, '2021-02-25', 'finalizada', 'efectivo', 5, 4);
 
 -- --------------------------------------------------------
 
@@ -176,12 +178,18 @@ INSERT INTO `orden` (`id_orden`, `id_cuenta`, `id_platillo`, `precio`, `cantidad
 (4, 1, 1, 220.00, 1, 1, ''),
 (5, 1, 6, 70.00, 1, 1, ''),
 (6, 1, 6, 70.00, 1, 1, ''),
-(7, 2, 11, 790.00, 1, 1, ''),
+(7, 2, 11, 790.00, 2, 1, ''),
 (8, 3, 6, 70.00, 1, 1, ''),
 (9, 3, 7, 95.00, 1, 1, ''),
 (10, 4, 6, 70.00, 1, 1, 'sin cilantro'),
 (12, 5, 11, 790.00, 1, 1, 'termino medio'),
-(13, 5, 10, 375.00, 1, 1, 'sellada');
+(13, 5, 10, 375.00, 1, 1, 'sellada'),
+(26, 6, 11, 790.00, 1, 1, ''),
+(27, 6, 10, 375.00, 1, 1, ''),
+(28, 6, 7, 95.00, 2, 1, ''),
+(29, 7, 9, 240.00, 1, 1, ''),
+(30, 7, 8, 145.00, 1, 1, ''),
+(31, 7, 7, 95.00, 1, 2, '');
 
 -- --------------------------------------------------------
 
@@ -267,8 +275,8 @@ ALTER TABLE `mesero`
 --
 ALTER TABLE `orden`
   ADD PRIMARY KEY (`id_orden`),
-  ADD KEY `id_cuenta` (`id_cuenta`),
-  ADD KEY `id_platillo` (`id_platillo`);
+  ADD KEY `orden_ibfk_2` (`id_platillo`),
+  ADD KEY `orden_ibfk_3` (`id_cuenta`);
 
 --
 -- Indices de la tabla `platillos`
@@ -291,13 +299,13 @@ ALTER TABLE `categoria`
 -- AUTO_INCREMENT de la tabla `cuenta`
 --
 ALTER TABLE `cuenta`
-  MODIFY `id_cuenta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_cuenta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `empleado`
 --
 ALTER TABLE `empleado`
-  MODIFY `idEmpleado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7659;
+  MODIFY `idEmpleado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7660;
 
 --
 -- AUTO_INCREMENT de la tabla `mesa`
@@ -315,7 +323,7 @@ ALTER TABLE `mesero`
 -- AUTO_INCREMENT de la tabla `orden`
 --
 ALTER TABLE `orden`
-  MODIFY `id_orden` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id_orden` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT de la tabla `platillos`
@@ -344,8 +352,8 @@ ALTER TABLE `mesero`
 -- Filtros para la tabla `orden`
 --
 ALTER TABLE `orden`
-  ADD CONSTRAINT `orden_ibfk_1` FOREIGN KEY (`id_cuenta`) REFERENCES `cuenta` (`id_cuenta`),
-  ADD CONSTRAINT `orden_ibfk_2` FOREIGN KEY (`id_platillo`) REFERENCES `platillos` (`idPlatillos`);
+  ADD CONSTRAINT `orden_ibfk_2` FOREIGN KEY (`id_platillo`) REFERENCES `platillos` (`idPlatillos`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `orden_ibfk_3` FOREIGN KEY (`id_cuenta`) REFERENCES `cuenta` (`id_cuenta`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Filtros para la tabla `platillos`
