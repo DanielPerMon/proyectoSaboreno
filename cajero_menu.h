@@ -47,9 +47,14 @@ private slots:
 
     void on_btnCancelarProducto_clicked();
 
+    void on_btnImprimir_clicked();
+
+    void on_imprimirHistorial_clicked();
+
 private:
     Ui::cajero_menu *ui;
       QSqlDatabase baseCajero;
+      void imprime(int);
       int FilaCuentas;
       int FilaDet;
       int mesa;

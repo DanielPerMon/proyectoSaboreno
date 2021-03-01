@@ -38,8 +38,6 @@ private slots:
 
     void on_cancelar_pushButton_clicked();
 
-    void Imprimir();
-
 signals:
     void pagada();
 

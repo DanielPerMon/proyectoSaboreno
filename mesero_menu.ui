@@ -303,7 +303,7 @@ border-radius: 12px;</string>
     <widget class="QPushButton" name="mesa2">
      <property name="geometry">
       <rect>
-       <x>120</x>
+       <x>60</x>
        <y>300</y>
        <width>120</width>
        <height>120</height>
@@ -355,8 +355,8 @@ border-radius: 12px;</string>
     <widget class="QPushButton" name="mesa4">
      <property name="geometry">
       <rect>
-       <x>360</x>
-       <y>70</y>
+       <x>340</x>
+       <y>120</y>
        <width>120</width>
        <height>120</height>
       </rect>
@@ -381,7 +381,7 @@ border-radius: 12px;</string>
     <widget class="QPushButton" name="mesa5">
      <property name="geometry">
       <rect>
-       <x>360</x>
+       <x>340</x>
        <y>300</y>
        <width>120</width>
        <height>120</height>
@@ -407,8 +407,8 @@ border-radius: 12px;</string>
     <widget class="QPushButton" name="mesa6">
      <property name="geometry">
       <rect>
-       <x>360</x>
-       <y>540</y>
+       <x>340</x>
+       <y>490</y>
        <width>120</width>
        <height>120</height>
       </rect>
@@ -433,7 +433,7 @@ border-radius: 12px;</string>
     <widget class="QPushButton" name="mesa7">
      <property name="geometry">
       <rect>
-       <x>650</x>
+       <x>580</x>
        <y>120</y>
        <width>120</width>
        <height>120</height>
@@ -459,7 +459,7 @@ border-radius: 12px;</string>
     <widget class="QPushButton" name="mesa8">
      <property name="geometry">
       <rect>
-       <x>590</x>
+       <x>580</x>
        <y>300</y>
        <width>120</width>
        <height>120</height>
@@ -485,7 +485,7 @@ border-radius: 12px;</string>
     <widget class="QPushButton" name="mesa9">
      <property name="geometry">
       <rect>
-       <x>650</x>
+       <x>580</x>
        <y>490</y>
        <width>120</width>
        <height>120</height>
@@ -576,34 +576,6 @@ border-radius: 7px;
       </item>
      </layout>
     </widget>
-    <widget class="QLabel" name="label_24">
-     <property name="geometry">
-      <rect>
-       <x>510</x>
-       <y>130</y>
-       <width>461</width>
-       <height>35</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Calisto MT</family>
-       <pointsize>16</pointsize>
-       <weight>50</weight>
-       <bold>false</bold>
-      </font>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: rgb(255, 255, 255);
-border-radius: 12px;</string>
-     </property>
-     <property name="text">
-      <string>ÁREA DE MESAS</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignCenter</set>
-     </property>
-    </widget>
    </widget>
    <widget class="QWidget" name="Agregaritems">
     <property name="styleSheet">
@@ -631,7 +603,7 @@ border-radius: 12px;</string>
       <enum>QTabWidget::Rounded</enum>
      </property>
      <property name="currentIndex">
-      <number>4</number>
+      <number>0</number>
      </property>
      <property name="iconSize">
       <size>
@@ -756,34 +728,6 @@ border-radius: 12px;</string>
         <bool>true</bool>
        </property>
        <widget class="QWidget" name="scrollAreaWidgetContents_4">
-        <property name="geometry">
-         <rect>
-          <x>0</x>
-          <y>0</y>
-          <width>494</width>
-          <height>613</height>
-         </rect>
-        </property>
-       </widget>
-      </widget>
-     </widget>
-     <widget class="QWidget" name="guarniciones">
-      <attribute name="title">
-       <string>GUARNICIONES</string>
-      </attribute>
-      <widget class="QScrollArea" name="scrollGuarniciones">
-       <property name="geometry">
-        <rect>
-         <x>0</x>
-         <y>0</y>
-         <width>496</width>
-         <height>615</height>
-        </rect>
-       </property>
-       <property name="widgetResizable">
-        <bool>true</bool>
-       </property>
-       <widget class="QWidget" name="scrollAreaWidgetContents_5">
         <property name="geometry">
          <rect>
           <x>0</x>
@@ -1174,10 +1118,10 @@ QPushButton:hover{
          <family>Calisto MT</family>
         </font>
        </property>
-       <attribute name="verticalHeaderMinimumSectionSize">
+       <attribute name="verticalHeaderDefaultSectionSize">
         <number>50</number>
        </attribute>
-       <attribute name="verticalHeaderDefaultSectionSize">
+       <attribute name="verticalHeaderMinimumSectionSize">
         <number>50</number>
        </attribute>
        <column>

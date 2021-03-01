@@ -613,7 +613,7 @@ QPushButton:hover{
 </string>
       </property>
       <property name="text">
-       <string>CANCELAR PRODUCTO</string>
+       <string>ELIMINAR PRODUCTOS</string>
       </property>
       <property name="flat">
        <bool>false</bool>
@@ -651,7 +651,7 @@ QPushButton:hover{
 </string>
       </property>
       <property name="text">
-       <string>ELIMINAR CUENTA</string>
+       <string>CANCELAR CUENTA</string>
       </property>
       <property name="flat">
        <bool>false</bool>
@@ -767,7 +767,7 @@ color: rgb(255, 255, 255);}</string>
      <property name="title">
       <string>DETALLES DE CUENTA</string>
      </property>
-     <widget class="QPushButton" name="imprimirOrden_pushButton">
+     <widget class="QPushButton" name="imprimirHistorial">
       <property name="geometry">
        <rect>
         <x>80</x>

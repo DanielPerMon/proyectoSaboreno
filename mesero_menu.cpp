@@ -128,7 +128,7 @@ void mesero_menu::agregarProducto(QString numMesa)
     else{
         QSqlQuery vercuenta;
 
-        vercuenta.exec("SELECT id_cuenta FROM cuenta WHERE idmesa = '"+numMesa+"' AND estado = '0' ");
+        vercuenta.exec("SELECT id_cuenta FROM cuenta WHERE idmesa = '"+numMesa+"' AND estado = 'abierta' ");
         vercuenta.next();
         numeroCuenta = vercuenta.value(0).toInt();
         cargarOrden(numMesa);
@@ -150,7 +150,7 @@ void mesero_menu::cargarOrden(QString numMesa)
 
     vercuenta->exec("SELECT p.NombrePlatillo, o.cantidadPlatillo, o.estado,o.detalles FROM platillos as p INNER JOIN orden as o ON p.idPlatillos = o.id_platillo "
                    " INNER JOIN cuenta as c ON o.id_cuenta = c.id_cuenta INNER JOIN mesa as m ON c.idmesa = m.idMesa WHERE c.estado = 'abierta' "
-                   "AND m.idMesa = '"+numMesa+"'");
+                   "AND m.idMesa = '"+numMesa+"' ");
 
     int fila;
     while(vercuenta->next()){
@@ -349,31 +349,6 @@ void mesero_menu::on_menu_Platillos_tabBarClicked(int index)
         }
         break;
     case 4:
-        if(items->exec("SELECT NombrePlatillo FROM platillos WHERE id_Categoria IN (SELECT id_categoria FROM categoria WHERE nombre = 'Guarniciones')")){
-            while(items->next()){
-                QPushButton *boton =  new QPushButton(ui->scrollGuarniciones);
-                if(conta%2==0 && conta!=0){
-                    x=0;
-                    y+=101;
-                }
-                boton->setStyleSheet("* {border-image: none; background-color: rgb(255, 178, 21); border: 2px solid; border-radius: 1px; font-family: Calisto MT;"
-                                     "font-style: normal;font-size: 10pt;font-weight: bold;}"
-                                     "*:hover{border: 3.5px solid black}");
-                boton->setText(items->value(0).toString());
-                boton->setObjectName(items->value(0).toString());
-                boton->resize(247,100);
-                boton->move(x,y);
-                boton->show();
-                x+= 1 + boton->width();
-                conta++;
-                connect(boton, SIGNAL (clicked()),this, SLOT (handleItem()));
-            }
-        }
-        else{
-            qDebug() << items->lastError();
-        }
-        break;
-    case 5:
         if(items->exec("SELECT NombrePlatillo FROM platillos WHERE id_Categoria IN (SELECT id_categoria FROM categoria WHERE nombre = 'Especialidades')")){
             while(items->next()){
                 QPushButton *boton =  new QPushButton(ui->scrollEspe);
@@ -398,7 +373,7 @@ void mesero_menu::on_menu_Platillos_tabBarClicked(int index)
             qDebug() << items->lastError();
         }
         break;
-    case 6:
+    case 5:
         if(items->exec("SELECT NombrePlatillo FROM platillos WHERE id_Categoria IN (SELECT id_categoria FROM categoria WHERE nombre = 'Postres')")){
             while(items->next()){
                 QPushButton *boton =  new QPushButton(ui->scrollPostres);
@@ -423,7 +398,7 @@ void mesero_menu::on_menu_Platillos_tabBarClicked(int index)
             qDebug() << items->lastError();
         }
         break;
-    case 7:
+    case 6:
         if(items->exec("SELECT NombrePlatillo FROM platillos WHERE id_Categoria IN (SELECT id_categoria FROM categoria WHERE nombre = 'Bebidas')")){
             while(items->next()){
                 QPushButton *boton =  new QPushButton(ui->scrollBebidas);

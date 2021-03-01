@@ -170,9 +170,22 @@ void cajero_menu::on_Cuentas_tableWidget_cellClicked(int row, int column)
 
 void cajero_menu::on_cobrar_pushButton_2_clicked()
 {
-    Pago *ventana = new Pago(this,FilaCuentas,monto_enviar);
-    ventana->show();
-    connect(ventana,SIGNAL(pagada()), this, SLOT(ActualizarTabla()));
+    if(FilaCuentas == -1){
+        QMessageBox messageBox(QMessageBox::Warning,
+                               tr("Error"),
+                               tr("Seleccione una cuenta para la operación"),
+                               QMessageBox::Yes,
+                               this);
+        messageBox.setButtonText(QMessageBox::Yes, tr("Aceptar"));
+        messageBox.exec();
+    }
+    else{
+        Pago *ventana = new Pago(this,FilaCuentas,monto_enviar);
+        ventana->exec();
+        connect(ventana,SIGNAL(pagada()), this, SLOT(ActualizarTabla()));
+
+        ui->DetallesC_tableWidget->setRowCount(0);
+    }
 }
 
 
@@ -275,4 +288,92 @@ void cajero_menu::on_btnCancelarProducto_clicked()
         cancelar *ventana = new cancelar(this,FilaCuentas,mesa);
         ventana->exec();
     }
+}
+
+void cajero_menu::on_btnImprimir_clicked()
+{
+    imprime(FilaCuentas);
+}
+
+void cajero_menu::on_imprimirHistorial_clicked()
+{
+    imprime(FilaDet);
+}
+
+void cajero_menu::imprime(int numcuenta)
+{
+    QString numero = QString::number(numcuenta);
+    QString nom = "C:/Users/Daniel Pérez/Desktop/Recibo"+numero+".pdf"; //Ruta General
+
+    QDate aux = QDate::currentDate();
+    QString aux_fecha = aux.toString("yyyy/MM/dd");
+    QString ruta_img = ":/imagenes/LOGO.png";
+    QString html = "<body style='background-color:#F4F4F4;'>"
+                   "<img src='"+ ruta_img +"' width='10px' height='10px' style='margin-left:100px;'>"
+
+                                           "<div><p style='margin-top:50px; margin-left:100px; font-size:15px;'><b>SABOREÑO <br>'EL MERO MERO SABOR NORTEÑO'</b></p></div>"
+                                           "<div style='margin-top:100px; margin-left:150px; border : 2px solid black;'><p>CALAJAN 2000 MNL 807670497</p><p>Prolongacion Juan de Borbo</p>"
+                                           "<p>Telefono: 023 4458923 </p><p>Fecha: "+ aux_fecha+"</p>";
+
+    html += "<hr>";
+
+
+
+    QSqlQuery platillo;
+    QSqlQuery cuenta;
+
+
+    QString htmlbody;
+
+    if(platillo.prepare("SELECT P.NombrePlatillo, P.Precio, O.cantidadPlatillo FROM platillos as P INNER JOIN orden as O ON P.idPlatillos = O.id_platillo WHERE O.id_cuenta = " + numero +";"))
+    {
+        platillo.exec(); // LLenado de campos de edicion
+        htmlbody+="<p><b>Nombre de platillo </b>                               <b>Precio</b>"
+                  "                             <b>Cantidad</b>                               <b>SubTotal</b></p>";
+        while(platillo.next()){
+            double sub = platillo.value(2).toDouble() * platillo.value(1).toDouble();
+            QString SubTotal = QString::number(sub);
+            htmlbody += "<p>"+ platillo.value(0).toString() + "                                                      $" + platillo.value(1).toString()
+                    + ".00                                                    " + platillo.value(2).toString()+ "                                             $"+SubTotal+".00</p>";
+        }
+
+
+    }
+    else{
+        qDebug() << platillo.lastError();
+    }
+    htmlbody+="<hr>";
+    //Query para llenar el detalle de la cuenta/
+    QString htmlfinal;
+    if(cuenta.prepare("SELECT id_cuenta, idmesa, total, estado FROM cuenta WHERE id_cuenta= " + numero +";"))
+    {
+        cuenta.exec(); // LLenado de campos de edicion
+        while(cuenta.next()){
+            htmlfinal+= "<p>   Numero de cuenta: "+ cuenta.value(0).toString() +
+                    "     Numero de Mesa: "+ cuenta.value(1).toString()+
+                    "</p><p>Total: <b>$ "+ cuenta.value(2).toString()+".00</b></p></body></html>";
+        }
+    }
+
+
+
+    QString Kardex_html = html + htmlbody + htmlfinal;
+    QTextDocument document;
+    document.setHtml(Kardex_html);
+
+    QPrinter printer(QPrinter::PrinterResolution);
+    printer.setOutputFormat(QPrinter::PdfFormat);
+    printer.setPaperSize(QPrinter::A4);
+    printer.setOutputFileName(nom);
+    printer.setPageMargins(QMarginsF(45, 25, 45, 25));
+
+    document.print(&printer);
+
+    QMessageBox *mbox = new QMessageBox;
+    mbox->setWindowTitle(tr("Pago Exitoso"));
+    mbox->setText("Imprimiendo ticket");
+    mbox->setIconPixmap(QPixmap(":/iconos/cobrar.png").scaled(QSize(185,215),Qt::KeepAspectRatio));
+    mbox->show();
+
+    QTimer::singleShot(3000, mbox, SLOT(hide()));
 }
