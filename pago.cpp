@@ -48,7 +48,7 @@ void Pago::on_pagar_pushButton_clicked()
             {
                 /*Solicitud de pago */
                 if(Id_cuenta != 0){
-                    if(finaliza.exec("UPDATE cuenta SET estado = 'pagada' WHERE id_cuenta = '"+QString::number(Id_cuenta)+"'")){
+                    if(finaliza.exec("UPDATE cuenta SET estado = 'pagada', tipoPago = 'efectivo' WHERE id_cuenta = '"+QString::number(Id_cuenta)+"'")){
 
 
                         QMessageBox *mbox = new QMessageBox;
@@ -79,12 +79,22 @@ void Pago::on_pagar_pushButton_clicked()
         }
     }else{//Tarjeta
         if(ui->lineEdit_3->text() != ""){
-            QMessageBox messageBox(QMessageBox::Warning,
-                                   tr("Pago Correcto Tarjeta."),
-                                   tr("Su pago a sido registrado"),
-                                   QMessageBox::Yes,
-                                   this);
-            messageBox.setButtonText(QMessageBox::Yes, tr("Aceptar"));
+            if(finaliza.exec("UPDATE cuenta SET estado = 'pagada', tipoPago = 'tarjeta' WHERE id_cuenta = '"+QString::number(Id_cuenta)+"'")){
+
+
+                QMessageBox *mbox = new QMessageBox;
+                mbox->setWindowTitle(tr("Pago Exitoso"));
+                mbox->setText("El pago se realizó con éxito");
+                mbox->setIconPixmap(QPixmap(":/iconos/cobrar.png").scaled(QSize(100,135),Qt::KeepAspectRatio));
+                mbox->setParent(this);
+                mbox->show();
+                // Imprimir();
+                QTimer::singleShot(3000, mbox, SLOT(hide()));
+                emit pagada();
+                accept();
+                delete ui;
+            }
+
 
         }else{
             QMessageBox messageBox(QMessageBox::Warning,

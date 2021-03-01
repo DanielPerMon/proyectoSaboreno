@@ -21,7 +21,7 @@
   </property>
   <property name="styleSheet">
    <string notr="true">#Pago{
-	background-color: rgb(255, 178, 21);}</string>
+	background-color: #E6B35F;}</string>
   </property>
   <layout class="QGridLayout" name="gridLayout_2">
    <item row="0" column="1">
@@ -96,6 +96,11 @@
     <layout class="QVBoxLayout" name="verticalLayout_2">
      <item>
       <widget class="QGroupBox" name="groupBox">
+       <property name="font">
+        <font>
+         <family>Calisto MT</family>
+        </font>
+       </property>
        <property name="title">
         <string>Forma de Pago</string>
        </property>
@@ -104,6 +109,11 @@
          <layout class="QHBoxLayout" name="horizontalLayout">
           <item>
            <widget class="QRadioButton" name="efectivo_radioButton">
+            <property name="font">
+             <font>
+              <family>Calisto MT</family>
+             </font>
+            </property>
             <property name="text">
              <string>Efectivo</string>
             </property>
@@ -114,6 +124,11 @@
           </item>
           <item>
            <widget class="QRadioButton" name="tarjeta_radioButton">
+            <property name="font">
+             <font>
+              <family>Calisto MT</family>
+             </font>
+            </property>
             <property name="text">
              <string>Tarjeta</string>
             </property>
@@ -139,14 +154,7 @@
         </size>
        </property>
        <property name="styleSheet">
-        <string notr="true">#page{
-
-	background-color: rgb(72, 72, 72);
-}
-#page_2{
-
-	background-color: rgb(72, 72, 72);
-}</string>
+        <string notr="true">background-color: #5B5C5A;</string>
        </property>
        <property name="currentIndex">
         <number>0</number>
@@ -225,6 +233,14 @@ font-size:14px;</string>
           </item>
           <item>
            <widget class="QLineEdit" name="lineEdit">
+            <property name="font">
+             <font>
+              <family>Calisto MT</family>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">background-color: white;</string>
+            </property>
             <property name="placeholderText">
              <string>    $    00.00</string>
             </property>
@@ -439,6 +455,11 @@ font-size:14px;</string>
            <height>23</height>
           </size>
          </property>
+         <property name="font">
+          <font>
+           <family>Calisto MT</family>
+          </font>
+         </property>
          <property name="styleSheet">
           <string notr="true">QPushButton{
 border-width: 0px;
@@ -467,6 +488,11 @@ QPushButton:hover{
            <width>75</width>
            <height>23</height>
           </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>Calisto MT</family>
+          </font>
          </property>
          <property name="styleSheet">
           <string notr="true">QPushButton{

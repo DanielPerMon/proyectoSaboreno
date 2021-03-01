@@ -91,7 +91,9 @@ void cajero_menu::CuentaElegida(int id_cuenta)
     }
     QString Signo = "     $";
     ui->DetallesC_tableWidget->setRowCount(0);
-    if(platillo.prepare("SELECT P.NombrePlatillo, P.Precio, O.cantidadPlatillo FROM platillos as P INNER JOIN orden as O ON P.idPlatillos = O.id_platillo WHERE O.id_cuenta = " + QString::number(id_cuenta)+";"))
+    if(platillo.prepare("SELECT P.NombrePlatillo, P.Precio, O.cantidadPlatillo FROM platillos as P INNER JOIN orden as O ON "
+                        "P.idPlatillos = O.id_platillo WHERE O.id_cuenta = " + QString::number(id_cuenta)+" "
+                        "AND O.estado != '2';"))
     {
         int fila;
         platillo.exec(); // LLenado de campos de edicion
@@ -134,8 +136,9 @@ void cajero_menu::CuentaElegidaDet(int id_cuenta)
     }
     QString Signo = "     $";
     ui->detallesH_tableWidget->setRowCount(0);
-    if(platillo.prepare("SELECT P.NombrePlatillo, P.Precio, O.cantidadPlatillo FROM platillos as P INNER JOIN orden as O ON P.idPlatillos = O.id_platillo WHERE O.id_cuenta = " + QString::number(id_cuenta)+";"))
-    {
+    if(platillo.prepare("SELECT P.NombrePlatillo, P.Precio, O.cantidadPlatillo FROM platillos as P INNER JOIN orden as O ON P.idPlatillos = O.id_platillo "
+                        "WHERE O.id_cuenta = " + QString::number(id_cuenta)+" AND O.estado != '2';")){
+
         int fila;
         platillo.exec(); // LLenado de campos de edicion
         while(platillo.next()){
@@ -186,6 +189,7 @@ void cajero_menu::on_cobrar_pushButton_2_clicked()
 
         ui->DetallesC_tableWidget->setRowCount(0);
     }
+    ActualizarTabla();
 }
 
 
@@ -287,6 +291,7 @@ void cajero_menu::on_btnCancelarProducto_clicked()
     else{
         cancelar *ventana = new cancelar(this,FilaCuentas,mesa);
         ventana->exec();
+        CuentaElegida(FilaCuentas);
     }
 }
 

@@ -53,12 +53,12 @@ private slots:
 
 private:
     Ui::cajero_menu *ui;
-      QSqlDatabase baseCajero;
-      void imprime(int);
-      int FilaCuentas;
-      int FilaDet;
-      int mesa;
-      double monto_enviar;
+    QSqlDatabase baseCajero;
+    void imprime(int);
+    int FilaCuentas;
+    int FilaDet;
+    int mesa;
+    double monto_enviar;
 };
 
 #endif // CAJERO_MENU_H

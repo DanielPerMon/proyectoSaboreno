@@ -7,6 +7,8 @@
 #include <QtSql/QSqlQuery>
 #include <QDebug>
 #include <QMessageBox>
+#include <QWidget>
+#include <QHBoxLayout>
 #include "autoriza.h"
 
 namespace Ui {
@@ -19,6 +21,7 @@ class cancelar : public QDialog
 
 public:
     explicit cancelar(QWidget *parent = 0, int = 0, int = 0);
+    int val();
     ~cancelar();
 
 private slots:
@@ -26,11 +29,16 @@ private slots:
 
     void on_btnCancelar_clicked();
 
+    void borrarItem();
+
 private:
     Ui::cancelar *ui;
     int cta;
     int mesa;
     void cargarOrden();
+    int valor;
+    int montoAux;
+    QList<QString> idOrden;
 };
 
 #endif // CANCELAR_H
