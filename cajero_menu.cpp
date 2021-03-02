@@ -195,7 +195,7 @@ void cajero_menu::on_cobrar_pushButton_2_clicked()
 
 void cajero_menu::on_btnHistorial_clicked()
 {
-    ui->menuCajero->setCurrentIndex(1);
+    ui->menuCajero->setCurrentIndex(2);
     QSqlQuery *vercuentas = new QSqlQuery;
     QSqlQuery *contar = new QSqlQuery;
     ui->Historial_tableWidget->setRowCount(0);
@@ -377,8 +377,13 @@ void cajero_menu::imprime(int numcuenta)
     QMessageBox *mbox = new QMessageBox;
     mbox->setWindowTitle(tr("Pago Exitoso"));
     mbox->setText("Imprimiendo ticket");
-    mbox->setIconPixmap(QPixmap(":/iconos/cobrar.png").scaled(QSize(185,215),Qt::KeepAspectRatio));
+    mbox->setIconPixmap(QPixmap(":/iconos/ticket.png").scaled(QSize(185,215),Qt::KeepAspectRatio));
     mbox->show();
 
     QTimer::singleShot(3000, mbox, SLOT(hide()));
+}
+
+void cajero_menu::on_corte_caja_clicked()
+{
+   ui->menuCajero->setCurrentIndex(1);
 }

@@ -51,6 +51,8 @@ private slots:
 
     void on_imprimirHistorial_clicked();
 
+    void on_corte_caja_clicked();
+
 private:
     Ui::cajero_menu *ui;
     QSqlDatabase baseCajero;

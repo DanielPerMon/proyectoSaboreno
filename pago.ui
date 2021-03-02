@@ -53,11 +53,17 @@
          <height>150</height>
         </size>
        </property>
+       <property name="styleSheet">
+        <string notr="true">QLabel{
+	background-color: rgba(255, 255, 255,200);
+border-radius: 9px;
+}</string>
+       </property>
        <property name="text">
         <string/>
        </property>
        <property name="pixmap">
-        <pixmap resource="IMG/imags.qrc">:/iconos/cobrar.png</pixmap>
+        <pixmap resource="IMG/imags.qrc">:/iconos/pago.png</pixmap>
        </property>
        <property name="scaledContents">
         <bool>true</bool>
@@ -207,7 +213,7 @@ font-size:14px;</string>
           <rect>
            <x>30</x>
            <y>90</y>
-           <width>281</width>
+           <width>221</width>
            <height>51</height>
           </rect>
          </property>
@@ -233,13 +239,26 @@ font-size:14px;</string>
           </item>
           <item>
            <widget class="QLineEdit" name="lineEdit">
+            <property name="minimumSize">
+             <size>
+              <width>136</width>
+              <height>20</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>136</width>
+              <height>20</height>
+             </size>
+            </property>
             <property name="font">
              <font>
               <family>Calisto MT</family>
              </font>
             </property>
             <property name="styleSheet">
-             <string notr="true">background-color: white;</string>
+             <string notr="true">background-color: white;
+border-radius: 9px;</string>
             </property>
             <property name="placeholderText">
              <string>    $    00.00</string>

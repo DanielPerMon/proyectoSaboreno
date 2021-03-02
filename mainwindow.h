@@ -11,6 +11,7 @@
 #include "mesero_menu.h"
 #include "cocinero_menu.h"
 #include "cajero_menu.h"
+#include "anfitrion_menu.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -55,6 +56,10 @@ private slots:
     void on_gIngresar_pushButton_5_clicked();
 
     void on_cSalir_clicked();
+
+    void on_btnIngresaH_clicked();
+
+    void on_H_Salir_clicked();
 
 private:
     Ui::MainWindow *ui;

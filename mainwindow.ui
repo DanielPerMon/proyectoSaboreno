@@ -28,7 +28,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>2</number>
     </property>
     <widget class="QWidget" name="login">
      <property name="styleSheet">
@@ -723,7 +723,7 @@ border-radius: 9px;}</string>
         <string>NIP</string>
        </property>
       </widget>
-      <widget class="QPushButton" name="gIngresar_pushButton_4">
+      <widget class="QPushButton" name="btnIngresaH">
        <property name="geometry">
         <rect>
          <x>90</x>
@@ -767,7 +767,7 @@ QPushButton:hover{
       <zorder>label_60</zorder>
       <zorder>an</zorder>
       <zorder>NipHost_lineEdit</zorder>
-      <zorder>gIngresar_pushButton_4</zorder>
+      <zorder>btnIngresaH</zorder>
      </widget>
      <widget class="QWidget" name="a_der" native="true">
       <property name="geometry">
@@ -777,6 +777,36 @@ QPushButton:hover{
         <width>460</width>
         <height>800</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-image: url(:/imagenes/recep.jpg);</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="H_Salir">
+      <property name="geometry">
+       <rect>
+        <x>340</x>
+        <y>730</y>
+        <width>45</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">
+background-color: transparent;</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset resource="IMG/imags.qrc">
+        <normaloff>:/iconos/salir.png</normaloff>:/iconos/salir.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>80</width>
+        <height>55</height>
+       </size>
       </property>
      </widget>
     </widget>
@@ -1414,7 +1444,7 @@ border-radius: 9px;</string>
      <x>0</x>
      <y>0</y>
      <width>850</width>
-     <height>25</height>
+     <height>26</height>
     </rect>
    </property>
   </widget>

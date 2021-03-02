@@ -1118,10 +1118,10 @@ QPushButton:hover{
          <family>Calisto MT</family>
         </font>
        </property>
-       <attribute name="verticalHeaderDefaultSectionSize">
+       <attribute name="verticalHeaderMinimumSectionSize">
         <number>50</number>
        </attribute>
-       <attribute name="verticalHeaderMinimumSectionSize">
+       <attribute name="verticalHeaderDefaultSectionSize">
         <number>50</number>
        </attribute>
        <column>
@@ -1155,7 +1155,7 @@ QPushButton:hover{
     <widget class="QLabel" name="label_23">
      <property name="geometry">
       <rect>
-       <x>529</x>
+       <x>540</x>
        <y>-2</y>
        <width>261</width>
        <height>35</height>

@@ -341,3 +341,52 @@ void MainWindow::on_cSalir_clicked()
 {
     ui->inicio->setCurrentIndex(0);
 }
+
+
+//INICIO SESIÓN ANFITRION
+void MainWindow::on_btnIngresaH_clicked()
+{
+    QSqlQuery *inicia = new QSqlQuery();
+    QString aux;
+    if(ui->NipHost_lineEdit->text() != ""){
+        if(inicia->exec("SELECT * FROM empleado WHERE Perfil = 'Anfitrion' and NIP = '"+ui->NipHost_lineEdit->text()+"'")){
+            while(inicia->next()){
+                aux = inicia->value(6).toString();
+            }
+            if(aux == ui->NipHost_lineEdit->text()){
+                anfitrion_menu *ventana = new anfitrion_menu(mDatabase, this);
+                ventana->show();
+            }
+            else{
+                QMessageBox messageBox(QMessageBox::Information,
+                                       tr("Error de credenciales"),
+                                       tr("El número de identificación no es el correcto"),
+                                       QMessageBox::Yes,
+                                       this);
+                messageBox.setButtonText(QMessageBox::Yes, tr("Aceptar"));
+                messageBox.exec();
+            }
+        }
+        else{
+            qDebug() << inicia->lastError();
+        }
+    }
+    else{
+        QMessageBox messageBox(QMessageBox::Information,
+                               tr("Campos vacíos"),
+                               tr("Por favor ingrese un NIP válido"),
+                               QMessageBox::Yes,
+                               this);
+        messageBox.setButtonText(QMessageBox::Yes, tr("Aceptar"));
+        messageBox.exec();
+
+    }
+    ui->NipHost_lineEdit->clear();
+    delete inicia;
+
+}
+
+void MainWindow::on_H_Salir_clicked()
+{
+    ui->inicio->setCurrentIndex(0);
+}

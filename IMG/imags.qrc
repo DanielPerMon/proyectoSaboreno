@@ -37,6 +37,11 @@
         <file>cobrar.png</file>
         <file>historial.png</file>
         <file>anadi.png</file>
+        <file>caja.png</file>
+        <file>pago.png</file>
+        <file>reserva.png</file>
+        <file>reservaciones.png</file>
+        <file>ticket.png</file>
     </qresource>
     <qresource prefix="/imagenes">
         <file>LOGO.png</file>
@@ -50,5 +55,6 @@
         <file>caje.jpg</file>
         <file>billetes.png</file>
         <file>tarjeta.png</file>
+        <file>recep.jpg</file>
     </qresource>
 </RCC>
