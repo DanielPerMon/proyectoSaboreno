@@ -55,6 +55,8 @@ void Pago::on_pagar_pushButton_clicked()
                         mbox->setWindowTitle(tr("Pago Exitoso"));
                         mbox->setText("El pago se realizó con éxito");
                         mbox->setIconPixmap(QPixmap(":/iconos/cobrar.png").scaled(QSize(100,135),Qt::KeepAspectRatio));
+                        mbox->setStandardButtons(QMessageBox::Ok);
+                        mbox->setButtonText(QMessageBox::Ok,"Aceptar");
                         mbox->show();
                         // Imprimir();
                         QTimer::singleShot(3000, mbox, SLOT(hide()));
@@ -86,7 +88,9 @@ void Pago::on_pagar_pushButton_clicked()
                 mbox->setWindowTitle(tr("Pago Exitoso"));
                 mbox->setText("El pago se realizó con éxito");
                 mbox->setIconPixmap(QPixmap(":/iconos/cobrar.png").scaled(QSize(100,135),Qt::KeepAspectRatio));
-                mbox->setParent(this);
+                mbox->setStandardButtons(QMessageBox::Ok);
+                mbox->setButtonText(QMessageBox::Ok,"Aceptar");
+                //mbox->setParent(this);
                 mbox->show();
                 // Imprimir();
                 QTimer::singleShot(3000, mbox, SLOT(hide()));

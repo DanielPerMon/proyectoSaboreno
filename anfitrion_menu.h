@@ -28,6 +28,8 @@ private slots:
 
     void on_btnReservaciones_clicked();
 
+    void on_btnAgendarRes_clicked();
+
 private:
     Ui::anfitrion_menu *ui;
     QSqlDatabase baseAnfitrion;

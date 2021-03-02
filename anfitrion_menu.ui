@@ -23,8 +23,7 @@
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">#cajero{
-	background-color: rgb(255, 178, 21);}</string>
+    <string notr="true">background-color: rgb(255, 178, 21);</string>
    </property>
    <widget class="QPushButton" name="btnSalirH">
     <property name="geometry">
@@ -215,7 +214,7 @@ border-bottom-left-radius:7px 7px;</string>
     </rect>
    </property>
    <property name="currentIndex">
-    <number>1</number>
+    <number>0</number>
    </property>
    <widget class="QWidget" name="nuevaReservacion">
     <property name="styleSheet">
@@ -266,11 +265,28 @@ color: rgb(255, 255, 255);}</string>
      <widget class="QCalendarWidget" name="res_calendarWidget">
       <property name="geometry">
        <rect>
-        <x>45</x>
-        <y>214</y>
-        <width>301</width>
-        <height>191</height>
+        <x>40</x>
+        <y>220</y>
+        <width>300</width>
+        <height>180</height>
        </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Calisto MT</family>
+       </font>
+      </property>
+      <property name="horizontalHeaderFormat">
+       <enum>QCalendarWidget::SingleLetterDayNames</enum>
+      </property>
+      <property name="verticalHeaderFormat">
+       <enum>QCalendarWidget::NoVerticalHeader</enum>
+      </property>
+      <property name="navigationBarVisible">
+       <bool>true</bool>
+      </property>
+      <property name="dateEditEnabled">
+       <bool>false</bool>
       </property>
      </widget>
      <widget class="QLineEdit" name="nom">
@@ -361,6 +377,11 @@ border-color: rgb(255, 255, 255);}</string>
         <width>100</width>
         <height>22</height>
        </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Calisto MT</family>
+       </font>
       </property>
      </widget>
      <widget class="QLabel" name="label_18">
@@ -974,6 +995,19 @@ QPushButton:hover{
      <column>
       <property name="text">
        <string>Numero Mesa</string>
+      </property>
+      <property name="font">
+       <font>
+        <family>Calisto MT</family>
+       </font>
+      </property>
+      <property name="textAlignment">
+       <set>AlignCenter</set>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Num. Personas</string>
       </property>
       <property name="font">
        <font>
