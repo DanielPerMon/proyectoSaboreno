@@ -320,10 +320,10 @@ border-bottom-left-radius:7px 7px;</string>
      <attribute name="verticalHeaderVisible">
       <bool>false</bool>
      </attribute>
-     <attribute name="verticalHeaderMinimumSectionSize">
+     <attribute name="verticalHeaderDefaultSectionSize">
       <number>30</number>
      </attribute>
-     <attribute name="verticalHeaderDefaultSectionSize">
+     <attribute name="verticalHeaderMinimumSectionSize">
       <number>30</number>
      </attribute>
      <column>
@@ -743,8 +743,16 @@ QPushButton:hover{
        <x>40</x>
        <y>160</y>
        <width>750</width>
-       <height>520</height>
+       <height>501</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="documentTitle">
+      <string>CORTE DE CAJA</string>
      </property>
     </widget>
     <widget class="QPushButton" name="btnCortedecaja">

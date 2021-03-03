@@ -11,6 +11,9 @@
 #include "pago.h"
 #include "autoriza.h"
 #include "cancelar.h"
+#include <QList>
+#include <QFileDialog>
+#include <QTextStream>
 
 namespace Ui {
 class cajero_menu;
@@ -53,6 +56,14 @@ private slots:
 
     void on_corte_caja_clicked();
 
+    void CorteCaja(QString);
+
+    void on_btnCortedecaja_clicked();
+
+    QString Porcentaje(double,double);
+
+    void on_btndescarga_clicked();
+
 private:
     Ui::cajero_menu *ui;
     QSqlDatabase baseCajero;
@@ -61,6 +72,8 @@ private:
     int FilaDet;
     int mesa;
     double monto_enviar;
+    QList<int> *id_cuentas;
+    QString Usuario;
 };
 
 #endif // CAJERO_MENU_H
