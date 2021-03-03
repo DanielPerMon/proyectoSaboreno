@@ -30,9 +30,15 @@ private slots:
 
     void on_btnAgendarRes_clicked();
 
+    void on_btnCancelReserva_clicked();
+
+    void on_Reserva_tableWidget_cellClicked(int row, int column);
+
 private:
     Ui::anfitrion_menu *ui;
     QSqlDatabase baseAnfitrion;
+    void ActualizarTabla();
+    QString nombre;
 };
 
 #endif // ANFITRION_MENU_H

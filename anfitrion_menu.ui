@@ -214,7 +214,7 @@ border-bottom-left-radius:7px 7px;</string>
     </rect>
    </property>
    <property name="currentIndex">
-    <number>0</number>
+    <number>1</number>
    </property>
    <widget class="QWidget" name="nuevaReservacion">
     <property name="styleSheet">
@@ -973,15 +973,31 @@ QPushButton:hover{
     <widget class="QTableWidget" name="Reserva_tableWidget">
      <property name="geometry">
       <rect>
-       <x>50</x>
+       <x>10</x>
        <y>70</y>
-       <width>700</width>
+       <width>771</width>
        <height>500</height>
       </rect>
      </property>
+     <attribute name="verticalHeaderVisible">
+      <bool>false</bool>
+     </attribute>
      <column>
       <property name="text">
        <string>Nombre</string>
+      </property>
+      <property name="font">
+       <font>
+        <family>Calisto MT</family>
+       </font>
+      </property>
+      <property name="textAlignment">
+       <set>AlignCenter</set>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Telefono</string>
       </property>
       <property name="font">
        <font>

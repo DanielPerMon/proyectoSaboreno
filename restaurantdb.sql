@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 02-03-2021 a las 08:39:24
+-- Tiempo de generación: 03-03-2021 a las 01:37:50
 -- Versión del servidor: 10.4.8-MariaDB
 -- Versión de PHP: 7.3.11
 
@@ -246,6 +246,7 @@ CREATE TABLE `reservacion` (
   `nombreCliente` varchar(100) NOT NULL,
   `numPersonas` int(11) NOT NULL,
   `telefono` varchar(10) NOT NULL,
+  `estado` tinyint(4) NOT NULL DEFAULT 0,
   `id_mesa` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -253,9 +254,8 @@ CREATE TABLE `reservacion` (
 -- Volcado de datos para la tabla `reservacion`
 --
 
-INSERT INTO `reservacion` (`id_reservacion`, `fecha`, `hora`, `nombreCliente`, `numPersonas`, `telefono`, `id_mesa`) VALUES
-(1, '2021-03-02', '15:00:00', 'Daniel Pérez', 2, '2224970799', 4),
-(5, '2021-03-02', '15:00:00', 'Daniel Pérez ', 2, '2224970799', 3);
+INSERT INTO `reservacion` (`id_reservacion`, `fecha`, `hora`, `nombreCliente`, `numPersonas`, `telefono`, `estado`, `id_mesa`) VALUES
+(1, '2021-03-02', '15:00:00', 'Daniel Pérez', 2, '2224970799', 0, 4);
 
 --
 -- Índices para tablas volcadas
