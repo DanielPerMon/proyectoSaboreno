@@ -30,7 +30,7 @@
     <string notr="true"/>
    </property>
    <property name="currentIndex">
-    <number>0</number>
+    <number>5</number>
    </property>
    <widget class="QWidget" name="nuevo_empleado">
     <property name="styleSheet">
@@ -1565,8 +1565,8 @@ border-radius:9px;}</string>
      <widget class="QTextEdit" name="desc_textEdit">
       <property name="geometry">
        <rect>
-        <x>20</x>
-        <y>230</y>
+        <x>40</x>
+        <y>270</y>
         <width>311</width>
         <height>91</height>
        </rect>
@@ -1753,6 +1753,212 @@ border-radius: 12px;</string>
        </widget>
       </item>
      </layout>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="analisis_ventas">
+    <property name="styleSheet">
+     <string notr="true">#analisis_ventas{
+	background-color: rgb(255, 178, 21);}</string>
+    </property>
+    <widget class="QGraphicsView" name="graphicsView">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>110</y>
+       <width>400</width>
+       <height>400</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QGraphicsView" name="graphicsView_2">
+     <property name="geometry">
+      <rect>
+       <x>430</x>
+       <y>270</y>
+       <width>400</width>
+       <height>400</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_33">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>20</y>
+       <width>461</width>
+       <height>35</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Calisto MT</family>
+       <pointsize>16</pointsize>
+       <weight>50</weight>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(255, 255, 255);
+border-radius: 12px;</string>
+     </property>
+     <property name="text">
+      <string>ANÁLISIS DE VENTAS</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QCalendarWidget" name="calendarWidget">
+     <property name="geometry">
+      <rect>
+       <x>520</x>
+       <y>50</y>
+       <width>301</width>
+       <height>191</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_34">
+     <property name="geometry">
+      <rect>
+       <x>500</x>
+       <y>20</y>
+       <width>331</width>
+       <height>25</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Calisto MT</family>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">
+background-color:rgb(208, 208, 208);
+</string>
+     </property>
+     <property name="text">
+      <string>Selecciona una fecha para realizar el análisis:</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="inventario">
+    <property name="styleSheet">
+     <string notr="true">#inventario
+{
+	background-color: rgb(255, 178, 21);}</string>
+    </property>
+    <widget class="QTableWidget" name="inventario_tableWidget">
+     <property name="geometry">
+      <rect>
+       <x>100</x>
+       <y>190</y>
+       <width>650</width>
+       <height>450</height>
+      </rect>
+     </property>
+     <column>
+      <property name="text">
+       <string>PRODUCTO</string>
+      </property>
+      <property name="font">
+       <font>
+        <family>Calisto MT</family>
+       </font>
+      </property>
+      <property name="textAlignment">
+       <set>AlignCenter</set>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>STOCK</string>
+      </property>
+      <property name="font">
+       <font>
+        <family>Calisto MT</family>
+       </font>
+      </property>
+      <property name="textAlignment">
+       <set>AlignCenter</set>
+      </property>
+     </column>
+    </widget>
+    <widget class="QLabel" name="label_29">
+     <property name="geometry">
+      <rect>
+       <x>210</x>
+       <y>20</y>
+       <width>461</width>
+       <height>35</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Calisto MT</family>
+       <pointsize>16</pointsize>
+       <weight>50</weight>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(255, 255, 255);
+border-radius: 12px;</string>
+     </property>
+     <property name="text">
+      <string>INVENTARIO</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="buscar_lineEdit">
+     <property name="geometry">
+      <rect>
+       <x>274</x>
+       <y>140</y>
+       <width>350</width>
+       <height>35</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Calisto MT</family>
+       <pointsize>9</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">
+background-color:rgb(208, 208, 208);
+border:3px;
+border-radius:9px;</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+     <property name="placeholderText">
+      <string>Buscador</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_32">
+     <property name="geometry">
+      <rect>
+       <x>230</x>
+       <y>140</y>
+       <width>40</width>
+       <height>35</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border-image: url(:/iconos/buscar.png);
+
+background-color:rgb(208, 208, 208);
+border-radius:9px;</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
     </widget>
    </widget>
    <widget class="QWidget" name="NuevoPlatillo">
@@ -2018,9 +2224,9 @@ QPushButton:hover{
    <widget class="QWidget" name="horizontalLayoutWidget">
     <property name="geometry">
      <rect>
-      <x>390</x>
+      <x>210</x>
       <y>0</y>
-      <width>451</width>
+      <width>632</width>
       <height>81</height>
      </rect>
     </property>
@@ -2147,6 +2353,88 @@ border-top-left-radius:7px 7px;</string>
       </widget>
      </item>
      <item>
+      <widget class="QPushButton" name="inventario_btn">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>100</width>
+         <height>65</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>100</width>
+         <height>65</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgba(255, 255, 255,200);
+border-top-right-radius:7px 7px;
+border-top-left-radius:7px 7px;
+</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset resource="IMG/imags.qrc">
+         <normaloff>:/iconos/inventario.png</normaloff>:/iconos/inventario.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>100</width>
+         <height>60</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="ventas_btn">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>100</width>
+         <height>65</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>100</width>
+         <height>65</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgba(255, 255, 255,200);
+border-top-right-radius:7px 7px;
+border-top-left-radius:7px 7px;
+</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset resource="IMG/imags.qrc">
+         <normaloff>:/iconos/venta.png</normaloff>:/iconos/venta.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>100</width>
+         <height>60</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+     <item>
       <widget class="QPushButton" name="Gsalir_pushButton">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
@@ -2191,7 +2479,7 @@ border-top-left-radius:7px 7px;</string>
    <widget class="QLabel" name="label_25">
     <property name="geometry">
      <rect>
-      <x>397</x>
+      <x>211</x>
       <y>73</y>
       <width>100</width>
       <height>20</height>
@@ -2217,7 +2505,7 @@ border-bottom-left-radius:7px 7px;</string>
    <widget class="QLabel" name="label_26">
     <property name="geometry">
      <rect>
-      <x>509</x>
+      <x>317</x>
       <y>73</y>
       <width>100</width>
       <height>20</height>
@@ -2243,7 +2531,7 @@ border-bottom-left-radius:7px 7px;</string>
    <widget class="QLabel" name="label_27">
     <property name="geometry">
      <rect>
-      <x>621</x>
+      <x>423</x>
       <y>73</y>
       <width>100</width>
       <height>20</height>
@@ -2269,7 +2557,7 @@ border-bottom-left-radius:7px 7px;</string>
    <widget class="QLabel" name="label_28">
     <property name="geometry">
      <rect>
-      <x>733</x>
+      <x>741</x>
       <y>73</y>
       <width>100</width>
       <height>20</height>
@@ -2287,6 +2575,58 @@ border-bottom-left-radius:7px 7px;</string>
     </property>
     <property name="text">
      <string>Salir</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_30">
+    <property name="geometry">
+     <rect>
+      <x>635</x>
+      <y>73</y>
+      <width>100</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Calisto MT</family>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgba(255, 255, 255,200);
+border-bottom-right-radius:7px 7px;
+border-bottom-left-radius:7px 7px;</string>
+    </property>
+    <property name="text">
+     <string>Ventas</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_31">
+    <property name="geometry">
+     <rect>
+      <x>529</x>
+      <y>73</y>
+      <width>100</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Calisto MT</family>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgba(255, 255, 255,200);
+border-bottom-right-radius:7px 7px;
+border-bottom-left-radius:7px 7px;</string>
+    </property>
+    <property name="text">
+     <string>Inventario</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>

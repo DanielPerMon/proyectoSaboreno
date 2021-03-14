@@ -500,7 +500,7 @@ void gerente_menu::on_CancelarPlatopushButton_clicked()
 /*Botones de agredar nuevo platillo*/
 void gerente_menu::on_Nuevo_platillo_pushButton_clicked()
 {
-   ui->Menu_gerente->setCurrentIndex(4);
+   ui->Menu_gerente->setCurrentIndex(6);
 }
 /*Metodo para subir una foto a la interfaz de qt*/
 void gerente_menu::on_nuevafoto_pushButton_clicked()
@@ -674,4 +674,14 @@ void gerente_menu::on_editarPlato_push_clicked()
     }
 
 
+}
+
+void gerente_menu::on_inventario_btn_clicked()
+{
+    ui->Menu_gerente->setCurrentIndex(5);
+}
+
+void gerente_menu::on_ventas_btn_clicked()
+{
+    ui->Menu_gerente->setCurrentIndex(4);
 }

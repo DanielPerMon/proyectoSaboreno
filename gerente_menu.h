@@ -80,6 +80,10 @@ private slots:
 
     void on_editarPlato_push_clicked();
 
+    void on_inventario_btn_clicked();
+
+    void on_ventas_btn_clicked();
+
 private:
     Ui::gerente_menu *ui;
     QSqlDatabase baseGerente;

@@ -42,6 +42,9 @@
         <file>reserva.png</file>
         <file>reservaciones.png</file>
         <file>ticket.png</file>
+        <file>buscar.png</file>
+        <file>inventario.png</file>
+        <file>venta.png</file>
     </qresource>
     <qresource prefix="/imagenes">
         <file>LOGO.png</file>
