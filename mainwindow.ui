@@ -14,7 +14,7 @@
    <string>MainWindow</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="IMG/imags.qrc">
+   <iconset resource="../../../../../Desktop/RepositorioRemoto/proyectoSaboreno/IMG/imags.qrc">
     <normaloff>:/iconos/restaurante.png</normaloff>:/iconos/restaurante.png</iconset>
   </property>
   <widget class="QWidget" name="centralwidget">
@@ -28,7 +28,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>2</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="login">
      <property name="styleSheet">
@@ -149,7 +149,7 @@ border-radius: 9px;
         <string/>
        </property>
        <property name="icon">
-        <iconset resource="IMG/imags.qrc">
+        <iconset resource="../../../../../Desktop/RepositorioRemoto/proyectoSaboreno/IMG/imags.qrc">
          <normaloff>:/iconos/gerente.png</normaloff>:/iconos/gerente.png</iconset>
        </property>
        <property name="iconSize">
@@ -179,7 +179,7 @@ border-radius: 9px;
         <string/>
        </property>
        <property name="icon">
-        <iconset resource="IMG/imags.qrc">
+        <iconset resource="../../../../../Desktop/RepositorioRemoto/proyectoSaboreno/IMG/imags.qrc">
          <normaloff>:/iconos/recepcion.png</normaloff>:/iconos/recepcion.png</iconset>
        </property>
        <property name="iconSize">
@@ -209,7 +209,7 @@ border-radius: 9px;
         <string/>
        </property>
        <property name="icon">
-        <iconset resource="IMG/imags.qrc">
+        <iconset resource="../../../../../Desktop/RepositorioRemoto/proyectoSaboreno/IMG/imags.qrc">
          <normaloff>:/iconos/cajero.png</normaloff>:/iconos/cajero.png</iconset>
        </property>
        <property name="iconSize">
@@ -239,7 +239,7 @@ border-radius: 9px;
         <string/>
        </property>
        <property name="icon">
-        <iconset resource="IMG/imags.qrc">
+        <iconset resource="../../../../../Desktop/RepositorioRemoto/proyectoSaboreno/IMG/imags.qrc">
          <normaloff>:/iconos/chef.png</normaloff>:/iconos/chef.png</iconset>
        </property>
        <property name="iconSize">
@@ -269,7 +269,7 @@ border-radius: 9px;
         <string/>
        </property>
        <property name="icon">
-        <iconset resource="IMG/imags.qrc">
+        <iconset resource="../../../../../Desktop/RepositorioRemoto/proyectoSaboreno/IMG/imags.qrc">
          <normaloff>:/iconos/mesero.png</normaloff>:/iconos/mesero.png</iconset>
        </property>
        <property name="iconSize">
@@ -579,7 +579,7 @@ background-color: transparent;</string>
         <string/>
        </property>
        <property name="icon">
-        <iconset resource="IMG/imags.qrc">
+        <iconset resource="../../../../../Desktop/RepositorioRemoto/proyectoSaboreno/IMG/imags.qrc">
          <normaloff>:/iconos/salir.png</normaloff>:/iconos/salir.png</iconset>
        </property>
        <property name="iconSize">
@@ -799,7 +799,7 @@ background-color: transparent;</string>
        <string/>
       </property>
       <property name="icon">
-       <iconset resource="IMG/imags.qrc">
+       <iconset resource="../../../../../Desktop/RepositorioRemoto/proyectoSaboreno/IMG/imags.qrc">
         <normaloff>:/iconos/salir.png</normaloff>:/iconos/salir.png</iconset>
       </property>
       <property name="iconSize">
@@ -916,7 +916,7 @@ background-color: transparent;</string>
         <string/>
        </property>
        <property name="icon">
-        <iconset resource="IMG/imags.qrc">
+        <iconset resource="../../../../../Desktop/RepositorioRemoto/proyectoSaboreno/IMG/imags.qrc">
          <normaloff>:/iconos/salir.png</normaloff>:/iconos/salir.png</iconset>
        </property>
        <property name="iconSize">
@@ -1143,7 +1143,7 @@ background-color: transparent;</string>
         <string/>
        </property>
        <property name="icon">
-        <iconset resource="IMG/imags.qrc">
+        <iconset resource="../../../../../Desktop/RepositorioRemoto/proyectoSaboreno/IMG/imags.qrc">
          <normaloff>:/iconos/salir.png</normaloff>:/iconos/salir.png</iconset>
        </property>
        <property name="iconSize">
@@ -1374,7 +1374,7 @@ background-color: transparent;</string>
         <string/>
        </property>
        <property name="icon">
-        <iconset resource="IMG/imags.qrc">
+        <iconset resource="../../../../../Desktop/RepositorioRemoto/proyectoSaboreno/IMG/imags.qrc">
          <normaloff>:/iconos/salir.png</normaloff>:/iconos/salir.png</iconset>
        </property>
        <property name="iconSize">
@@ -1444,13 +1444,11 @@ border-radius: 9px;</string>
      <x>0</x>
      <y>0</y>
      <width>850</width>
-     <height>26</height>
+     <height>25</height>
     </rect>
    </property>
   </widget>
  </widget>
- <resources>
-  <include location="IMG/imags.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>

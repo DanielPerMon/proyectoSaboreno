@@ -16,6 +16,26 @@
 #include <QVariant>
 #include <QList>
 #include <QPixmap>
+#include <QtCharts>
+#include <QChartView>
+#include <QBarSet>
+#include <QBarSeries>
+#include "QtCharts/QChartView"
+#include "QtCharts/QChartView"
+#include "QtCharts/QBarSeries"
+#include "QtCharts/QBarSet"
+#include "QtCharts/QLegend"
+#include "QtCharts/QBarCategoryAxis"
+#include "QtCharts/QHorizontalStackedBarSeries"
+#include "QtCharts/QLineSeries"
+#include "QtCharts/QCategoryAxis"
+#include "QtCharts/QPieSeries"
+#include "QtCharts/QPieSlice"
+#include "QGraphicsLayout"
+#include "QScatterSeries"
+#include "QGraphicsSceneMouseEvent"
+#include "QGraphicsView"
+#include <QVector>
 
 namespace Ui {
 class gerente_menu;
@@ -82,7 +102,36 @@ private slots:
 
     void on_inventario_btn_clicked();
 
-    void on_ventas_btn_clicked();
+
+    void ActualizarTablaStock();
+    void AgregarNuevoProductoStock();
+
+    void on_GuargarNproductopushButton_clicked();
+
+    void on_EditarProducto_pushButton_clicked();
+
+    void on_AgregarProducto_pushButton_clicked();
+    void on_GuargarEproductopushButton_clicked();
+
+    void on_stock_tableView_activated(const QModelIndex &index);
+
+    void on_buscar_lineEdit_textChanged(const QString &arg1);
+
+    void on_EliminarProducto_pushButton_clicked();
+
+    void on_productosAgotados_pushButton_clicked();
+
+    void on_todosprodutos_pushButton_clicked();
+
+    void on_ventas_btn_clicked(); //ventas
+
+    void ActualizarVectorCategorias(QString); //Actualizar Vector y Posterior Grafica.
+
+    void on_calendar_principal_selectionChanged();
+
+    void VentasMesero(QString);
+
+    void on_comboBox_currentIndexChanged(int index);
 
 private:
     Ui::gerente_menu *ui;
@@ -92,7 +141,28 @@ private:
     int Id_Modificar;//Se utiliza para saber que empleado modificare
     int Id_Categoria;
     int Id_Platillo;
+    int Id_Producto;
     QString archivo_foto;
+    QSortFilterProxyModel *Productos;
+
+    /*--------------------*/
+
+     QList<int> *id_cuentas;
+     double Ganancias_Categorias[7];
+     QVector<QBarSeries *> *series;
+     QChartView *chartView;
+     double totalVentas;
+
+
+     //Grafica 2 Meseros
+
+
+     //Grafica 3 Mesas.
+
+     QVector<QBarSeries *> *series3;
+     QChartView *chartView3;
+     double Ganancias_Mesa[9];
+    /*--------------------*/
 };
 
 #endif // GERENTE_MENU_H

@@ -45,6 +45,8 @@
         <file>buscar.png</file>
         <file>inventario.png</file>
         <file>venta.png</file>
+        <file>anadir prod.png</file>
+        <file>editar prod.png</file>
     </qresource>
     <qresource prefix="/imagenes">
         <file>LOGO.png</file>
@@ -59,5 +61,8 @@
         <file>billetes.png</file>
         <file>tarjeta.png</file>
         <file>recep.jpg</file>
+    </qresource>
+    <qresource prefix="/">
+        <file>anadir prod.png</file>
     </qresource>
 </RCC>
